@@ -21,7 +21,11 @@ beta v0.3.1
 + minor fixes
 
 beta v0.3.2
-+ more minor fixes (are they even minor at this point)
++ more fixes (not even minor at this point)
 
 beta v0.3.3
-+ even more minor fixes (god i suck at programming)
++ even more fixes (man i suck at programming)
+
+beta v0.4
++ put this thing on github, made it 0.4 so it seems like a big thing
++ holy smokes fixes everywhere (help, spaghetti code)
