@@ -1,0 +1,27 @@
+before it all started
+- decided to make my own version of the game
+- kinda regretting it
+- ah well
+
+beta v0.1
++ added round 1
+
+beta v0.1.1
++ added main menu
+
+beta v0.2
++ added round 2
++ added items
+
+beta v0.3
++ added round 3
++ added item cap (8)
+
+beta v0.3.1
++ minor fixes
+
+beta v0.3.2
++ more minor fixes (are they even minor at this point)
+
+beta v0.3.3
++ even more minor fixes (god i suck at programming)
