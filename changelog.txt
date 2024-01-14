@@ -27,5 +27,6 @@ beta v0.3.3
 + even more fixes (man i suck at programming)
 
 beta v0.4
-+ put this thing on github, made it 0.4 so it seems like a big thing
++ put this thing on github
 + holy smokes fixes everywhere (help, spaghetti code)
++ added win counters
