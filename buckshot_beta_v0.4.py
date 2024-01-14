@@ -14,9 +14,11 @@ input("press enter to start ")
 player1name = input("what does player 1 call themselves? ")
 player1lives = 2
 player1inv = []
+player1wins = 0
 player2name = input("what about player 2? ")
 player2lives = 2
 player2inv = []
+player2wins = 0
 shotgun = []
 dmg = 1
 player1cuffed = 0
@@ -84,7 +86,11 @@ def player2turn():
     clear()
     if len(shotgun) == 0 or player1lives == 0:
         return None
-    print(f"{player2name}s turn")
+    print(f"{player2name}'s turn")
+    if player2lives == 1:
+        print('you have 1 life')
+    else:
+        print(f'you have {player2lives} lives')
     ans = input(f"say to use:\nshoot - shotgun\n>")
     if ans == "shoot": # if chose to shoot
         ans = input("shoot self or enemy?\n>")
@@ -134,7 +140,7 @@ while (player1lives > 0) and (player2lives > 0): # round 1
     clear()
     while (player1lives > 0) and (player2lives > 0) and (len(shotgun) > 0):
         clear()
-        print(f"{player1name}s turn") # start of player 1's turn
+        print(f"{player1name}'s turn") # start of player 1's turn
         if player1lives == 1:
             print('you have 1 life left')
         else:
@@ -225,10 +231,11 @@ while (player1lives > 0) and (player2lives > 0): # round 1
       
 if player1lives == 0:
     print(f"{player2name} wins. end of round 1")
-    s(5)
+    player2wins += 1
 elif player2lives == 0:
     print(f"{player1name} wins. end of round 1")
-    s(5)
+    player1wins += 1
+s(5)
 
 def player2turn():
     global player2lives
@@ -237,7 +244,7 @@ def player2turn():
     clear()
     if len(shotgun) == 0 or player1lives == 0:
         return None
-    print(f"{player2name}s turn")
+    print(f"{player2name}'s turn")
     if player2lives == 1:
         print('you have 1 life left')
     else:
@@ -339,7 +346,7 @@ while (player1lives > 0) and (player2lives > 0): # round 2
             player1cuffed += 1
             s(2)
             player2turn()
-        print(f"{player1name}s turn") # start of player 1's turn
+        print(f"{player1name}'s turn") # start of player 1's turn
         if player1lives == 1:
             print('you have 1 life left')
         else:
@@ -427,7 +434,7 @@ while (player1lives > 0) and (player2lives > 0): # round 2
             player2cuffed += 1
             s(2)
             continue
-        print(f"{player2name}s turn") # start of player 2's turn
+        print(f"{player2name}'s turn") # start of player 2's turn
         if player2lives == 1:
             print('you have 1 life left')
         else:
@@ -507,8 +514,10 @@ while (player1lives > 0) and (player2lives > 0): # round 2
 
 if player1lives == 0:
     print(f"{player2name} wins. end of round 2")
+    player2wins += 1
 elif player2lives == 0:
     print(f"{player1name} wins. end of round 2")
+    player1wins += 1
 s(5)
 
 clear()
@@ -529,7 +538,7 @@ def player2turn(mylives, theirlives):
     clear()
     if len(shotgun) == 0 or player1lives == 0:
         return None
-    print(f"{player2name}s turn")
+    print(f"{player2name}'s turn")
     if player2lives == 0.5:
         print("you have # lives left")
     else:
@@ -641,7 +650,7 @@ while (player1lives > 0) and (player2lives > 0): # round 3
             s(2)
             player2turn()
         clear()
-        print(f"{player1name}s turn") # start of player 1's turn
+        print(f"{player1name}'s turn") # start of player 1's turn
         if player1lives == 0.5:
             print("you have # lives left")
         else:
@@ -737,7 +746,7 @@ while (player1lives > 0) and (player2lives > 0): # round 3
             player2cuffed += 1
             s(2)
             continue
-        print(f"{player2name}s turn") # start of player 2's turn
+        print(f"{player2name}'s turn") # start of player 2's turn
         if player2lives == 0.5:
             print("you have # lives left")
         else:
@@ -822,3 +831,27 @@ while (player1lives > 0) and (player2lives > 0): # round 3
         clear()
     clear()
 
+if player1lives == 0:
+    print(f"{player2name} wins.")
+    player2wins += 1
+elif player2lives == 0:
+    print(f"{player1name} wins.")
+    player1wins += 1
+s(5)
+
+clear()
+if player1wins > player2wins:
+    print(f'{player1name} wins with a score of {player1wins} to {player2wins}')
+elif player2wins == player1wins:
+    print('no one wins')
+elif player2wins > player1wins:
+    print(f'{player2name} wins with a score of {player2wins} to {player1wins}')
+s(5)
+clear()
+print('and this is it!')
+s(2)
+print('hope you enjoyed this thing')
+s(2)
+print('love and kisses, table106') # if youre contributing, add yourself here!
+s(2) # also might want to change the time before end of program
+exit()
