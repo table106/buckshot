@@ -320,7 +320,7 @@ player2lives = 4
 player2inv = []
 shotgun = []
 clear()
-# print("both of you can now have items. (max 8)")
+print("both of you can now have items. (max 8)")
 s(3)
 
 while (player1lives > 0) and (player2lives > 0): # round 2
@@ -531,7 +531,7 @@ player2lives = 6
 player2inv = []
 shotgun = []
 
-def player2turn(mylives, theirlives):
+def player2turn():
     global player2lives
     global player1lives
     global dmg
@@ -668,6 +668,7 @@ while (player1lives > 0) and (player2lives > 0): # round 3
                     dmg = 1
                     if player1lives <= 2:
                         player1lives = 0.5
+                        print(f"{player1name}'s life support has been cut")
                 elif shotgun[0] == "blank": # if its a blank
                     print("*click")
                     shotgun.pop(0)
@@ -687,7 +688,7 @@ while (player1lives > 0) and (player2lives > 0): # round 3
                     dmg = 1
                     if player2lives <= 2:
                         player2lives = 0.5
-                        print(f"{player2name}s life support has been cut")
+                        print(f"{player2name}'s life support has been cut")
                 elif shotgun[0] == "blank": # if its a blank
                     print("*click")
                     shotgun.pop(0)
@@ -751,9 +752,9 @@ while (player1lives > 0) and (player2lives > 0): # round 3
             print("you have # lives left")
         else:
             print(f"you have {player2lives} lives left")
-        ans = input(f"say to use:\nshoot - shotgun\nitem - item\nyour items: {player2inv}\n")
+        ans = input(f"say to use:\nshoot - shotgun\nitem - item\nyour items: {player2inv}\n>")
         if ans == "shoot": # if chose to shoot
-            ans = input("shoot self or enemy?\n")
+            ans = input("shoot self or enemy?\n>")
             if ans == "self": # if chose to shoot self
                 s(3)
                 if shotgun[0] == "live": # if its a live
@@ -822,6 +823,10 @@ while (player1lives > 0) and (player2lives > 0): # round 3
                 player2inv.remove("cuffs")
                 s(2)
                 player2turn()
+            else: # if neither
+                print("something went wrong. ending current turn")
+                s(2)
+                continue
         else: # if neither
             print("something went wrong. ending current turn")
             s(2)
