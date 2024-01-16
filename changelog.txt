@@ -30,3 +30,6 @@ beta v0.4
 + put this thing on github
 + holy smokes fixes everywhere (help, spaghetti code)
 + added win counters
+
+beta v0.4.1
++ fixed game crashing after 2nd player 2's turn in round 3
