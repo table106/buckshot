@@ -44,7 +44,10 @@ def getitem(wer):
 
 def usebeer():
     print(f"you unloaded a {shotgun[0]} shell.")
-    shotgun.pop(0)
+    try:
+        shotgun.pop(0)
+    except:
+        print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
 
 def useknife():
     global dmg; dmg = 2
@@ -98,24 +101,36 @@ def player2turn():
             s(3)
             if shotgun[0] == "live": # if its a live
                 print("BANG")
-                shotgun.pop(0)
+                try:
+                    shotgun.pop(0)
+                except:
+                    print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                 s(2)
                 player2lives -= 1
             elif shotgun[0] == "blank": # if its a blank
                 print("*click")
-                shotgun.pop(0)
+                try:
+                    shotgun.pop(0)
+                except:
+                    print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                 s(2)
                 player2turn()
         elif ans == "enemy": # if chose to shoot enemy
             s(3)
             if shotgun[0] == "live": # if its a live
                 print("BANG")
-                shotgun.pop(0)
+                try:
+                    shotgun.pop(0)
+                except:
+                    print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                 s(2)
                 player1lives -= 1
             elif shotgun[0] == "blank": # if its a blank
                 print("*click")
-                shotgun.pop(0)
+                try:
+                    shotgun.pop(0)
+                except:
+                    print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                 s(2)
         else: # if neither
             print("something went wrong. ending current turn")
@@ -152,12 +167,18 @@ while (player1lives > 0) and (player2lives > 0): # round 1
                 s(3)
                 if shotgun[0] == "live": # if its a live
                     print("BANG")
-                    shotgun.pop(0)
+                    try: 
+                        shotgun.pop(0)
+                    except:
+                        print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     player1lives -= 1
                 elif shotgun[0] == "blank": # if its a blank
                     print("*click")
-                    shotgun.pop(0)
+                    try: 
+                        shotgun.pop(0)
+                    except:
+                        print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     if len(shotgun):
                         continue
@@ -167,12 +188,18 @@ while (player1lives > 0) and (player2lives > 0): # round 1
                 s(3)
                 if shotgun[0] == "live": # if its a live
                     print("BANG")
-                    shotgun.pop(0)
+                    try: 
+                        shotgun.pop(0)
+                    except:
+                        print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     player2lives -= 1
                 elif shotgun[0] == "blank": # if its a blank
                     print("*click")
-                    shotgun.pop(0)
+                    try: 
+                        shotgun.pop(0)
+                    except:
+                        print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
             else: # if neither
                 print("something went wrong. ending current turn")
@@ -197,12 +224,18 @@ while (player1lives > 0) and (player2lives > 0): # round 1
                 s(3)
                 if shotgun[0] == "live": # if its a live
                     print("BANG")
-                    shotgun.pop(0)
+                    try: 
+                        shotgun.pop(0)
+                    except:
+                        print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     player2lives -= 1
                 elif shotgun[0] == "blank": # if its a blank
                     print("*click")
-                    shotgun.pop(0)
+                    try: 
+                        shotgun.pop(0)
+                    except:
+                        print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     if len(shotgun):
                         player2turn()
@@ -212,12 +245,18 @@ while (player1lives > 0) and (player2lives > 0): # round 1
                 s(3)
                 if shotgun[0] == "live": # if its a live
                     print("BANG")
-                    shotgun.pop(0)
+                    try: 
+                        shotgun.pop(0)
+                    except:
+                        print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     player1lives -= 1
                 elif shotgun[0] == "blank": # if its a blank
                     print("*click")
-                    shotgun.pop(0)
+                    try: 
+                        shotgun.pop(0)
+                    except:
+                        print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
             else: # if neither
                 print("something went wrong. ending current turn")
@@ -256,26 +295,38 @@ def player2turn():
             s(3)
             if shotgun[0] == "live": # if its a live
                 print("BANG")
-                shotgun.pop(0)
+                try:
+                    shotgun.pop(0)
+                except:
+                    print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                 s(2)
                 player2lives -= dmg
                 dmg = 1
             elif shotgun[0] == "blank": # if its a blank
                 print("*click")
-                shotgun.pop(0)
+                try:
+                    shotgun.pop(0)
+                except:
+                    print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                 s(2)
                 player2turn()
         elif ans == "enemy": # if chose to shoot enemy
             s(3)
             if shotgun[0] == "live": # if its a live
                 print("BANG")
-                shotgun.pop(0)
+                try:
+                    shotgun.pop(0)
+                except:
+                    print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                 s(2)
                 player1lives -= dmg
                 dmg = 1
             elif shotgun[0] == "blank": # if its a blank
                 print("*click")
-                shotgun.pop(0)
+                try:
+                    shotgun.pop(0)
+                except:
+                    print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                 s(2)
         else: # if neither
             print("something went wrong. ending current turn")
@@ -358,13 +409,19 @@ while (player1lives > 0) and (player2lives > 0): # round 2
                 s(3)
                 if shotgun[0] == "live": # if its a live
                     print("BANG")
-                    shotgun.pop(0)
+                    try: 
+                        shotgun.pop(0)
+                    except:
+                        print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     player1lives -= dmg
                     dmg = 1
                 elif shotgun[0] == "blank": # if its a blank
                     print("*click")
-                    shotgun.pop(0)
+                    try: 
+                        shotgun.pop(0)
+                    except:
+                        print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     dmg = 1
                     if len(shotgun):
@@ -375,13 +432,19 @@ while (player1lives > 0) and (player2lives > 0): # round 2
                 s(3)
                 if shotgun[0] == "live": # if its a live
                     print("BANG")
-                    shotgun.pop(0)
+                    try: 
+                        shotgun.pop(0)
+                    except:
+                        print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     player2lives -= dmg
                     dmg = 1
                 elif shotgun[0] == "blank": # if its a blank
                     print("*click")
-                    shotgun.pop(0)
+                    try: 
+                        shotgun.pop(0)
+                    except:
+                        print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     dmg = 1
             else: # if neither
@@ -446,13 +509,19 @@ while (player1lives > 0) and (player2lives > 0): # round 2
                 s(3)
                 if shotgun[0] == "live": # if its a live
                     print("BANG")
-                    shotgun.pop(0)
+                    try: 
+                        shotgun.pop(0)
+                    except:
+                        print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     player2lives -= dmg
                     dmg = 1
                 elif shotgun[0] == "blank": # if its a blank
                     print("*click")
-                    shotgun.pop(0)
+                    try: 
+                        shotgun.pop(0)
+                    except:
+                        print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     dmg = 1
                     if len(shotgun):
@@ -463,13 +532,19 @@ while (player1lives > 0) and (player2lives > 0): # round 2
                 s(3)
                 if shotgun[0] == "live": # if its a live
                     print("BANG")
-                    shotgun.pop(0)
+                    try: 
+                        shotgun.pop(0)
+                    except:
+                        print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     player1lives -= dmg
                     dmg = 1
                 elif shotgun[0] == "blank": # if its a blank
                     print("*click")
-                    shotgun.pop(0)
+                    try: 
+                        shotgun.pop(0)
+                    except:
+                        print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     dmg = 1
             else: # if neither
@@ -550,7 +625,10 @@ def player2turn():
             s(3)
             if shotgun[0] == "live": # if its a live
                 print("BANG")
-                shotgun.pop(0)
+                try:
+                    shotgun.pop(0)
+                except:
+                    print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                 s(2)
                 mylives -= dmg
                 dmg = 1
@@ -558,14 +636,20 @@ def player2turn():
                     mylives = 0.5
             elif shotgun[0] == "blank": # if its a blank
                 print("*click")
-                shotgun.pop(0)
+                try:
+                    shotgun.pop(0)
+                except:
+                    print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                 s(2)
                 player2turn()
         elif ans == "enemy": # if chose to shoot enemy
             s(3)
             if shotgun[0] == "live": # if its a live
                 print("BANG")
-                shotgun.pop(0)
+                try:
+                    shotgun.pop(0)
+                except:
+                    print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                 s(2)
                 theirlives -= dmg
                 dmg = 1
@@ -573,7 +657,10 @@ def player2turn():
                     theirlives = 0.5
             elif shotgun[0] == "blank": # if its a blank
                 print("*click")
-                shotgun.pop(0)
+                try:
+                    shotgun.pop(0)
+                except:
+                    print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                 s(2)
         else: # if neither
             print("something went wrong. ending current turn")
@@ -662,7 +749,10 @@ while (player1lives > 0) and (player2lives > 0): # round 3
                 s(3)
                 if shotgun[0] == "live": # if its a live
                     print("BANG")
-                    shotgun.pop(0)
+                    try: 
+                        shotgun.pop(0)
+                    except:
+                        print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     player1lives -= dmg
                     dmg = 1
@@ -671,7 +761,10 @@ while (player1lives > 0) and (player2lives > 0): # round 3
                         print(f"{player1name}'s life support has been cut")
                 elif shotgun[0] == "blank": # if its a blank
                     print("*click")
-                    shotgun.pop(0)
+                    try: 
+                        shotgun.pop(0)
+                    except:
+                        print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     dmg = 1
                     if len(shotgun):
@@ -682,7 +775,10 @@ while (player1lives > 0) and (player2lives > 0): # round 3
                 s(3)
                 if shotgun[0] == "live": # if its a live
                     print("BANG")
-                    shotgun.pop(0)
+                    try: 
+                        shotgun.pop(0)
+                    except:
+                        print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     player2lives -= dmg
                     dmg = 1
@@ -691,7 +787,10 @@ while (player1lives > 0) and (player2lives > 0): # round 3
                         print(f"{player2name}'s life support has been cut")
                 elif shotgun[0] == "blank": # if its a blank
                     print("*click")
-                    shotgun.pop(0)
+                    try: 
+                        shotgun.pop(0)
+                    except:
+                        print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     dmg = 1
             else: # if neither
@@ -760,7 +859,10 @@ while (player1lives > 0) and (player2lives > 0): # round 3
                 s(3)
                 if shotgun[0] == "live": # if its a live
                     print("BANG")
-                    shotgun.pop(0)
+                    try:
+                        shotgun.pop(0)
+                    except:
+                        print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     player2lives -= dmg
                     dmg = 1
@@ -768,7 +870,10 @@ while (player1lives > 0) and (player2lives > 0): # round 3
                         player2lives = 0.5
                 elif shotgun[0] == "blank": # if its a blank
                     print("*click")
-                    shotgun.pop(0)
+                    try:
+                        shotgun.pop(0)
+                    except:
+                        print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     dmg = 1
                     if len(shotgun):
@@ -779,7 +884,10 @@ while (player1lives > 0) and (player2lives > 0): # round 3
                 s(3)
                 if shotgun[0] == "live": # if its a live
                     print("BANG")
-                    shotgun.pop(0)
+                    try: 
+                        shotgun.pop(0)
+                    except:
+                        print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     player1lives -= dmg
                     dmg = 1
@@ -787,7 +895,10 @@ while (player1lives > 0) and (player2lives > 0): # round 3
                         player1lives = 0.5
                 elif shotgun[0] == "blank": # if its a blank
                     print("*click")
-                    shotgun.pop(0)
+                    try: 
+                        shotgun.pop(0)
+                    except:
+                        print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     dmg = 1
             else: # if neither
