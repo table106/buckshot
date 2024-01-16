@@ -747,6 +747,7 @@ while (player1lives > 0) and (player2lives > 0): # round 3
             player2cuffed += 1
             s(2)
             continue
+        clear()
         print(f"{player2name}'s turn") # start of player 2's turn
         if player2lives == 0.5:
             print("you have # lives left")
