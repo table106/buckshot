@@ -47,7 +47,7 @@ def usebeer():
     print(f"you unloaded a {shotgun[0]} shell.")
     try:
         shotgun.pop(0)
-    except:
+    except IndexError:
         print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
 
 def useknife():
@@ -104,7 +104,7 @@ def player2turn():
                 print("BANG")
                 try:
                     shotgun.pop(0)
-                except:
+                except IndexError:
                     print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                 s(2)
                 player2lives -= 1
@@ -112,7 +112,7 @@ def player2turn():
                 print("*click")
                 try:
                     shotgun.pop(0)
-                except:
+                except IndexError:
                     print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                 s(2)
                 player2turn()
@@ -122,7 +122,7 @@ def player2turn():
                 print("BANG")
                 try:
                     shotgun.pop(0)
-                except:
+                except IndexError:
                     print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                 s(2)
                 player1lives -= 1
@@ -130,7 +130,7 @@ def player2turn():
                 print("*click")
                 try:
                     shotgun.pop(0)
-                except:
+                except IndexError:
                     print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                 s(2)
         else: # if neither
@@ -170,7 +170,7 @@ while (player1lives > 0) and (player2lives > 0): # round 1
                     print("BANG")
                     try: 
                         shotgun.pop(0)
-                    except:
+                    except IndexError:
                         print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     player1lives -= 1
@@ -178,7 +178,7 @@ while (player1lives > 0) and (player2lives > 0): # round 1
                     print("*click")
                     try: 
                         shotgun.pop(0)
-                    except:
+                    except IndexError:
                         print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     if len(shotgun):
@@ -191,7 +191,7 @@ while (player1lives > 0) and (player2lives > 0): # round 1
                     print("BANG")
                     try: 
                         shotgun.pop(0)
-                    except:
+                    except IndexError:
                         print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     player2lives -= 1
@@ -199,7 +199,7 @@ while (player1lives > 0) and (player2lives > 0): # round 1
                     print("*click")
                     try: 
                         shotgun.pop(0)
-                    except:
+                    except IndexError:
                         print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
             else: # if neither
@@ -227,7 +227,7 @@ while (player1lives > 0) and (player2lives > 0): # round 1
                     print("BANG")
                     try: 
                         shotgun.pop(0)
-                    except:
+                    except IndexError:
                         print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     player2lives -= 1
@@ -235,7 +235,7 @@ while (player1lives > 0) and (player2lives > 0): # round 1
                     print("*click")
                     try: 
                         shotgun.pop(0)
-                    except:
+                    except IndexError:
                         print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     if len(shotgun):
@@ -248,7 +248,7 @@ while (player1lives > 0) and (player2lives > 0): # round 1
                     print("BANG")
                     try: 
                         shotgun.pop(0)
-                    except:
+                    except IndexError:
                         print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     player1lives -= 1
@@ -256,7 +256,7 @@ while (player1lives > 0) and (player2lives > 0): # round 1
                     print("*click")
                     try: 
                         shotgun.pop(0)
-                    except:
+                    except IndexError:
                         print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
             else: # if neither
@@ -298,7 +298,7 @@ def player2turn():
                 print("BANG")
                 try:
                     shotgun.pop(0)
-                except:
+                except IndexError:
                     print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                 s(2)
                 player2lives -= dmg
@@ -307,7 +307,7 @@ def player2turn():
                 print("*click")
                 try:
                     shotgun.pop(0)
-                except:
+                except IndexError:
                     print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                 s(2)
                 player2turn()
@@ -317,7 +317,7 @@ def player2turn():
                 print("BANG")
                 try:
                     shotgun.pop(0)
-                except:
+                except IndexError:
                     print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                 s(2)
                 player1lives -= dmg
@@ -326,7 +326,7 @@ def player2turn():
                 print("*click")
                 try:
                     shotgun.pop(0)
-                except:
+                except IndexError:
                     print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                 s(2)
         else: # if neither
@@ -412,7 +412,7 @@ while (player1lives > 0) and (player2lives > 0): # round 2
                     print("BANG")
                     try: 
                         shotgun.pop(0)
-                    except:
+                    except IndexError:
                         print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     player1lives -= dmg
@@ -421,7 +421,7 @@ while (player1lives > 0) and (player2lives > 0): # round 2
                     print("*click")
                     try: 
                         shotgun.pop(0)
-                    except:
+                    except IndexError:
                         print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     dmg = 1
@@ -435,7 +435,7 @@ while (player1lives > 0) and (player2lives > 0): # round 2
                     print("BANG")
                     try: 
                         shotgun.pop(0)
-                    except:
+                    except IndexError:
                         print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     player2lives -= dmg
@@ -444,7 +444,7 @@ while (player1lives > 0) and (player2lives > 0): # round 2
                     print("*click")
                     try: 
                         shotgun.pop(0)
-                    except:
+                    except IndexError:
                         print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     dmg = 1
@@ -512,7 +512,7 @@ while (player1lives > 0) and (player2lives > 0): # round 2
                     print("BANG")
                     try: 
                         shotgun.pop(0)
-                    except:
+                    except IndexError:
                         print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     player2lives -= dmg
@@ -521,7 +521,7 @@ while (player1lives > 0) and (player2lives > 0): # round 2
                     print("*click")
                     try: 
                         shotgun.pop(0)
-                    except:
+                    except IndexError:
                         print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     dmg = 1
@@ -535,7 +535,7 @@ while (player1lives > 0) and (player2lives > 0): # round 2
                     print("BANG")
                     try: 
                         shotgun.pop(0)
-                    except:
+                    except IndexError:
                         print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     player1lives -= dmg
@@ -544,7 +544,7 @@ while (player1lives > 0) and (player2lives > 0): # round 2
                     print("*click")
                     try: 
                         shotgun.pop(0)
-                    except:
+                    except IndexError:
                         print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     dmg = 1
@@ -628,18 +628,18 @@ def player2turn():
                 print("BANG")
                 try:
                     shotgun.pop(0)
-                except:
+                except IndexError:
                     print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                 s(2)
                 mylives -= dmg
                 dmg = 1
-                if mylives <= 2:
+                if mylives < 3:
                     mylives = 0.5
             elif shotgun[0] == "blank": # if its a blank
                 print("*click")
                 try:
                     shotgun.pop(0)
-                except:
+                except IndexError:
                     print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                 s(2)
                 player2turn()
@@ -649,18 +649,18 @@ def player2turn():
                 print("BANG")
                 try:
                     shotgun.pop(0)
-                except:
+                except IndexError:
                     print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                 s(2)
                 theirlives -= dmg
                 dmg = 1
-                if theirlives <= 2:
+                if theirlives < 3:
                     theirlives = 0.5
             elif shotgun[0] == "blank": # if its a blank
                 print("*click")
                 try:
                     shotgun.pop(0)
-                except:
+                except IndexError:
                     print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                 s(2)
         else: # if neither
@@ -752,19 +752,19 @@ while (player1lives > 0) and (player2lives > 0): # round 3
                     print("BANG")
                     try: 
                         shotgun.pop(0)
-                    except:
+                    except IndexError:
                         print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     player1lives -= dmg
                     dmg = 1
-                    if player1lives <= 2:
+                    if player1lives < 3:
                         player1lives = 0.5
                         print(f"{player1name}'s life support has been cut")
                 elif shotgun[0] == "blank": # if its a blank
                     print("*click")
                     try: 
                         shotgun.pop(0)
-                    except:
+                    except IndexError:
                         print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     dmg = 1
@@ -778,19 +778,19 @@ while (player1lives > 0) and (player2lives > 0): # round 3
                     print("BANG")
                     try: 
                         shotgun.pop(0)
-                    except:
+                    except IndexError:
                         print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     player2lives -= dmg
                     dmg = 1
-                    if player2lives <= 2:
+                    if player2lives < 3:
                         player2lives = 0.5
                         print(f"{player2name}'s life support has been cut")
                 elif shotgun[0] == "blank": # if its a blank
                     print("*click")
                     try: 
                         shotgun.pop(0)
-                    except:
+                    except IndexError:
                         print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     dmg = 1
@@ -862,18 +862,18 @@ while (player1lives > 0) and (player2lives > 0): # round 3
                     print("BANG")
                     try:
                         shotgun.pop(0)
-                    except:
+                    except IndexError:
                         print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     player2lives -= dmg
                     dmg = 1
-                    if player2lives <= 2:
+                    if player2lives < 3:
                         player2lives = 0.5
                 elif shotgun[0] == "blank": # if its a blank
                     print("*click")
                     try:
                         shotgun.pop(0)
-                    except:
+                    except IndexError:
                         print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     dmg = 1
@@ -887,18 +887,18 @@ while (player1lives > 0) and (player2lives > 0): # round 3
                     print("BANG")
                     try: 
                         shotgun.pop(0)
-                    except:
+                    except IndexError:
                         print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     player1lives -= dmg
                     dmg = 1
-                    if player1lives <= 2:
+                    if player1lives < 3:
                         player1lives = 0.5
                 elif shotgun[0] == "blank": # if its a blank
                     print("*click")
                     try: 
                         shotgun.pop(0)
-                    except:
+                    except IndexError:
                         print('ATTEMPTED TO UNLOAD EMPTY SHOTGUN')
                     s(2)
                     dmg = 1
