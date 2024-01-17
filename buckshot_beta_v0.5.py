@@ -97,40 +97,36 @@ class Player:
     def turn(self):
         print(self)
         ans = input("say to use:\nshotgun - shoot\n>")
-        match(ans):
+        match (ans):
             case "shoot":
                 global otherdmg
                 ans = input("shoot self or enemy?\n>")
-                match(ans):
+                match (ans):
                     case "self":
                         s(5)
                         if shotgun[0] == "live":
                             print("BANG")
                             shotgun.pop(0)
                             self.takeDmg()
-                            s(2)
                         elif shotgun[0] == "blank":
                             print("click")
                             shotgun.pop(0)
-                            s(2)
                             self.turn()
                         else:
                             print("something went wrong")
-                            s(2)
+                        s(2)
                     case "enemy":
                         s(5)
                         if shotgun[0] == "live":
                             print("BANG")
                             shotgun.pop(0)
                             otherdmg = True
-                            s(2)
                         elif shotgun[0] == "blank":
                             print("click")
                             shotgun.pop(0)
-                            s(2)
                         else:
                             print("something went wrong")
-                            s(2)
+                        s(2)
                     case default:
                         print("something went wrong")
                         s(2)
@@ -143,7 +139,6 @@ def insertshells(live, blank):
         shotgun.append("live")
     for i in range(blank):
         shotgun.append("blank")
-        blank -= 1
     shuffle(shotgun)
 
 player1 = Player(1,input("what does player 1 call themselves? "),2)
@@ -239,11 +234,11 @@ class Player:
     def turn(self):
         print(self)
         ans = input("say to use:\nshotgun - shoot\n>")
-        match(ans):
+        match (ans):
             case "shoot":
                 global otherdmg
                 ans = input("shoot self or enemy?\n>")
-                match(ans):
+                match (ans):
                     case "self":
                         s(5)
                         if shotgun[0] == "live":
