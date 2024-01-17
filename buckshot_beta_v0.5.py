@@ -31,15 +31,10 @@ def useGlass():
     print(f"the shell in the chamber is a {shotgun[0]} one")
 
 def useCigarette(wer):
-    # if wer == 1:
-    #     global player1lives
-    #     player1lives += 1
-    #     print("you feel refreshed. +1 life")
-    # elif wer == 2:
-    #     global player2lives
-    #     player2lives += 1
-    #     print("you feel refreshed. +1 life")
-    pass
+    if wer == 1:
+        player1.heal()
+    elif wer == 2:
+        player2.heal()
 
 def useCuffs(wer):
     if wer == 1:
@@ -234,20 +229,22 @@ class Player:
     def useItem(self, item):
         match(item):
             case "beer":
-                useBeer()
+                self.useBeer()
                 break
             case "knife":
-                useKnife()
+                self.useKnife()
                 break
             case "magnifying glass":
-                useGlass()
+                self.useGlass()
                 break
             case "cigarette":
-                useCigarette(self.num)
+                self.useCigarette(self.num)
                 break
             case "cuffs":
-                useCuffs(self.num)
+                self.useCuffs(self.num)
                 break
+            case default:
+                print(f"failed to use item as player {self.num}")
     
     def turn(self):
         print(self)
@@ -262,7 +259,7 @@ class Player:
                         if shotgun[0] == "live":
                             print("BANG")
                             shotgun.pop(0)
-                            takeDmg()
+                            self.takeDmg()
                             s(2)
                         elif shotgun[0] == "blank":
                             print("click")
@@ -289,26 +286,29 @@ class Player:
                             s(2)
                         break
                     case default:
-                        print("something went wrong")
+                        print(f"failed to pick between self and enemy as player {self.num}")
                         s(2)
                         break
                 break
             case "item":
                 ans = input(f"pick an item. {self.inv}\n>")
-                match(ans):
-                    case "beer":
-                        pass # <-------
+                self.useItem(ans)
+                s(2)
             case default:
-                print("something went wrong")
+                print(f"failed to pick an action as player {self.num}")
                 break
 shotgun = []
+player1 = Player(1,player1.name,4)
+player2 = Player(2,player2.name,4)
 clear()
 print("both of you can now have items. (max 8)")
 s(3)
 
 while (player1.lives > 0) and (player2.lives > 0): # round 2
     player1.getitem(2)
+    s(2)
     player2.getitem(2)
+    s(2)
     liveshells = r(1,4)
     blankshells = r(1,4)
     insertshells(liveshells, blankshells)
@@ -331,7 +331,7 @@ while (player1.lives > 0) and (player2.lives > 0): # round 2
         clear()
         player1.turn()
         if otherdmg == True:
-            player2.takeDmg()
+            player2.takeDmg(dmg)
             otherdmg = False
         # print(player1lives, player2lives, shotgun, player1cuffed, player2cuffed)
         s(2)
@@ -349,7 +349,7 @@ while (player1.lives > 0) and (player2.lives > 0): # round 2
         clear()
         player2.turn()
         if otherdmg == True:
-            player1.takeDmg()
+            player1.takeDmg(dmg)
             otherdmg = False
         # print(player1lives, player2lives, shotgun, player1cuffed, player2cuffed)
         s(2)
@@ -370,7 +370,8 @@ s(2)
 print("now, when you reach less than 3 lives, your defibrillator will be cut.\nthe life display will glitch when that happens")
 s(5)
 shotgun = []
-
+player1 = Player(1,player1.name,6)
+player2 = Player(2,player2.name,6)
 clear()
 while (player1.lives > 0) and (player2.lives > 0): # round 3
     player1.getItem(4)
@@ -403,7 +404,7 @@ while (player1.lives > 0) and (player2.lives > 0): # round 3
         clear()
         player1.turn()
         if otherdmg == True:
-            player2.takeDmg()
+            player2.takeDmg(dmg)
             otherdmg = False
         clear()
         # print(player1lives, player2lives, shotgun, player1cuffed, player2cuffed)
@@ -422,7 +423,7 @@ while (player1.lives > 0) and (player2.lives > 0): # round 3
         clear()
         player2.turn()
         if otherdmg == True:
-            player1.takeDmg()
+            player1.takeDmg(dmg)
             otherdmg = False
         s(2)
         clear()
@@ -439,8 +440,6 @@ s(5)
 clear()
 if player1.wins > player2.wins:
     print(f'{player1.name} wins with a score of {player1.wins} to {player2.wins}')
-elif player2.wins == player1.wins:
-    print('no one wins, skill issue')
 elif player2.wins > player1.wins:
     print(f'{player2.name} wins with a score of {player2.wins} to {player1.wins}')
 s(5)
