@@ -36,3 +36,7 @@ beta v0.4.1
 
 beta v0.4.2
 + added error handling for trying to rack an empty shotgun, fixing the whole thing soon
+
+beta v0.5
++ huge code revamp! changed a lot of things
++ visual improvements

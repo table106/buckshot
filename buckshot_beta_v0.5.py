@@ -146,8 +146,8 @@ def insertshells(live, blank):
         blank -= 1
     shuffle(shotgun)
 
-player1 = Player(1,input("what does player 1 call themselves?"),2)
-player2 = Player(2,input("what about player 2?"),2)
+player1 = Player(1,input("what does player 1 call themselves? "),2)
+player2 = Player(2,input("what about player 2? "),2)
 
 print("good luck.")
 s(2)
