@@ -10,7 +10,7 @@ print("=====================")
 print("||BUCKSHOT ROULETTE||")
 print("||   (text version)||")
 print("=====================")
-print("version v0.4.2-beta\n")
+print("version v0.5-beta\n")
 input("press enter to start ")
 shotgun = []
 dmg = 1
