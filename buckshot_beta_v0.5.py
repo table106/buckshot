@@ -71,9 +71,9 @@ class Player:
         for i in range(viel):
             id1 = r(0,4)
             id2 = r(0,4)
-                self.inv.append(allitems[id1])
-                self.inv.append(allitems[id2])
-                print(f"{player1.name} got {allitems[id1]}, and {allitems[id2]}.")
+            self.inv.append(allitems[id1])
+            self.inv.append(allitems[id2])
+            print(f"{self.name} got {allitems[id1]}, and {allitems[id2]}.")
             s(2)
 
     # def useItem(self, item):
@@ -107,17 +107,16 @@ class Player:
                         if shotgun[0] == "live":
                             print("BANG")
                             shotgun.pop(0)
-                            takeDmg()
+                            self.takeDmg()
                             s(2)
                         elif shotgun[0] == "blank":
                             print("click")
                             shotgun.pop(0)
                             s(2)
-                            turn()
+                            self.turn()
                         else:
                             print("something went wrong")
                             s(2)
-                        break
                     case "enemy":
                         s(5)
                         if shotgun[0] == "live":
@@ -132,15 +131,11 @@ class Player:
                         else:
                             print("something went wrong")
                             s(2)
-                        break
                     case default:
                         print("something went wrong")
                         s(2)
-                        break
-                break
             case default:
                 print("something went wrong")
-                break
                             
     
 def insertshells(live, blank):
@@ -221,28 +216,23 @@ class Player:
         for i in range(viel):
             id1 = r(0,4)
             id2 = r(0,4)
-                self.inv.append(allitems[id1])
-                self.inv.append(allitems[id2])
-                print(f"{player1.name} got {allitems[id1]}, and {allitems[id2]}.")
+            self.inv.append(allitems[id1])
+            self.inv.append(allitems[id2])
+            print(f"{self.name} got {allitems[id1]}, and {allitems[id2]}.")
             s(2)
 
     def useItem(self, item):
         match(item):
             case "beer":
                 self.useBeer()
-                break
             case "knife":
                 self.useKnife()
-                break
             case "magnifying glass":
                 self.useGlass()
-                break
             case "cigarette":
                 self.useCigarette(self.num)
-                break
             case "cuffs":
                 self.useCuffs(self.num)
-                break
             case default:
                 print(f"failed to use item as player {self.num}")
     
@@ -265,11 +255,10 @@ class Player:
                             print("click")
                             shotgun.pop(0)
                             s(2)
-                            turn()
+                            self.turn()
                         else:
                             print("something went wrong")
                             s(2)
-                        break
                     case "enemy":
                         s(5)
                         if shotgun[0] == "live":
@@ -284,19 +273,15 @@ class Player:
                         else:
                             print("something went wrong")
                             s(2)
-                        break
                     case default:
                         print(f"failed to pick between self and enemy as player {self.num}")
                         s(2)
-                        break
-                break
             case "item":
                 ans = input(f"pick an item. {self.inv}\n>")
                 self.useItem(ans)
                 s(2)
             case default:
                 print(f"failed to pick an action as player {self.num}")
-                break
 shotgun = []
 player1 = Player(1,player1.name,4)
 player2 = Player(2,player2.name,4)
