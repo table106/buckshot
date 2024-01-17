@@ -106,11 +106,11 @@ class Player:
                             shotgun.pop(0)
                             self.takeDmg()
                         elif shotgun[0] == "blank":
-                            print("click")
+                            print("*click")
                             shotgun.pop(0)
                             self.turn()
                         else:
-                            print("something went wrong")
+                            print("failed checking the shotgun")
                         s(2)
                     case "enemy":
                         s(5)
@@ -119,16 +119,17 @@ class Player:
                             shotgun.pop(0)
                             otherdmg = True
                         elif shotgun[0] == "blank":
-                            print("click")
+                            print("*click")
                             shotgun.pop(0)
                         else:
-                            print("something went wrong")
+                            print("failed checking the shotgun")
                         s(2)
                     case default:
-                        print("something went wrong")
+                        print("failed to pick the target")
                         s(2)
             case default:
-                print("something went wrong")
+                print("failed to pick an action")
+        clear()
                             
     
 def insertshells(live, blank):
@@ -223,7 +224,7 @@ class Player:
             case "cuffs":
                 self.useCuffs(self.num)
             case default:
-                print(f"failed to use item as player {self.num}")
+                print("failed to pick item")
     
     def turn(self):
         print(self)
@@ -241,12 +242,12 @@ class Player:
                             self.takeDmg()
                             s(2)
                         elif shotgun[0] == "blank":
-                            print("click")
+                            print("*click")
                             shotgun.pop(0)
                             s(2)
                             self.turn()
                         else:
-                            print("something went wrong")
+                            print("failed checking the shotgun")
                             s(2)
                     case "enemy":
                         s(5)
@@ -256,21 +257,23 @@ class Player:
                             otherdmg = True
                             s(2)
                         elif shotgun[0] == "blank":
-                            print("click")
+                            print("*click")
                             shotgun.pop(0)
                             s(2)
                         else:
-                            print("something went wrong")
+                            print("failed checking the shotgun")
                             s(2)
                     case default:
-                        print(f"failed to pick between self and enemy as player {self.num}")
+                        print(f"failed to pick target")
                         s(2)
             case "item":
                 ans = input(f"pick an item. {self.inv}\n>")
                 self.useItem(ans)
                 s(2)
             case default:
-                print(f"failed to pick an action as player {self.num}")
+                print("failed to pick an action as player")
+                s(2)
+        clear()
 shotgun = []
 player1 = Player(1,player1.name,4)
 player2 = Player(2,player2.name,4)
