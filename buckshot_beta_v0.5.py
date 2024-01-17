@@ -53,12 +53,9 @@ class Player:
         self.cuffed = 0
 
     def __str__(self):
-        print(f"{self.name}'s turn")
-        if self.lives == 1:
-            print("you have 1 life")
-        else:
-            print(f"you have {self.lives} lives")
-        # print(f"your items: {self.inv}")
+        if self.lives > 1:
+            return f"{self.name}'s turn\nyou have {self.lives} lives"
+        return f"{self.name}'s turn\nyou have 1 life"
 
     def takeDmg(self, viel=1):
         self.lives -= viel
@@ -193,12 +190,9 @@ class Player:
         self.cuffed = 0
 
     def __str__(self):
-        print(f"{self.name}'s turn")
-        if self.lives == 1:
-            print("you have 1 life")
-        else:
-            print(f"you have {self.lives} lives")
-        print(f"your items: {self.inv}")
+        if self.lives > 1:
+            return f"{self.name}'s turn\nyou have {self.lives} lives"
+        return f"{self.name}'s turn\nyou have 1 life"
 
     def takeDmg(self, viel=1):
         self.lives -= viel
