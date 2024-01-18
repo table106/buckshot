@@ -157,7 +157,6 @@ while (player1.lives > 0) and (player2.lives > 0): # round 1
             player2.takeDmg()
             otherdmg = False
         # print(player1lives, player2lives, shotgun, player1cuffed, player2cuffed)
-        s(2)
         clear()
         if player1.lives == 0 or player2.lives == 0 or len(shotgun) == 0:
             break
@@ -166,7 +165,6 @@ while (player1.lives > 0) and (player2.lives > 0): # round 1
             player1.takeDmg()
             otherdmg = False
         # print(player1lives, player2lives, shotgun, player1cuffed, player2cuffed)
-        s(2)
         clear()
       
 if player1.lives == 0:
@@ -301,7 +299,6 @@ while (player1.lives > 0) and (player2.lives > 0): # round 2
             player2.takeDmg(dmg)
             otherdmg = False
         # print(player1lives, player2lives, shotgun, player1cuffed, player2cuffed)
-        s(2)
         clear()
         if player1.lives == 0 or player2.lives == 0 or len(shotgun) == 0:
             break
@@ -319,7 +316,6 @@ while (player1.lives > 0) and (player2.lives > 0): # round 2
             player1.takeDmg(dmg)
             otherdmg = False
         # print(player1lives, player2lives, shotgun, player1cuffed, player2cuffed)
-        s(2)
         clear()
     clear()
 
