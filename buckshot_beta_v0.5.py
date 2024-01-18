@@ -111,7 +111,6 @@ class Player:
                             self.turn()
                         else:
                             print("failed checking the shotgun")
-                        s(2)
                     case "enemy":
                         s(5)
                         if shotgun[0] == "live":
@@ -123,15 +122,13 @@ class Player:
                             shotgun.pop(0)
                         else:
                             print("failed checking the shotgun")
-                        s(2)
                     case default:
                         print("failed to pick the target")
-                        s(2)
             case default:
                 print("failed to pick an action")
         clear()
+        s(2)
                             
-    
 def insertshells(live, blank):
     for i in range(live):
         shotgun.append("live")
@@ -240,40 +237,33 @@ class Player:
                             print("BANG")
                             shotgun.pop(0)
                             self.takeDmg()
-                            s(2)
                         elif shotgun[0] == "blank":
                             print("*click")
                             shotgun.pop(0)
-                            s(2)
                             self.turn()
                         else:
                             print("failed checking the shotgun")
-                            s(2)
                     case "enemy":
                         s(5)
                         if shotgun[0] == "live":
                             print("BANG")
                             shotgun.pop(0)
                             otherdmg = True
-                            s(2)
                         elif shotgun[0] == "blank":
                             print("*click")
                             shotgun.pop(0)
-                            s(2)
                         else:
                             print("failed checking the shotgun")
-                            s(2)
                     case default:
                         print(f"failed to pick target")
-                        s(2)
             case "item":
                 ans = input(f"pick an item. {self.inv}\n>")
                 self.useItem(ans)
-                s(2)
             case default:
                 print("failed to pick an action as player")
-                s(2)
         clear()
+        s(2)
+        
 shotgun = []
 player1 = Player(1,player1.name,4)
 player2 = Player(2,player2.name,4)
