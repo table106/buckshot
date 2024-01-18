@@ -3,40 +3,41 @@ before it all started
 - kinda regretting it
 - ah well
 
-beta v0.1
+v0.1-beta
 + added round 1
 
-beta v0.1.1
+v0.1.1-beta
 + added main menu
 
-beta v0.2
+v0.2-beta
 + added round 2
 + added items
 
-beta v0.3
+v0.3-beta
 + added round 3
 + added item cap (8)
 
-beta v0.3.1
+v0.3.1-beta
 + minor fixes
 
-beta v0.3.2
+v0.3.2-beta
 + more fixes (not even minor at this point)
 
-beta v0.3.3
+v0.3.3-beta
 + even more fixes (man i suck at programming)
 
-beta v0.4
+v0.4-beta
 + put this thing on github
-+ holy smokes fixes everywhere (help, spaghetti code)
++ fixes, fixes everywhere (help, spaghetti code)
 + added win counters
 
-beta v0.4.1
+v0.4.1-beta
 + fixed game crashing after 2nd player 2's turn in round 3
 
-beta v0.4.2
+v0.4.2-beta
 + added error handling for trying to rack an empty shotgun, fixing the whole thing soon
 
-beta v0.5
-+ huge code revamp! changed a lot of things
+v0.5-beta
++ huge code revamp! code now smaller 2x than v0.4.2-beta
 + visual improvements
++ fixes, what a shock
