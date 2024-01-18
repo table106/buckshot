@@ -126,8 +126,8 @@ class Player:
                         print("failed to pick the target")
             case default:
                 print("failed to pick an action")
-        clear()
         s(2)
+        clear()
                             
 def insertshells(live, blank):
     for i in range(live):
@@ -261,9 +261,9 @@ class Player:
                 self.useItem(ans)
             case default:
                 print("failed to pick an action as player")
-        clear()
         s(2)
-        
+        clear()
+
 shotgun = []
 player1 = Player(1,player1.name,4)
 player2 = Player(2,player2.name,4)
