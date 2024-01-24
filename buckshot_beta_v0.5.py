@@ -96,6 +96,7 @@ class Player:
         ans = input("say to use:\nshotgun - shoot\n>")
         match (ans):
             case "shoot":
+                global shotgun
                 global otherdmg
                 ans = input("shoot self or enemy?\n>")
                 match (ans):
@@ -227,6 +228,7 @@ class Player:
         match (ans):
             case "shoot":
                 global otherdmg
+                global shotgun
                 ans = input("shoot self or enemy?\n>")
                 match (ans):
                     case "self":
