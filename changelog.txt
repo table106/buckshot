@@ -41,3 +41,7 @@ v0.5-beta
 + huge code revamp! code now smaller 2x than v0.4.2-beta
 + visual improvements
 + fixes, what a shock
+
+v0.6-beta
++ revamped even more!! code is now split into separate files (hopefully looks cooler)
++ some fixes, old and new
