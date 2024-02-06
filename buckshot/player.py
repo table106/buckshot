@@ -29,11 +29,11 @@ class Player:
                 match (ans):
                     case "self":
                         sleep(5)
-                        if shotgun[0] == "live":
+                        if shotgun.content[0] == "live":
                             print("BANG")
                             shotgun.shoot()
                             self.takeDmg()
-                        elif shotgun[0] == "blank":
+                        elif shotgun.content[0] == "blank":
                             print("*click")
                             shotgun.shoot()
                             self.turn()
@@ -41,11 +41,11 @@ class Player:
                             print("failed checking the shotgun")
                     case "enemy":
                         sleep(5)
-                        if shotgun[0] == "live":
+                        if shotgun.content[0] == "live":
                             print("BANG")
                             shotgun.shoot()
                             self.otherDmg = True
-                        elif shotgun[0] == "blank":
+                        elif shotgun.content[0] == "blank":
                             print("*click")
                             shotgun.shoot()
                         else:
@@ -105,7 +105,7 @@ class Player_R2(Player):
                             print("BANG")
                             shotgun.shoot()
                             self.takeDmg()
-                        elif shotgun[0] == "blank":
+                        elif shotgun.content[0] == "blank":
                             print("*click")
                             shotgun.shoot()
                             self.turn()
@@ -113,11 +113,11 @@ class Player_R2(Player):
                             print("failed checking the shotgun")
                     case "enemy":
                         sleep(5)
-                        if shotgun[0] == "live":
+                        if shotgun.content[0] == "live":
                             print("BANG")
                             shotgun.shoot()
                             otherdmg = True
-                        elif shotgun[0] == "blank":
+                        elif shotgun.content[0] == "blank":
                             print("*click")
                             shotgun.shoot()
                         else:
