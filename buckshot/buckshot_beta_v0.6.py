@@ -17,7 +17,7 @@ def main():
     print("||BUCKSHOT ROULETTE||")
     print("||   (text version)||")
     print("=====================")
-    print("version v0.5-beta\n")
+    print("version v0.6-beta\n")
     input("press enter to start ")
     shotgun = Shotgun()
     dmg = 1

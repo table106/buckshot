@@ -28,7 +28,7 @@ class Player:
                 ans = input("shoot self or enemy?\n>")
                 match (ans):
                     case "self":
-                        sleep(5)
+                        sleep(4)
                         if shotgun.content[0] == "live":
                             print("BANG")
                             shotgun.shoot()
@@ -36,11 +36,11 @@ class Player:
                         elif shotgun.content[0] == "blank":
                             print("*click")
                             shotgun.shoot()
-                            self.turn()
+                            self.turn(shotgun)
                         else:
                             print("failed checking the shotgun")
                     case "enemy":
-                        sleep(5)
+                        sleep(4)
                         if shotgun.content[0] == "live":
                             print("BANG")
                             shotgun.shoot()
@@ -100,7 +100,7 @@ class Player_R2(Player):
                 ans = input("shoot self or enemy?\n>")
                 match (ans):
                     case "self":
-                        sleep(5)
+                        sleep(4)
                         if shotgun.content[0] == "live":
                             print("BANG")
                             shotgun.shoot()
@@ -108,11 +108,11 @@ class Player_R2(Player):
                         elif shotgun.content[0] == "blank":
                             print("*click")
                             shotgun.shoot()
-                            self.turn()
+                            self.turn(shotgun)
                         else:
                             print("failed checking the shotgun")
                     case "enemy":
-                        sleep(5)
+                        sleep(4)
                         if shotgun.content[0] == "live":
                             print("BANG")
                             shotgun.shoot()
