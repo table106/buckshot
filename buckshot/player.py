@@ -38,7 +38,8 @@ class Player:
                             shotgun.shoot()
                             sleep(2)
                             clear()
-                            self.turn(shotgun)
+                            if len(shotgun.content) != 0:
+                                self.turn(shotgun)
                         else:
                             print("failed checking the shotgun")
                     case "enemy":
@@ -112,6 +113,8 @@ class Player_R2(Player):
                             shotgun.shoot()
                             sleep(2)
                             clear()
+                            if len(shotgun.content) != 0:
+                                self.turn(shotgun)
                             self.turn(shotgun)
                         else:
                             print("failed checking the shotgun")
