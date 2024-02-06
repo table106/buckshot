@@ -36,6 +36,8 @@ class Player:
                         elif shotgun.content[0] == "blank":
                             print("*click")
                             shotgun.shoot()
+                            sleep(2)
+                            clear()
                             self.turn(shotgun)
                         else:
                             print("failed checking the shotgun")
@@ -108,6 +110,8 @@ class Player_R2(Player):
                         elif shotgun.content[0] == "blank":
                             print("*click")
                             shotgun.shoot()
+                            sleep(2)
+                            clear()
                             self.turn(shotgun)
                         else:
                             print("failed checking the shotgun")
