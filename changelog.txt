@@ -26,14 +26,14 @@ v0.3.3-beta
 
 v0.4-beta
 + put this thing on github
-+ fixes, fixes everywhere (help, spaghetti code)
++ fixes, fixes everywhere
 + added win counters
 
 v0.4.1-beta
 + fixed game crashing after 2nd player 2's turn in round 3
 
 v0.4.2-beta
-+ added error handling for trying to rack an empty shotgun, fixing the whole thing soon
++ added error handling
 
 v0.5-beta
 + huge code revamp! code now smaller 2x than v0.4.2-beta
