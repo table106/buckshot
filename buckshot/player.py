@@ -62,8 +62,8 @@ class Player:
 allitems = ["beer", "knife", "magnifying glass", "cigarette", "cuffs"]
 
 class Player_R2(Player):
-    def __init__(self):
-        super().__init__(self)
+    def __init__(self, num, name, lives):
+        super().__init__(self, num, name, lives)
         self.inv = []
         self.cuffed = 0
 
