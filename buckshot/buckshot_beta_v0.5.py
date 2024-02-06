@@ -80,7 +80,7 @@ def main():
         s(2)
         liveshells = r(1,4)
         blankshells = r(1,4)
-        insertshells(liveshells, blankshells)
+        shotgun.insertShells(liveshells, blankshells)
         clear()
         print(f"LOADED SHELLS: {liveshells} LIVE AND {blankshells} BLANK")
         s(5)
@@ -95,13 +95,13 @@ def main():
                 print(f"{player1.name} is cuffed.")
                 player1.cuffed += 1
                 s(2)
-                player2.turn()
+                player2.turn(shotgun)
                 continue
             clear()
-            player1.turn()
-            if otherdmg == True:
-                player2.takeDmg(dmg)
-                otherdmg = False
+            player1.turn(shotgun)
+            if player1.otherDmg == True:
+                player2.takeDmg(shotgun.dmg)
+                player1.otherDmg = False
             # print(player1lives, player2lives, shotgun, player1cuffed, player2cuffed)
             clear()
             if player1.lives == 0 or player2.lives == 0 or len(shotgun.content) == 0:
@@ -115,10 +115,10 @@ def main():
                 s(2)
                 continue
             clear()
-            player2.turn()
-            if otherdmg == True:
-                player1.takeDmg(dmg)
-                otherdmg = False
+            player2.turn(shotgun)
+            if player2.otherDmg == True:
+                player1.takeDmg(shotgun.dmg)
+                player2.otherDmg = False
             # print(player1lives, player2lives, shotgun, player1cuffed, player2cuffed)
             clear()
         clear()
@@ -136,9 +136,9 @@ def main():
     s(2)
     print("now, when you reach less than 3 lives, your defibrillator will be cut.\nthe life display will glitch when that happens")
     s(5)
-    shotgun = []
-    player1 = Player(1,player1.name,6)
-    player2 = Player(2,player2.name,6)
+    shotgun.content = []
+    player1 = Player_R2(1,player1.name,6)
+    player2 = Player_R2(2,player2.name,6)
     clear()
     while (player1.lives > 0) and (player2.lives > 0): # round 3
         player1.getItem(4)
@@ -151,7 +151,7 @@ def main():
             player2.inv.pop()
         liveshells = r(1,4)
         blankshells = r(1,4)
-        insertshells(liveshells, blankshells)
+        shotgun.insertShells(liveshells, blankshells)
         clear()
         print(f"LOADED SHELLS: {liveshells} LIVE AND {blankshells} BLANK")
         s(5)
@@ -166,13 +166,13 @@ def main():
                 print(f"{player1.name} is cuffed.")
                 player1.cuffed += 1
                 s(2)
-                player2.turn()
+                player2.turn(shotgun)
                 continue
             clear()
-            player1.turn()
-            if otherdmg == True:
+            player1.turn(shotgun)
+            if player1.otherDmg == True:
                 player2.takeDmg(dmg)
-                otherdmg = False
+                player1.otherDmg = False
             clear()
             # print(player1lives, player2lives, shotgun, player1cuffed, player2cuffed)
             s(2)
@@ -188,10 +188,10 @@ def main():
                 s(2)
                 continue
             clear()
-            player2.turn()
-            if otherdmg == True:
+            player2.turn(shotgun)
+            if player2.otherDmg == True:
                 player1.takeDmg(dmg)
-                otherdmg = False
+                player2.otherDmg = False
             s(2)
             clear()
         clear()

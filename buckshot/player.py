@@ -4,8 +4,6 @@ from random import randint as r
 
 from items import *
 
-from shotgun import Shotgun
-
 class Player:
     def __init__(self, num, name, lives):
         self.num = num
@@ -71,7 +69,6 @@ class Player_R2(Player):
         self.lives += 1
 
     def getItem(self, viel):
-        global allitems
         for i in range(viel):
             id1 = r(0,4)
             id2 = r(0,4)
