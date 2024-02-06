@@ -1,9 +1,7 @@
-before it all started
+v0.1-beta
 - decided to make my own version of the game
 - kinda regretting it
 - ah well
-
-v0.1-beta
 + added round 1
 
 v0.1.1-beta
