@@ -2,7 +2,9 @@ from system import clear
 from time import sleep
 from random import randint as r
 
-from utils import *
+from items import *
+
+from shotgun import Shotgun
 
 class Player:
     def __init__(self, num, name, lives):
@@ -10,6 +12,7 @@ class Player:
         self.name = name
         self.lives = lives
         self.wins = 0
+        self.otherDmg = False
 
     def __str__(self):
         if self.lives > 1:
@@ -24,7 +27,6 @@ class Player:
         ans = input("say to use:\nshotgun - shoot\n>")
         match (ans):
             case "shoot":
-                global otherdmg
                 ans = input("shoot self or enemy?\n>")
                 match (ans):
                     case "self":
@@ -35,7 +37,7 @@ class Player:
                             self.takeDmg()
                         elif shotgun[0] == "blank":
                             print("*click")
-                            shotgun.pop(0)
+                            shotgun.shoot()
                             self.turn()
                         else:
                             print("failed checking the shotgun")
@@ -43,11 +45,11 @@ class Player:
                         sleep(5)
                         if shotgun[0] == "live":
                             print("BANG")
-                            shotgun.pop(0)
-                            otherdmg = True
+                            shotgun.shoot()
+                            self.otherDmg = True
                         elif shotgun[0] == "blank":
                             print("*click")
-                            shotgun.pop(0)
+                            shotgun.shoot()
                         else:
                             print("failed checking the shotgun")
                     case default:
@@ -57,8 +59,9 @@ class Player:
         sleep(2)
         clear()
 
+allitems = ["beer", "knife", "magnifying glass", "cigarette", "cuffs"]
 
-class Player_2(Player):
+class Player_R2(Player):
     def __init__(self):
         super().__init__(self)
         self.inv = []
@@ -92,24 +95,22 @@ class Player_2(Player):
             case default:
                 print("failed to pick item")
     
-    def turn(self):
+    def turn(self, shotgun):
         print(self)
         ans = input("say to use:\nshotgun - shoot\n>")
         match (ans):
             case "shoot":
-                global otherdmg
-                global shotgun
                 ans = input("shoot self or enemy?\n>")
                 match (ans):
                     case "self":
                         sleep(5)
-                        if shotgun[0] == "live":
+                        if shotgun.content[0] == "live":
                             print("BANG")
-                            shotgun.pop(0)
+                            shotgun.shoot()
                             self.takeDmg()
                         elif shotgun[0] == "blank":
                             print("*click")
-                            shotgun.pop(0)
+                            shotgun.shoot()
                             self.turn()
                         else:
                             print("failed checking the shotgun")
@@ -117,11 +118,11 @@ class Player_2(Player):
                         sleep(5)
                         if shotgun[0] == "live":
                             print("BANG")
-                            shotgun.pop(0)
+                            shotgun.shoot()
                             otherdmg = True
                         elif shotgun[0] == "blank":
                             print("*click")
-                            shotgun.pop(0)
+                            shotgun.shoot()
                         else:
                             print("failed checking the shotgun")
                     case default:

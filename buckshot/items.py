@@ -12,8 +12,8 @@ def useKnife(shotgun):
 def useGlass(shotgun):
     print(f"the shell in the chamber is a {shotgun.content[0]} one")
 
-def useCigarette(wer):
-    wer.heal()
+def useCigarette(player):
+    player.heal()
 
-def useCuffs(wer):
-    wer.cuffed = 1
+def useCuffs(player):
+    player.cuffed = 1
