@@ -1,1 +1,3 @@
-github/
+*.md
+!README.md
+!readme.md
