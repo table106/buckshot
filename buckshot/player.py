@@ -17,7 +17,9 @@ class Player:
             return f"{self.name}'s turn\nyou have {self.lives} lives"
         return f"{self.name}'s turn\nyou have 1 life"
 
-    def takeDmg(self, viel=1):
+    def takeDmg(self, viel=None):
+        if viel == None:
+            viel = 1
         self.lives -= viel
     
     def turn(self, shotgun):
