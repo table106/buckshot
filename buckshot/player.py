@@ -123,7 +123,7 @@ class Player_R2(Player):
                         if shotgun.content[0] == "live":
                             print("BANG")
                             shotgun.shoot()
-                            otherdmg = True
+                            self.otherdmg = True
                         elif shotgun.content[0] == "blank":
                             print("*click")
                             shotgun.shoot()
