@@ -20,9 +20,6 @@ def main():
     print("version v0.6-beta\n")
     input("press enter to start ")
     shotgun = Shotgun()
-    dmg = 1
-
-    otherdmg = False
 
     player1 = Player(1,input("what does player 1 call themselves? "),2)
     player2 = Player(2,input("what about player 2? "),2)
@@ -171,7 +168,7 @@ def main():
             clear()
             player1.turn(shotgun)
             if player1.otherDmg == True:
-                player2.takeDmg(dmg)
+                player2.takeDmg(shotgun.dmg)
                 player1.otherDmg = False
             clear()
             # print(player1lives, player2lives, shotgun, player1cuffed, player2cuffed)
@@ -190,7 +187,7 @@ def main():
             clear()
             player2.turn(shotgun)
             if player2.otherDmg == True:
-                player1.takeDmg(dmg)
+                player1.takeDmg(shotgun.dmg)
                 player2.otherDmg = False
             s(2)
             clear()
