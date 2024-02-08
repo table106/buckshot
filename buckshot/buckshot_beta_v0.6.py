@@ -1,5 +1,4 @@
 from random import randint as r
-from random import shuffle
 from time import sleep as s
 
 from system import clear
@@ -60,8 +59,6 @@ def main():
         player1.wins += 1
     print("end of round 1.")
     s(5)
-
-    allitems = ["beer", "knife", "magnifying glass", "cigarette", "cuffs"]
 
     shotgun.content = []
     player1 = Player_R2(1,player1.name,4)
