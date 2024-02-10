@@ -3,9 +3,9 @@ from time import sleep as s
 
 from system import clear
 
-from player import Player, Player_R2
+from player import *
 
-from shotgun import Shotgun
+from shotgun import *
 
 from items import *
 
