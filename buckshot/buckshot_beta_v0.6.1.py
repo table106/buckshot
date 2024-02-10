@@ -17,7 +17,30 @@ def main():
     print("||   (text version)||")
     print("=====================")
     print("version v0.6-beta\n")
-    input("press enter to start ")
+    print("press enter to start")
+    ans = input("or type 'how' for a how-to-play ")
+    if ans == "how":
+        clear()
+        print("alright, so\
+              \nthere's a shotgun\
+              \nevery time it is empty we load some shells in\
+              \nthey can be blank, or live, and will be in a random sequence\
+              \nyou only get the numbers though!\
+              \nevery turn, you use the shotgun\
+              \nyou point it either at yourself, or your enemy\
+              \nif you shoot yourself with a blank you get to go again!\
+              \n\nITEMS (from round 2 onwards)\
+              \n-beer:\
+              \nyou eject a round from the shotgun, if its the last one we reload the shotgun\
+              \n\n-knife:\
+              \nyou saw the shotgun, next shot will deal 2 damage\
+              \n\n-magnifying glass:\
+              \nyou look into the chamber, revealing the shell inside only to you\
+              \n\n-cigarette:\
+              \nyou regain a life (not how it works irl)\
+              \n\n-cuffs:\
+              \nyou cuff your enemy skipping their next turn")
+        input("if you finish reading, just press enter")
     shotgun = Shotgun()
 
     player1 = Player(1,input("what does player 1 call themselves? "),2)
