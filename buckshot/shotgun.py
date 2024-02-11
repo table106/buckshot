@@ -5,7 +5,7 @@ class Shotgun:
         self.content = []
         self.dmg = 1
 
-    def insertShells(self, live, blank):
+    def insertShells(self, live: int, blank: int):
         for i in range(live):
             self.content.append("live")
         for i in range(blank):

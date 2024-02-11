@@ -5,7 +5,7 @@ from random import randint as r
 from items import *
 
 class Player:
-    def __init__(self, num, name, lives):
+    def __init__(self, num: int, name: str, lives: int):
         self.num = num
         self.name = name
         self.lives = lives
@@ -17,12 +17,12 @@ class Player:
             return f"{self.name}'s turn\nyou have {self.lives} lives"
         return f"{self.name}'s turn\nyou have 1 life"
 
-    def takeDmg(self, viel=None):
+    def takeDmg(self, viel: int=None):
         if viel == None:
             viel = 1
         self.lives -= viel
     
-    def turn(self, shotgun):
+    def turn(self, shotgun: object):
         print(self)
         ans = input("say to use:\nshotgun - shoot\n>")
         match (ans):
@@ -65,7 +65,7 @@ class Player:
 allitems = ["beer", "knife", "magnifying glass", "cigarette", "cuffs"]
 
 class Player_R2(Player):
-    def __init__(self, num, name, lives):
+    def __init__(self, num: int, name: str, lives: int):
         super().__init__(self, num, name, lives)
         self.inv = []
         self.cuffed = 0
@@ -73,7 +73,7 @@ class Player_R2(Player):
     def heal(self):
         self.lives += 1
 
-    def getItem(self, viel):
+    def getItem(self, viel: int):
         for i in range(viel):
             id1 = r(0,4)
             id2 = r(0,4)
@@ -82,7 +82,7 @@ class Player_R2(Player):
             print(f"{self.name} got {allitems[id1]}, and {allitems[id2]}.")
             sleep(2)
 
-    def useItem(self, item):
+    def useItem(self, item: str):
         match(item):
             case "beer":
                 useBeer()
@@ -97,7 +97,7 @@ class Player_R2(Player):
             case default:
                 print("failed to pick item")
     
-    def turn(self, shotgun):
+    def turn(self, shotgun: object):
         print(self)
         ans = input("say to use:\nshotgun - shoot\n>")
         match (ans):
