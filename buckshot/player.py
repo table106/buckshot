@@ -67,9 +67,12 @@ allitems = ["beer", "knife", "magnifying glass", "cigarette", "cuffs"]
 
 class Player_R2(Player):
     def __init__(self, num: int, name: str, lives: int, lifeCap: int):
-        super().__init__(self, num, name, lives, lifeCap)
+        super().__init__(num, name, lives, lifeCap)
         self.inv = []
         self.cuffed = 0
+
+    def __str__(self):
+        return super().__str__()+f"\nyour items: {self.inv}"
 
     def heal(self):
         self.lives += 1
