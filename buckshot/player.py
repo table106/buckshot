@@ -1,8 +1,7 @@
 from system import clear
 from time import sleep
 from random import randint as r
-import logging
-logging.basicConfig(level=logging.INFO, filename="debug.log", filemode="w", format="@ line %(lineno)d - %(message)s")
+from log import *
 
 from items import *
 
@@ -99,7 +98,7 @@ class Player_R2(Player):
             case "cuffs":
                 useCuffs(self.num)
             case default:
-                logging.info(f"player {self.num} failed to pick an item")
+                info(f"player {self.num} failed to pick an item")
     
     def turn(self, shotgun: object):
         print(self)
