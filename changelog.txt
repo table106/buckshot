@@ -46,3 +46,7 @@ v0.6-beta
 
 v0.6.1-beta
 + added a how-to-play
+
+v0.6.2-beta
++ added logging
++ added a life cap
