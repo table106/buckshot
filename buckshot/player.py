@@ -1,16 +1,19 @@
 from system import clear
 from time import sleep
 from random import randint as r
+import logging
+logging.basicConfig(level=logging.INFO, filename="debug.log", filemode="w", format="@ line %(lineno)d - %(message)s")
 
 from items import *
 
 class Player:
-    def __init__(self, num: int, name: str, lives: int):
+    def __init__(self, num: int, name: str, lives: int, lifeCap: int):
         self.num = num
         self.name = name
         self.lives = lives
         self.wins = 0
         self.otherDmg = False
+        self.lifeCap = lifeCap
 
     def __str__(self):
         if self.lives > 1:
@@ -42,8 +45,6 @@ class Player:
                             clear()
                             if len(shotgun.content) != 0:
                                 self.turn(shotgun)
-                        else:
-                            print("failed checking the shotgun")
                     case "enemy":
                         sleep(4)
                         if shotgun.content[0] == "live":
@@ -65,8 +66,8 @@ class Player:
 allitems = ["beer", "knife", "magnifying glass", "cigarette", "cuffs"]
 
 class Player_R2(Player):
-    def __init__(self, num: int, name: str, lives: int):
-        super().__init__(self, num, name, lives)
+    def __init__(self, num: int, name: str, lives: int, lifeCap: int):
+        super().__init__(self, num, name, lives, lifeCap)
         self.inv = []
         self.cuffed = 0
 
@@ -95,7 +96,7 @@ class Player_R2(Player):
             case "cuffs":
                 useCuffs(self.num)
             case default:
-                print("failed to pick item")
+                logging.info(f"player {self.num} failed to pick an item")
     
     def turn(self, shotgun: object):
         print(self)

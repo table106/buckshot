@@ -13,7 +13,13 @@ def useGlass(shotgun: object):
     print(f"the shell in the chamber is a {shotgun.content[0]} one")
 
 def useCigarette(player: object):
-    player.heal()
+    if player.lives == player.lifeCap:
+        print("you already have max lives.")
+    else:
+        player.heal()
 
 def useCuffs(player: object):
-    player.cuffed = 1
+    if player.cuffed:
+        print("they're already cuffed. (item not consumed)")
+    else:
+        player.cuffed = 1

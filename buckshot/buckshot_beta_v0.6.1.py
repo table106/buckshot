@@ -9,7 +9,7 @@ from shotgun import *
 
 from items import *
 
-def main():
+def main() -> None:
     print("well hello there! welcome to...")
     s(3)
     print("=====================")
@@ -43,49 +43,49 @@ def main():
         input("if you finish reading, just press enter")
     shotgun = Shotgun()
 
-    player1 = Player(1,input("what does player 1 call themselves? "),2)
-    player2 = Player(2,input("what about player 2? "),2)
+    player1 = Player(1,input("what does player 1 call themselves? "),2,2)
+    player2 = Player(2,input("what about player 2? "),2,2)
 
-    print("good luck.")
-    s(2)
+    # print("good luck.")
+    # s(2)
 
-    while (player1.lives > 0) and (player2.lives > 0): # round 1
-        liveshells = r(1,4)
-        blankshells = r(1,4)
-        shotgun.insertShells(liveshells, blankshells)
-        clear()
-        print(f"LOADED SHELLS: {liveshells} LIVE AND {blankshells} BLANK")
-        s(5)
-        clear()
-        while (player1.lives > 0) and (player2.lives > 0) and (len(shotgun.content) > 0):
-            clear()
-            player1.turn(shotgun)
-            if player1.otherDmg == True:
-                player2.takeDmg()
-                player1.otherDmg = False
-            # print(player1lives, player2lives, shotgun, player1cuffed, player2cuffed)
-            clear()
-            if player1.lives == 0 or player2.lives == 0 or len(shotgun.content) == 0:
-                break
-            player2.turn(shotgun)
-            if player2.otherDmg == True:
-                player1.takeDmg()
-                player2.otherDmg = False
-            # print(player1lives, player2lives, shotgun, player1cuffed, player2cuffed)
-            clear()
+    # while (player1.lives > 0) and (player2.lives > 0): # round 1
+    #     liveshells = r(1,4)
+    #     blankshells = r(1,4)
+    #     shotgun.insertShells(liveshells, blankshells)
+    #     clear()
+    #     print(f"LOADED SHELLS: {liveshells} LIVE AND {blankshells} BLANK")
+    #     s(5)
+    #     clear()
+    #     while (player1.lives > 0) and (player2.lives > 0) and (len(shotgun.content) > 0):
+    #         clear()
+    #         player1.turn(shotgun)
+    #         if player1.otherDmg == True:
+    #             player2.takeDmg()
+    #             player1.otherDmg = False
+    #         # print(player1lives, player2lives, shotgun, player1cuffed, player2cuffed)
+    #         clear()
+    #         if player1.lives == 0 or player2.lives == 0 or len(shotgun.content) == 0:
+    #             break
+    #         player2.turn(shotgun)
+    #         if player2.otherDmg == True:
+    #             player1.takeDmg()
+    #             player2.otherDmg = False
+    #         # print(player1lives, player2lives, shotgun, player1cuffed, player2cuffed)
+    #         clear()
         
-    if player1.lives == 0:
-        print(f"{player2.name} wins.",end=" ")
-        player2.wins += 1
-    elif player2.lives == 0:
-        print(f"{player1.name} wins.",end=" ")
-        player1.wins += 1
-    print("end of round 1.")
-    s(5)
+    # if player1.lives == 0:
+    #     print(f"{player2.name} wins.",end=" ")
+    #     player2.wins += 1
+    # elif player2.lives == 0:
+    #     print(f"{player1.name} wins.",end=" ")
+    #     player1.wins += 1
+    # print("end of round 1.")
+    # s(5)
 
     shotgun.content = []
-    player1 = Player_R2(1,player1.name,4)
-    player2 = Player_R2(2,player2.name,4)
+    player1 = Player_R2(1,player1.name,4,4)
+    player2 = Player_R2(2,player2.name,4,4)
     clear()
     print("both of you can now have items. (max 8)")
     s(3)
@@ -154,8 +154,8 @@ def main():
     print("now, when you reach less than 3 lives, your defibrillator will be cut.\nthe life display will glitch when that happens")
     s(5)
     shotgun.content = []
-    player1 = Player_R2(1,player1.name,6)
-    player2 = Player_R2(2,player2.name,6)
+    player1 = Player_R2(1,player1.name,6,6)
+    player2 = Player_R2(2,player2.name,6,6)
     clear()
     while (player1.lives > 0) and (player2.lives > 0): # round 3
         player1.getItem(4)
