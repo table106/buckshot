@@ -1,4 +1,4 @@
 from os import system
 
-def clear():
+def clear() -> None:
     system("cls")
