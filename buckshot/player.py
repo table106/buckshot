@@ -53,12 +53,12 @@ class Player:
                         elif shotgun.content[0] == "blank":
                             print("*click")
                             shotgun.shoot()
-                        else:
-                            print("failed checking the shotgun")
                     case default:
                         print("failed to pick the target")
+                        info(f"player {self.num} failed to pick a target")
             case default:
                 print("failed to pick an action")
+                info(f"player {self.num} failed to pick an action")
         sleep(2)
         clear()
 
@@ -132,14 +132,14 @@ class Player_R2(Player):
                         elif shotgun.content[0] == "blank":
                             print("*click")
                             shotgun.shoot()
-                        else:
-                            print("failed checking the shotgun")
                     case default:
-                        print(f"failed to pick target")
+                        print("failed to pick target")
+                        info(f"player {self.num} failed to pick a target")
             case "item":
                 ans = input(f"pick an item. {self.inv}\n>")
                 self.useItem(ans)
             case default:
-                print("failed to pick an action as player")
+                print("failed to pick an action")
+                info(f"player {self.num} failed to pick an action")
         sleep(2)
         clear()
