@@ -1,7 +1,7 @@
 from random import randint as r
 from time import sleep as s
 
-from system import clear
+from system import *
 
 from player import *
 
