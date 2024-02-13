@@ -119,7 +119,7 @@ class Player_R2(Player):
     
     def turn(self, shotgun: Shotgun):
         print(self)
-        ans = input("say to use:\nshotgun - shoot\nitem - item>")
+        ans = input("say to use:\nshotgun - shoot\nitem - item\n>")
         match (ans):
             case "shoot":
                 debug(f"player {self.num} chose to shoot")

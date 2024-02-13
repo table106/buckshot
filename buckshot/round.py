@@ -41,9 +41,9 @@ def round1(player1: Player, player2: Player, shotgun: Shotgun, testmode: bool=Fa
 
 def round2(player1: Player_R2, player2: Player_R2, shotgun: Shotgun, testmode: bool=False):
     while (player1.lives > 0) and (player2.lives > 0):
-        player1.getItem(2)
+        player1.getItem(1)
         s(2)
-        player2.getItem(2)
+        player2.getItem(1)
         s(2)
         liveshells = r(1,4)
         blankshells = r(1,4)
@@ -102,9 +102,9 @@ def round2(player1: Player_R2, player2: Player_R2, shotgun: Shotgun, testmode: b
 
 def round3(player1: Player_R2, player2: Player_R2, shotgun: Shotgun, testmode: bool=False):
     while (player1.lives > 0) and (player2.lives > 0): # round 3
-        player1.getItem(4)
+        player1.getItem(2)
         s(2)
-        player2.getItem(4)
+        player2.getItem(2)
         s(2)
         while len(player1.inv) > 8:
             player1.inv.pop()
