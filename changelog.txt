@@ -50,3 +50,7 @@ v0.6.1-beta
 v0.6.2-beta
 + added logging
 + added a life cap
+
+v0.6.3-beta
++ implemented action failure logging
++ fixed items not using up
