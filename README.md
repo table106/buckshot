@@ -1,4 +1,8 @@
-# buckshot roulette, with text instead of grafix
+# buckshot roulette, console app
+
+## info
+
+all game files are in buckshot/
 
 ## to install:
 
