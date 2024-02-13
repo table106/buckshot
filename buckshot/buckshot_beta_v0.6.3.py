@@ -40,7 +40,8 @@ def main() -> None:
               \nyou regain a life (not how it works irl)\
               \n\n-cuffs:\
               \nyou cuff your enemy skipping their next turn")
-        input("if you finish reading, just press enter")
+        input("when you finish reading, just press enter")
+    clear()
     shotgun = Shotgun()
 
     player1 = Player(1,input("what does player 1 call themselves? "),2,2)
