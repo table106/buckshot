@@ -54,3 +54,8 @@ v0.6.2-beta
 v0.6.3-beta
 + implemented action failure logging
 + fixed items not using up
+
+v0.7-beta
++ logging fully implemented
++ testmöde added
++ made the rounds a library
