@@ -1,14 +1,16 @@
-def useBeer(player: object, shotgun: object):
+from shotgun import Shotgun
+
+def useBeer(player: object, shotgun: Shotgun):
     print(f"you unloaded a {shotgun.content[0]} shell.")
     shotgun.shoot()
     player.inv.remove("beer")
 
-def useKnife(player: object, shotgun: object):
+def useKnife(player: object, shotgun: Shotgun):
     print("the next shot will deal 2 damage.")
     shotgun.dmg = 2
     player.inv.remove("knife")
 
-def useGlass(player: object, shotgun: object):
+def useGlass(player: object, shotgun: Shotgun):
     print(f"the shell in the chamber is a {shotgun.content[0]} one")
     player.inv.remove("magnifying glass")
     

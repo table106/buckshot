@@ -1,1 +1,4 @@
-.github/
+*.spec
+build/
+__pycache__/
+*.log

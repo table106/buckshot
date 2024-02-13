@@ -41,113 +41,147 @@ def main() -> None:
               \n\n-cuffs:\
               \nyou cuff your enemy skipping their next turn")
         input("when you finish reading, just press enter")
+    elif ans == "therealtable":
+        print("hello world!")
+        lel = ["1", "2", "3"]
+        ans = "1"
+        shotgun = Shotgun()
+        while ans in lel:
+            ans = input("where to? ")
+            if ans == "1":
+                shotgun.content = []
+                player1 = Player(1,"plr1",2,2)
+                player2 = Player(2,"plr2",2,2)
+                player1.addOpponent(player2)
+                player2.addOpponent(player1)
+                round1(True)
+            elif ans == "2":
+                shotgun.content = []
+                player1 = Player_R2(1,"plr1",4,4)
+                player2 = Player_R2(2,"plr2",4,4)
+                player1.addOpponent(player2)
+                player2.addOpponent(player1)
+                round2(True)
+            elif ans == "3":
+                pass
     clear()
     shotgun = Shotgun()
 
     player1 = Player(1,input("what does player 1 call themselves? "),2,2)
     player2 = Player(2,input("what about player 2? "),2,2)
+    player1.addOpponent(player2)
+    player2.addOpponent(player1)
 
     print("good luck.")
     s(2)
 
-    while (player1.lives > 0) and (player2.lives > 0): # round 1
-        liveshells = r(1,4)
-        blankshells = r(1,4)
-        shotgun.insertShells(liveshells, blankshells)
-        clear()
-        print(f"LOADED SHELLS: {liveshells} LIVE AND {blankshells} BLANK")
+    def round1(testmode: bool=False):
+        while (player1.lives > 0) and (player2.lives > 0): # round 1
+            liveshells = r(1,4)
+            blankshells = r(1,4)
+            shotgun.insertShells(liveshells, blankshells)
+            clear()
+            print(f"LOADED SHELLS: {liveshells} LIVE AND {blankshells} BLANK")
+            s(5)
+            clear()
+            while (player1.lives > 0) and (player2.lives > 0) and (len(shotgun.content) > 0):
+                clear()
+                player1.turn(shotgun)
+                if player1.otherDmg == True:
+                    player2.takeDmg()
+                    player1.otherDmg = False
+                if testmode:
+                    print(player1.lives, player2.lives, shotgun, player1.cuffed, player2.cuffed)
+                clear()
+                if player1.lives == 0 or player2.lives == 0 or len(shotgun.content) == 0:
+                    break
+                player2.turn(shotgun)
+                if player2.otherDmg == True:
+                    player1.takeDmg()
+                    player2.otherDmg = False
+                if testmode:
+                    print(player1.lives, player2.lives, shotgun, player1.cuffed, player2.cuffed)
+                clear()
+        if player1.lives == 0:
+            print(f"{player2.name} wins.",end=" ")
+            player2.wins += 1
+        elif player2.lives == 0:
+            print(f"{player1.name} wins.",end=" ")
+            player1.wins += 1
+        print("end of round 1.")
         s(5)
-        clear()
-        while (player1.lives > 0) and (player2.lives > 0) and (len(shotgun.content) > 0):
-            clear()
-            player1.turn(shotgun)
-            if player1.otherDmg == True:
-                player2.takeDmg()
-                player1.otherDmg = False
-            # print(player1lives, player2lives, shotgun, player1cuffed, player2cuffed)
-            clear()
-            if player1.lives == 0 or player2.lives == 0 or len(shotgun.content) == 0:
-                break
-            player2.turn(shotgun)
-            if player2.otherDmg == True:
-                player1.takeDmg()
-                player2.otherDmg = False
-            # print(player1lives, player2lives, shotgun, player1cuffed, player2cuffed)
-            clear()
-        
-    if player1.lives == 0:
-        print(f"{player2.name} wins.",end=" ")
-        player2.wins += 1
-    elif player2.lives == 0:
-        print(f"{player1.name} wins.",end=" ")
-        player1.wins += 1
-    print("end of round 1.")
-    s(5)
+    round1()
 
     shotgun.content = []
     player1 = Player_R2(1,player1.name,4,4)
     player2 = Player_R2(2,player2.name,4,4)
+    player1.addOpponent(player2)
+    player2.addOpponent(player1)
     clear()
     print("both of you can now have items. (max 8)")
     s(3)
 
-    while (player1.lives > 0) and (player2.lives > 0): # round 2
-        player1.getItem(2)
-        s(2)
-        player2.getItem(2)
-        s(2)
-        liveshells = r(1,4)
-        blankshells = r(1,4)
-        shotgun.insertShells(liveshells, blankshells)
-        clear()
-        print(f"LOADED SHELLS: {liveshells} LIVE AND {blankshells} BLANK")
-        s(5)
-        clear()
-        while (player1.lives > 0) and (player2.lives > 0) and (len(shotgun.content) > 0):
+    def round2(testmode: bool=False):
+        while (player1.lives > 0) and (player2.lives > 0): # round 2
+            player1.getItem(2)
+            s(2)
+            player2.getItem(2)
+            s(2)
+            liveshells = r(1,4)
+            blankshells = r(1,4)
+            shotgun.insertShells(liveshells, blankshells)
             clear()
-            if player1.cuffed == 2:
-                print(f"{player1.name} broke free from cuffs.")
-                player1.cuffed = 0
-                s(2)
-            elif player1.cuffed == 1:
-                print(f"{player1.name} is cuffed.")
-                player1.cuffed += 1
-                s(2)
+            print(f"LOADED SHELLS: {liveshells} LIVE AND {blankshells} BLANK")
+            s(5)
+            clear()
+            while (player1.lives > 0) and (player2.lives > 0) and (len(shotgun.content) > 0):
+                clear()
+                if player1.cuffed == 2:
+                    print(f"{player1.name} broke free from cuffs.")
+                    player1.cuffed = 0
+                    s(2)
+                elif player1.cuffed == 1:
+                    print(f"{player1.name} is cuffed.")
+                    player1.cuffed += 1
+                    s(2)
+                    player2.turn(shotgun)
+                    continue
+                clear()
+                player1.turn(shotgun)
+                if player1.otherDmg == True:
+                    player2.takeDmg(shotgun.dmg)
+                    player1.otherDmg = False
+                if testmode:
+                    print(player1.lives, player2.lives, shotgun, player1.cuffed, player2.cuffed)
+                clear()
+                if player1.lives == 0 or player2.lives == 0 or len(shotgun.content) == 0:
+                    break
+                if player2.cuffed == 2:
+                    print(f"{player2.name} broke free from cuffs.")
+                    player2.cuffed = 0
+                elif player2.cuffed == 1:
+                    print(f"{player2.name} is cuffed.")
+                    player2.cuffed += 1
+                    s(2)
+                    continue
+                clear()
                 player2.turn(shotgun)
-                continue
+                if player2.otherDmg == True:
+                    player1.takeDmg(shotgun.dmg)
+                    player2.otherDmg = False
+                if testmode:
+                    print(player1.lives, player2.lives, shotgun, player1.cuffed, player2.cuffed)
+                clear()
             clear()
-            player1.turn(shotgun)
-            if player1.otherDmg == True:
-                player2.takeDmg(shotgun.dmg)
-                player1.otherDmg = False
-            # print(player1lives, player2lives, shotgun, player1cuffed, player2cuffed)
-            clear()
-            if player1.lives == 0 or player2.lives == 0 or len(shotgun.content) == 0:
-                break
-            if player2.cuffed == 2:
-                print(f"{player2.name} broke free from cuffs.")
-                player2.cuffed = 0
-            elif player2.cuffed == 1:
-                print(f"{player2.name} is cuffed.")
-                player2.cuffed += 1
-                s(2)
-                continue
-            clear()
-            player2.turn(shotgun)
-            if player2.otherDmg == True:
-                player1.takeDmg(shotgun.dmg)
-                player2.otherDmg = False
-            # print(player1lives, player2lives, shotgun, player1cuffed, player2cuffed)
-            clear()
-        clear()
 
-    if player1.lives == 0:
-        print(f"{player2.name} wins. end of round 2")
-        player2.wins += 1
-    elif player2.lives == 0:
-        print(f"{player1.name} wins. end of round 2")
-        player1.wins += 1
-    s(5)
+        if player1.lives == 0:
+            print(f"{player2.name} wins. end of round 2")
+            player2.wins += 1
+        elif player2.lives == 0:
+            print(f"{player1.name} wins. end of round 2")
+            player1.wins += 1
+        s(5)
+    round2()
 
     clear()
     print("lets make this a little bit more interesting.")
@@ -157,6 +191,8 @@ def main() -> None:
     shotgun.content = []
     player1 = Player_R2(1,player1.name,6,6)
     player2 = Player_R2(2,player2.name,6,6)
+    player1.addOpponent(player2)
+    player2.addOpponent(player1)
     clear()
     while (player1.lives > 0) and (player2.lives > 0): # round 3
         player1.getItem(4)
@@ -235,6 +271,10 @@ def main() -> None:
     s(2)
     print('love and kisses, table106') # if youre contributing, add yourself here!
     s(2) # also might want to change the time before end of program
+    if input("") == "yes":
+        main()
+    else:
+        exit()
 
 if __name__ == "__main__":
     main()

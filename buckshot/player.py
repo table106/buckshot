@@ -5,6 +5,8 @@ from log import *
 
 from items import *
 
+from shotgun import Shotgun
+
 class Player:
     def __init__(self, num: int, name: str, lives: int, lifeCap: int):
         self.num = num
@@ -13,18 +15,22 @@ class Player:
         self.wins = 0
         self.otherDmg = False
         self.lifeCap = lifeCap
+        self.opponent = None
 
     def __str__(self):
         if self.lives > 1:
             return f"{self.name}'s turn\nyou have {self.lives} lives"
         return f"{self.name}'s turn\nyou have 1 life"
+    
+    def addOpponent(self, opponent: object):
+        self.opponent = opponent
 
     def takeDmg(self, viel: int=None):
         if viel == None:
             viel = 1
         self.lives -= viel
     
-    def turn(self, shotgun: object):
+    def turn(self, shotgun: Shotgun):
         print(self)
         ans = input("say to use:\nshotgun - shoot\n>")
         match (ans):
@@ -70,6 +76,7 @@ class Player_R2(Player):
         self.inv = []
         self.cuffed = 0
 
+
     def __str__(self):
         return super().__str__()+f"\nyour items: {self.inv}"
 
@@ -94,15 +101,15 @@ class Player_R2(Player):
             case "magnifying glass":
                 useGlass()
             case "cigarette":
-                useCigarette(self.num)
+                useCigarette(self)
             case "cuffs":
-                useCuffs(self.num)
+                useCuffs(self.opponent)
             case default:
                 info(f"player {self.num} failed to pick an item")
     
-    def turn(self, shotgun: object):
+    def turn(self, shotgun: Shotgun):
         print(self)
-        ans = input("say to use:\nshotgun - shoot\n>")
+        ans = input("say to use:\nshotgun - shoot\nitem - item>")
         match (ans):
             case "shoot":
                 ans = input("shoot self or enemy?\n>")
