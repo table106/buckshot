@@ -5,7 +5,7 @@ from log import *
 
 from items import *
 
-from shotgun import Shotgun
+from shotgun import *
 
 class Player:
     def __init__(self, num: int, name: str, lives: int, lifeCap: int):
