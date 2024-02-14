@@ -1,5 +1,5 @@
 import logging
-logging.basicConfig(level=logging.INFO, filename="debug.log", filemode="w", format="%(asctime)s at line no. %(lineno)d - %(message)s")
+logging.basicConfig(level=logging.DEBUG, filename="debug.log", filemode="w", format="%(asctime)s at line no. %(lineno)d - %(message)s")
 
 def debug(msg):
     logging.debug(msg)
@@ -15,6 +15,3 @@ def error(msg):
 
 def critical(msg):
     logging.critical(msg)
-
-def weLoggingAllOfIt():
-    logging.basicConfig(level=logging.DEBUG, filename="debug.log", filemode="w", format="%(asctime)s at line no. %(lineno)d - %(message)s")

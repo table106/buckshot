@@ -10,8 +10,6 @@ from items import *
 
 from rounds import *
 
-from log import weLoggingAllOfIt
-
 def main() -> None:
     print("well hello there! welcome to...")
     s(3)
@@ -46,7 +44,6 @@ def main() -> None:
         input("when you finish reading, just press enter")
     elif ans == "therealtable":
         print("hello world!")
-        weLoggingAllOfIt()
         lel = ["1", "2", "3"]
         ans = "1"
         shotgun = Shotgun()
