@@ -5,13 +5,16 @@ class Shotgun:
         self.content = []
         self.dmg = 1
 
-    def insertShells(self, live: int, blank: int):
+    def __str__(self) -> str:
+        return self.content
+
+    def insertShells(self, live: int, blank: int) -> None:
         for i in range(live):
             self.content.append("live")
         for i in range(blank):
             self.content.append("blank")
         shuffle(self.content)
 
-    def shoot(self):
+    def shoot(self) -> None:
         self.content.pop(0)
         self.dmg = 1

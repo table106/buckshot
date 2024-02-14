@@ -18,10 +18,16 @@ class Player:
         self.lifeCap = lifeCap
         self.opponent = None
 
-    def __str__(self):
+    def __str__(self) -> str:
         if self.lives > 1:
             return f"{self.name}'s turn\nyou have {self.lives} lives"
         return f"{self.name}'s turn\nyou have 1 life"
+    
+    def __repr__(self) -> str:
+        return f"player {self.num}: {self.name}\
+             | lives: {self.lives}\
+             | wins: {self.wins}\
+             | life cap: {self.lifeCap}"
     
     def addOpponent(self, opponent: object):
         self.opponent = opponent
@@ -31,7 +37,7 @@ class Player:
             viel = 1
         self.lives -= viel
     
-    def turn(self, shotgun: Shotgun, testmode: bool=False):
+    def turn(self, shotgun: Shotgun):
         print(self)
         ans = input("say to use:\nshotgun - shoot\n>")
         match (ans):
@@ -81,9 +87,12 @@ class Player_R2(Player):
         self.inv = []
         self.cuffed = 0
 
-
-    def __str__(self):
+    def __str__(self) -> str:
         return super().__str__()+f"\nyour items: {self.inv}"
+    
+    def __repr__(self) -> str:
+        return super().__repr__()+f" | inventory: {self.inv}\
+             | cuffed state: {self.cuffed}"
 
     def heal(self):
         self.lives += 1

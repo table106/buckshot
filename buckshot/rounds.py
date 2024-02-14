@@ -2,7 +2,7 @@ from random import randint as r
 
 from player import *
 
-from system import trySleep
+from system import trySleep, printAndLogInfo
 
 def round1(player1: Player, player2: Player, shotgun: Shotgun, testmode: bool=False):
     while (player1.lives > 0) and (player2.lives > 0):
@@ -15,6 +15,7 @@ def round1(player1: Player, player2: Player, shotgun: Shotgun, testmode: bool=Fa
         clear()
         while (player1.lives > 0) and (player2.lives > 0) and (len(shotgun.content) > 0):
             clear()
+            printAndLogInfo(player1, player2, shotgun)
             player1.turn(shotgun)
             if player1.otherDmg == True:
                 player2.takeDmg()
@@ -24,6 +25,7 @@ def round1(player1: Player, player2: Player, shotgun: Shotgun, testmode: bool=Fa
             clear()
             if player1.lives == 0 or player2.lives == 0 or len(shotgun.content) == 0:
                 break
+            printAndLogInfo(player1, player2, shotgun)
             player2.turn(shotgun)
             if player2.otherDmg == True:
                 player1.takeDmg()
@@ -66,6 +68,7 @@ def round2(player1: Player_R2, player2: Player_R2, shotgun: Shotgun, testmode: b
                 player2.turn(shotgun)
                 continue
             clear()
+            printAndLogInfo(player1, player2, shotgun)
             player1.turn(shotgun)
             if player1.otherDmg == True:
                 player2.takeDmg(shotgun.dmg)
@@ -85,6 +88,7 @@ def round2(player1: Player_R2, player2: Player_R2, shotgun: Shotgun, testmode: b
                 trySleep(2, testmode)
                 continue
             clear()
+            printAndLogInfo(player1, player2, shotgun)
             player2.turn(shotgun)
             if player2.otherDmg == True:
                 player1.takeDmg(shotgun.dmg)
@@ -132,6 +136,7 @@ def round3(player1: Player_R2, player2: Player_R2, shotgun: Shotgun, testmode: b
                 player2.turn(shotgun)
                 continue
             clear()
+            printAndLogInfo(player1, player2, shotgun)
             player1.turn(shotgun)
             if player1.otherDmg == True:
                 player2.takeDmg(shotgun.dmg)
@@ -152,6 +157,7 @@ def round3(player1: Player_R2, player2: Player_R2, shotgun: Shotgun, testmode: b
                 trySleep(2, testmode)
                 continue
             clear()
+            printAndLogInfo(player1, player2, shotgun)
             player2.turn(shotgun)
             if player2.otherDmg == True:
                 player1.takeDmg(shotgun.dmg)
