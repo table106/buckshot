@@ -1,7 +1,8 @@
 from random import randint as r
-from time import sleep as s
 
 from player import *
+
+from system import trySleep
 
 def round1(player1: Player, player2: Player, shotgun: Shotgun, testmode: bool=False):
     while (player1.lives > 0) and (player2.lives > 0):
@@ -10,7 +11,7 @@ def round1(player1: Player, player2: Player, shotgun: Shotgun, testmode: bool=Fa
         shotgun.insertShells(liveshells, blankshells)
         clear()
         print(f"LOADED SHELLS: {liveshells} LIVE AND {blankshells} BLANK")
-        s(5)
+        trySleep(5, testmode)
         clear()
         while (player1.lives > 0) and (player2.lives > 0) and (len(shotgun.content) > 0):
             clear()
@@ -37,31 +38,31 @@ def round1(player1: Player, player2: Player, shotgun: Shotgun, testmode: bool=Fa
         print(f"{player1.name} wins.",end=" ")
         player1.wins += 1
     print("end of round 1.")
-    s(5)
+    trySleep(5, testmode)
 
 def round2(player1: Player_R2, player2: Player_R2, shotgun: Shotgun, testmode: bool=False):
     while (player1.lives > 0) and (player2.lives > 0):
         player1.getItem(1)
-        s(2)
+        trySleep(2, testmode)
         player2.getItem(1)
-        s(2)
+        trySleep(2, testmode)
         liveshells = r(1,4)
         blankshells = r(1,4)
         shotgun.insertShells(liveshells, blankshells)
         clear()
         print(f"LOADED SHELLS: {liveshells} LIVE AND {blankshells} BLANK")
-        s(5)
+        trySleep(5, testmode)
         clear()
         while (player1.lives > 0) and (player2.lives > 0) and (len(shotgun.content) > 0):
             clear()
             if player1.cuffed == 2:
                 print(f"{player1.name} broke free from cuffs.")
                 player1.cuffed = 0
-                s(2)
+                trySleep(2, testmode)
             elif player1.cuffed == 1:
                 print(f"{player1.name} is cuffed.")
                 player1.cuffed += 1
-                s(2)
+                trySleep(2, testmode)
                 player2.turn(shotgun)
                 continue
             clear()
@@ -77,10 +78,11 @@ def round2(player1: Player_R2, player2: Player_R2, shotgun: Shotgun, testmode: b
             if player2.cuffed == 2:
                 print(f"{player2.name} broke free from cuffs.")
                 player2.cuffed = 0
+                trySleep(2, testmode)
             elif player2.cuffed == 1:
                 print(f"{player2.name} is cuffed.")
                 player2.cuffed += 1
-                s(2)
+                trySleep(2, testmode)
                 continue
             clear()
             player2.turn(shotgun)
@@ -98,14 +100,14 @@ def round2(player1: Player_R2, player2: Player_R2, shotgun: Shotgun, testmode: b
     elif player2.lives == 0:
         print(f"{player1.name} wins. end of round 2")
         player1.wins += 1
-    s(5)
+    trySleep(5, testmode)
 
 def round3(player1: Player_R2, player2: Player_R2, shotgun: Shotgun, testmode: bool=False):
     while (player1.lives > 0) and (player2.lives > 0): # round 3
         player1.getItem(2)
-        s(2)
+        trySleep(2, testmode)
         player2.getItem(2)
-        s(2)
+        trySleep(2, testmode)
         while len(player1.inv) > 8:
             player1.inv.pop()
         while len(player2.inv) > 8:
@@ -115,18 +117,18 @@ def round3(player1: Player_R2, player2: Player_R2, shotgun: Shotgun, testmode: b
         shotgun.insertShells(liveshells, blankshells)
         clear()
         print(f"LOADED SHELLS: {liveshells} LIVE AND {blankshells} BLANK")
-        s(5)
+        trySleep(5, testmode)
         clear()
         while (player1.lives > 0) and (player2.lives > 0) and (len(shotgun.content) > 0): 
             clear()
             if player1.cuffed == 2:
                 print(f"{player1.name} broke free from cuffs.")
                 player1.cuffed = 0
-                s(2)
+                trySleep(2, testmode)
             elif player1.cuffed == 1:
                 print(f"{player1.name} is cuffed.")
                 player1.cuffed += 1
-                s(2)
+                trySleep(2, testmode)
                 player2.turn(shotgun)
                 continue
             clear()
@@ -136,24 +138,25 @@ def round3(player1: Player_R2, player2: Player_R2, shotgun: Shotgun, testmode: b
                 player1.otherDmg = False
             clear()
             # print(player1lives, player2lives, shotgun, player1cuffed, player2cuffed)
-            s(2)
+            trySleep(2, testmode)
             clear()
             if player1.lives == 0 or player2.lives == 0 or len(shotgun.content) == 0:
                 break
             if player2.cuffed == 2:
                 print(f"{player2.name} broke free from cuffs.")
                 player2.cuffed = 0
+                trySleep(2, testmode)
             elif player2.cuffed == 1:
                 print(f"{player2.name} is cuffed.")
                 player2.cuffed += 1
-                s(2)
+                trySleep(2, testmode)
                 continue
             clear()
             player2.turn(shotgun)
             if player2.otherDmg == True:
                 player1.takeDmg(shotgun.dmg)
                 player2.otherDmg = False
-            s(2)
+            trySleep(2, testmode)
             clear()
         clear()
     if player1.lives == 0:
@@ -162,4 +165,4 @@ def round3(player1: Player_R2, player2: Player_R2, shotgun: Shotgun, testmode: b
     elif player2.lives == 0:
         print(f"{player1.name} wins.")
         player1.wins += 1
-    s(5)
+    trySleep(5, testmode)
