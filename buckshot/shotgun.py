@@ -5,8 +5,8 @@ class Shotgun:
         self.content = []
         self.dmg = 1
 
-    def __str__(self):
-        return self.content
+    def __str__(self) -> str:
+        return f"{self.content}"
 
     def insertShells(self, live: int, blank: int) -> None:
         for i in range(live):
