@@ -15,14 +15,16 @@ def round1(player1: Player, player2: Player, shotgun: Shotgun, testmode: bool=Fa
         clear()
         while (player1.lives > 0) and (player2.lives > 0) and (len(shotgun.content) > 0):
             clear()
-            printAndLogInfo(player1, player2, shotgun, end="\n\n")
+            if testmode:
+                printAndLogInfo(player1, player2, shotgun, end="\n\n")
             player1.turn(shotgun)
             if testmode:
                 print(player1.lives, player2.lives, shotgun)
             clear()
             if player1.lives == 0 or player2.lives == 0 or len(shotgun.content) == 0:
                 break
-            printAndLogInfo(player1, player2, shotgun, end="\n\n")
+            if testmode:
+                printAndLogInfo(player1, player2, shotgun, end="\n\n")
             player2.turn(shotgun)
             if testmode:
                 print(player1.lives, player2.lives, shotgun)
@@ -62,7 +64,8 @@ def round2(player1: Player_R2, player2: Player_R2, shotgun: Shotgun, testmode: b
                 player2.turn(shotgun)
                 continue
             clear()
-            printAndLogInfo(player1, player2, shotgun, end="\n\n")
+            if testmode:
+                printAndLogInfo(player1, player2, shotgun, end="\n\n")
             player1.turn(shotgun)
             if testmode:
                 print(player1.lives, player2.lives, shotgun, player1.cuffed, player2.cuffed)
@@ -79,7 +82,8 @@ def round2(player1: Player_R2, player2: Player_R2, shotgun: Shotgun, testmode: b
                 trySleep(2, testmode)
                 continue
             clear()
-            printAndLogInfo(player1, player2, shotgun, end="\n\n")
+            if testmode:
+                printAndLogInfo(player1, player2, shotgun, end="\n\n")
             player2.turn(shotgun)
             if testmode:
                 print(player1.lives, player2.lives, shotgun, player1.cuffed, player2.cuffed)
@@ -124,7 +128,8 @@ def round3(player1: Player_R2, player2: Player_R2, shotgun: Shotgun, testmode: b
                 player2.turn(shotgun)
                 continue
             clear()
-            printAndLogInfo(player1, player2, shotgun, end="\n\n")
+            if testmode:
+                printAndLogInfo(player1, player2, shotgun, end="\n\n")
             player1.turn(shotgun)
             clear()
             # print(player1lives, player2lives, shotgun, player1cuffed, player2cuffed)
@@ -142,7 +147,8 @@ def round3(player1: Player_R2, player2: Player_R2, shotgun: Shotgun, testmode: b
                 trySleep(2, testmode)
                 continue
             clear()
-            printAndLogInfo(player1, player2, shotgun, end="\n\n")
+            if testmode:
+                printAndLogInfo(player1, player2, shotgun, end="\n\n")
             player2.turn(shotgun)
             trySleep(2, testmode)
             clear()
