@@ -14,7 +14,6 @@ class Player:
         self.name = name
         self.lives = lives
         self.wins = 0
-        self.otherDmg = False
         self.lifeCap = lifeCap
         self.opponent = None
 
@@ -64,7 +63,7 @@ class Player:
                         if shotgun.content[0] == "live":
                             print("BANG")
                             shotgun.shoot()
-                            self.otherDmg = True
+                            self.opponent.takeDmg(1)
                             debug(f"player {self.opponent.num} took damage from enemy")
                         elif shotgun.content[0] == "blank":
                             print("*click")
@@ -157,7 +156,7 @@ class Player_R2(Player):
                         if shotgun.content[0] == "live":
                             print("BANG")
                             shotgun.shoot()
-                            self.otherdmg = True
+                            self.opponent.takeDmg(shotgun.dmg)
                             debug(f"player {self.opponent.num} took damage from enemy")
                         elif shotgun.content[0] == "blank":
                             print("*click")

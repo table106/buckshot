@@ -1,4 +1,4 @@
-v0.1-beta
+v0.1-beta (init)
 - decided to make my own version of the game
 - kinda regretting it
 - ah well
@@ -7,11 +7,11 @@ v0.1-beta
 v0.1.1-beta
 + added main menu
 
-v0.2-beta
+v0.2-beta (round 2 update)
 + added round 2
 + added items
 
-v0.3-beta
+v0.3-beta (round 3 update)
 + added round 3
 + added item cap (8)
 
@@ -24,7 +24,7 @@ v0.3.2-beta
 v0.3.3-beta
 + even more fixes (man i suck at programming)
 
-v0.4-beta
+v0.4-beta (github update)
 + put this thing on github
 + fixes, fixes everywhere
 + added win counters
@@ -35,12 +35,12 @@ v0.4.1-beta
 v0.4.2-beta
 + added error handling
 
-v0.5-beta
+v0.5-beta (revamp update)
 + huge code revamp! code now 2x smaller than v0.4.2-beta
 + visual improvements
 + fixes, what a shock
 
-v0.6-beta
+v0.6-beta (revamp update 2)
 + revamped even more!! code is now split into separate files (hopefully looks cleaner)
 + some fixes, old and new
 
@@ -55,7 +55,7 @@ v0.6.3-beta
 + implemented action failure logging
 + fixed items not using up
 
-v0.7-beta
+v0.7-beta (dev update)
 + logging fully implemented
 + testmöde added
 + made the rounds a library
@@ -63,3 +63,6 @@ v0.7-beta
 v0.7.1-beta
 + testmöde now disables most sleep()'s
 + general testmöde improvements
+
+v0.7.2-beta
++ better damaging system

@@ -17,9 +17,6 @@ def round1(player1: Player, player2: Player, shotgun: Shotgun, testmode: bool=Fa
             clear()
             printAndLogInfo(player1, player2, shotgun, end="\n\n")
             player1.turn(shotgun)
-            if player1.otherDmg == True:
-                player2.takeDmg()
-                player1.otherDmg = False
             if testmode:
                 print(player1.lives, player2.lives, shotgun)
             clear()
@@ -27,9 +24,6 @@ def round1(player1: Player, player2: Player, shotgun: Shotgun, testmode: bool=Fa
                 break
             printAndLogInfo(player1, player2, shotgun, end="\n\n")
             player2.turn(shotgun)
-            if player2.otherDmg == True:
-                player1.takeDmg()
-                player2.otherDmg = False
             if testmode:
                 print(player1.lives, player2.lives, shotgun)
             clear()
@@ -70,9 +64,6 @@ def round2(player1: Player_R2, player2: Player_R2, shotgun: Shotgun, testmode: b
             clear()
             printAndLogInfo(player1, player2, shotgun, end="\n\n")
             player1.turn(shotgun)
-            if player1.otherDmg == True:
-                player2.takeDmg(shotgun.dmg)
-                player1.otherDmg = False
             if testmode:
                 print(player1.lives, player2.lives, shotgun, player1.cuffed, player2.cuffed)
             clear()
@@ -90,9 +81,6 @@ def round2(player1: Player_R2, player2: Player_R2, shotgun: Shotgun, testmode: b
             clear()
             printAndLogInfo(player1, player2, shotgun, end="\n\n")
             player2.turn(shotgun)
-            if player2.otherDmg == True:
-                player1.takeDmg(shotgun.dmg)
-                player2.otherDmg = False
             if testmode:
                 print(player1.lives, player2.lives, shotgun, player1.cuffed, player2.cuffed)
             clear()
@@ -138,9 +126,6 @@ def round3(player1: Player_R2, player2: Player_R2, shotgun: Shotgun, testmode: b
             clear()
             printAndLogInfo(player1, player2, shotgun, end="\n\n")
             player1.turn(shotgun)
-            if player1.otherDmg == True:
-                player2.takeDmg(shotgun.dmg)
-                player1.otherDmg = False
             clear()
             # print(player1lives, player2lives, shotgun, player1cuffed, player2cuffed)
             trySleep(2, testmode)
@@ -159,9 +144,6 @@ def round3(player1: Player_R2, player2: Player_R2, shotgun: Shotgun, testmode: b
             clear()
             printAndLogInfo(player1, player2, shotgun, end="\n\n")
             player2.turn(shotgun)
-            if player2.otherDmg == True:
-                player1.takeDmg(shotgun.dmg)
-                player2.otherDmg = False
             trySleep(2, testmode)
             clear()
         clear()
