@@ -51,22 +51,22 @@ def main() -> None:
             ans = input("where to?\n>")
             if ans == "1":
                 shotgun.content = []
-                player1 = Player(1,"plr1",2,2)
-                player2 = Player(2,"plr2",2,2)
+                player1 = Player(1,"plr1",2)
+                player2 = Player(2,"plr2",2)
                 player1.addOpponent(player2)
                 player2.addOpponent(player1)
                 round1(player1, player2, shotgun, True)
             elif ans == "2":
                 shotgun.content = []
-                player1 = Player_R2(1,"plr1",4,4)
-                player2 = Player_R2(2,"plr2",4,4)
+                player1 = Player_R2(1,"plr1",4)
+                player2 = Player_R2(2,"plr2",4)
                 player1.addOpponent(player2)
                 player2.addOpponent(player1)
                 round2(player1, player2, shotgun, True)
             elif ans == "3":
                 shotgun.content = []
-                player1 = Player_R2(1,"plr1",6,6)
-                player2 = Player_R2(2,"plr2",6,6)
+                player1 = Player_R2(1,"plr1",6)
+                player2 = Player_R2(2,"plr2",6)
                 player1.addOpponent(player2)
                 player2.addOpponent(player1)
                 round3(player1, player2, shotgun, True)
