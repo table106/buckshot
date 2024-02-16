@@ -48,7 +48,7 @@ def main() -> None:
         ans = "1"
         shotgun = Shotgun()
         while ans in lel:
-            ans = input("where to? ")
+            ans = input("where to?\n>")
             if ans == "1":
                 shotgun.content = []
                 player1 = Player(1,"plr1",2,2)
