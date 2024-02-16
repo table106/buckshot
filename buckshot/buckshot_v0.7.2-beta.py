@@ -11,6 +11,7 @@ from items import *
 from rounds import *
 
 def main() -> None:
+    clear()
     print("well hello there! welcome to...")
     s(3)
     print("=====================")
