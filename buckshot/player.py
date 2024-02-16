@@ -9,12 +9,12 @@ from items import *
 from shotgun import *
 
 class Player:
-    def __init__(self, num: int, name: str, lives: int, lifeCap: int):
+    def __init__(self, num: int, name: str, lives: int):
         self.num = num
         self.name = name
         self.lives = lives
         self.wins = 0
-        self.lifeCap = lifeCap
+        self.lifeCap = lives
         self.opponent = None
 
     def __str__(self) -> str:
@@ -81,8 +81,8 @@ class Player:
 allitems = ["beer", "knife", "magnifying glass", "cigarette", "cuffs"]
 
 class Player_R2(Player):
-    def __init__(self, num: int, name: str, lives: int, lifeCap: int):
-        super().__init__(num, name, lives, lifeCap)
+    def __init__(self, num: int, name: str, lives: int):
+        super().__init__(num, name, lives)
         self.inv = []
         self.cuffed = 0
 

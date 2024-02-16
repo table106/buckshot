@@ -73,8 +73,8 @@ def main() -> None:
     clear()
     shotgun = Shotgun()
 
-    player1 = Player(1,input("what does player 1 call themselves? "),2,2)
-    player2 = Player(2,input("what about player 2? "),2,2)
+    player1 = Player(1,input("what does player 1 call themselves? "),2)
+    player2 = Player(2,input("what about player 2? "),2)
     player1.addOpponent(player2)
     player2.addOpponent(player1)
 
@@ -84,8 +84,8 @@ def main() -> None:
     round1(player1, player2, shotgun)
 
     shotgun.content = []
-    player1 = Player_R2(1,player1.name,4,4)
-    player2 = Player_R2(2,player2.name,4,4)
+    player1 = Player_R2(1,player1.name,4)
+    player2 = Player_R2(2,player2.name,4)
     player1.addOpponent(player2)
     player2.addOpponent(player1)
     clear()
@@ -101,6 +101,10 @@ def main() -> None:
     s(5)
 
     shotgun.content = []
+    player1 = Player_R2(1,player1.name,6)
+    player2 = Player_R2(2,player2.name,6)
+    player1.addOpponent(player2)
+    player2.addOpponent(player1)
     round3(player1, player2, shotgun)
 
     clear()
