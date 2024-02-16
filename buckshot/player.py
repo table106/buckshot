@@ -150,7 +150,6 @@ class Player_R2(Player):
                             clear()
                             if len(shotgun.content) != 0:
                                 self.turn(shotgun)
-                            self.turn(shotgun)
                     case "enemy":
                         logging.debug(f"player {self.num} chose to shoot the enemy")
                         sleep(4)
