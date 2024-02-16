@@ -24,7 +24,7 @@ class Player:
         return f"{self.name}'s turn\nyou have 1 life"
     
     def __repr__(self) -> str:
-        return f"player {self.num}: {self.name}\
+        return f"{self.num}: {self.name}\
              | lives: {self.lives}\
              | wins: {self.wins}\
              | life cap: {self.lifeCap}"
