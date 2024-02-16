@@ -169,7 +169,7 @@ class Player_R2(Player):
             case "item":
                 logging.debug(f"player {self.num} chose to use an item")
                 ans = input(f"pick an item. {self.inv}\n>")
-                self.useItem(ans)
+                self.useItem(ans, shotgun)
             case default:
                 print("failed to pick an action")
                 logging.info(f"player {self.num} failed to pick an action")
