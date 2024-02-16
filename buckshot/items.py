@@ -14,10 +14,9 @@ def useGlass(player: object, shotgun: Shotgun):
     print(f"the shell in the chamber is a {shotgun.content[0]} one")
     player.inv.remove("magnifying glass")
     
-
 def useCigarette(player: object):
     if player.lives == player.lifeCap:
-        print("you already have max lives.")
+        print("you already have max lives. (item consumed)")
     else:
         player.heal()
     player.inv.remove("cigarette")

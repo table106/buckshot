@@ -2,7 +2,8 @@ from system import clear
 from time import sleep
 from random import randint as r
 
-from log import *
+import logging
+logging.basicConfig(level=logging.DEBUG, filename="debug.log", filemode="w", format="%(asctime)s at line no. %(lineno)d - %(message)s")
 
 from items import *
 
@@ -49,11 +50,11 @@ class Player:
                             print("BANG")
                             shotgun.shoot()
                             self.takeDmg()
-                            debug(f"player {self.num} took damage from self")
+                            logging.debug(f"player {self.num} took damage from self")
                         elif shotgun.content[0] == "blank":
                             print("*click")
                             shotgun.shoot()
-                            debug(f"player {self.num} gets another turn")
+                            logging.debug(f"player {self.num} gets another turn")
                             sleep(2)
                             clear()
                             if len(shotgun.content) != 0:
@@ -64,17 +65,17 @@ class Player:
                             print("BANG")
                             shotgun.shoot()
                             self.opponent.takeDmg(1)
-                            debug(f"player {self.opponent.num} took damage from enemy")
+                            logging.debug(f"player {self.opponent.num} took damage from enemy")
                         elif shotgun.content[0] == "blank":
                             print("*click")
                             shotgun.shoot()
-                            debug(f"player {self.num} didn't damage the enemy")
+                            logging.debug(f"player {self.num} didn't damage the enemy")
                     case default:
                         print("failed to pick the target")
-                        info(f"player {self.num} failed to pick a target")
+                        logging.info(f"player {self.num} failed to pick a target")
             case default:
                 print("failed to pick an action")
-                info(f"player {self.num} failed to pick an action")
+                logging.info(f"player {self.num} failed to pick an action")
         sleep(2)
         clear()
 
@@ -105,72 +106,72 @@ class Player_R2(Player):
             print(f"{self.name} got {allitems[id1]}, and {allitems[id2]}.")
             sleep(2)
 
-    def useItem(self, item: str):
+    def useItem(self, item: str, shotgun: Shotgun):
         match(item):
             case "beer":
-                useBeer()
-                debug(f"player {self.num} used a beer")
+                useBeer(self, shotgun)
+                logging.debug(f"player {self.num} used a beer")
             case "knife":
-                useKnife()
-                debug(f"player {self.num} used a knife")
+                useKnife(self, shotgun)
+                logging.debug(f"player {self.num} used a knife")
             case "magnifying glass":
-                useGlass()
-                debug(f"player {self.num} used a glass")
+                useGlass(self, shotgun)
+                logging.debug(f"player {self.num} used a glass")
             case "cigarette":
                 useCigarette(self)
-                debug(f"player {self.num} used a cig")
+                logging.debug(f"player {self.num} used a cig")
             case "cuffs":
                 useCuffs(self.opponent)
-                debug(f"player {self.num} used cuffs")
+                logging.debug(f"player {self.num} used cuffs")
             case default:
-                info(f"player {self.num} failed to pick an item")
+                logging.info(f"player {self.num} failed to pick an item")
     
     def turn(self, shotgun: Shotgun):
         print(self)
         ans = input("say to use:\nshotgun - shoot\nitem - item\n>")
         match (ans):
             case "shoot":
-                debug(f"player {self.num} chose to shoot")
+                logging.debug(f"player {self.num} chose to shoot")
                 ans = input("shoot self or enemy?\n>")
                 match (ans):
                     case "self":
-                        debug(f"player {self.num} chose to shoot self")
+                        logging.debug(f"player {self.num} chose to shoot self")
                         sleep(4)
                         if shotgun.content[0] == "live":
                             print("BANG")
                             shotgun.shoot()
                             self.takeDmg()
-                            debug(f"player {self.num} took damage from self")
+                            logging.debug(f"player {self.num} took damage from self")
                         elif shotgun.content[0] == "blank":
                             print("*click")
                             shotgun.shoot()
-                            debug(f"player {self.num} gets another turn")
+                            logging.debug(f"player {self.num} gets another turn")
                             sleep(2)
                             clear()
                             if len(shotgun.content) != 0:
                                 self.turn(shotgun)
                             self.turn(shotgun)
                     case "enemy":
-                        debug(f"player {self.num} chose to shoot the enemy")
+                        logging.debug(f"player {self.num} chose to shoot the enemy")
                         sleep(4)
                         if shotgun.content[0] == "live":
                             print("BANG")
                             shotgun.shoot()
                             self.opponent.takeDmg(shotgun.dmg)
-                            debug(f"player {self.opponent.num} took damage from enemy")
+                            logging.debug(f"player {self.opponent.num} took damage from enemy")
                         elif shotgun.content[0] == "blank":
                             print("*click")
                             shotgun.shoot()
-                            debug(f"player {self.num} didn't damage the enemy")
+                            logging.debug(f"player {self.num} didn't damage the enemy")
                     case default:
                         print("failed to pick target")
-                        info(f"player {self.num} failed to pick a target")
+                        logging.info(f"player {self.num} failed to pick a target")
             case "item":
-                debug(f"player {self.num} chose to use an item")
+                logging.debug(f"player {self.num} chose to use an item")
                 ans = input(f"pick an item. {self.inv}\n>")
                 self.useItem(ans)
             case default:
                 print("failed to pick an action")
-                info(f"player {self.num} failed to pick an action")
+                logging.info(f"player {self.num} failed to pick an action")
         sleep(2)
         clear()
