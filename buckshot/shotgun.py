@@ -18,3 +18,5 @@ class Shotgun:
     def shoot(self) -> None:
         self.content.pop(0)
         self.dmg = 1
+
+print("wrong file idiot")

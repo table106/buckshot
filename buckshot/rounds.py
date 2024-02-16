@@ -160,3 +160,5 @@ def round3(player1: Player_R2, player2: Player_R2, shotgun: Shotgun, testmode: b
         print(f"{player1.name} wins.")
         player1.wins += 1
     trySleep(5, testmode)
+
+print("wrong file idiot")

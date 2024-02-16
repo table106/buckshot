@@ -175,3 +175,5 @@ class Player_R2(Player):
                 logging.info(f"player {self.num} failed to pick an action")
         sleep(2)
         clear()
+
+print("wrong file idiot")
