@@ -100,6 +100,7 @@ def main() -> None:
     print("now, when you reach less than 3 lives, your defibrillator will be cut.\nthe life display will glitch when that happens")
     s(5)
 
+    shotgun.content = []
     round3(player1, player2, shotgun)
 
     clear()
