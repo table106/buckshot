@@ -95,7 +95,7 @@ def main() -> None:
     round2(player1, player2, shotgun)
 
     clear()
-    print("lets make this a little bit more interesting.")
+    print("let's make this a little bit more interesting.")
     s(2)
     print("now, when you reach less than 3 lives, your defibrillator will be cut.\nthe life display will glitch when that happens")
     s(5)
