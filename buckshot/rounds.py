@@ -11,7 +11,7 @@ def round1(player1: Player, player2: Player, shotgun: Shotgun, testmode: bool=Fa
         shotgun.insertShells(liveshells, blankshells)
         clear()
         print(f"LOADED SHELLS: {liveshells} LIVE AND {blankshells} BLANK")
-        trySleep(5, testmode)
+        sleep(5)
         clear()
         while (player1.lives > 0) and (player2.lives > 0) and (len(shotgun.content) > 0):
             clear()
@@ -49,7 +49,7 @@ def round2(player1: Player_R2, player2: Player_R2, shotgun: Shotgun, testmode: b
         shotgun.insertShells(liveshells, blankshells)
         clear()
         print(f"LOADED SHELLS: {liveshells} LIVE AND {blankshells} BLANK")
-        trySleep(5, testmode)
+        sleep(5)
         clear()
         while (player1.lives > 0) and (player2.lives > 0) and (len(shotgun.content) > 0):
             clear()
@@ -113,7 +113,7 @@ def round3(player1: Player_R2, player2: Player_R2, shotgun: Shotgun, testmode: b
         shotgun.insertShells(liveshells, blankshells)
         clear()
         print(f"LOADED SHELLS: {liveshells} LIVE AND {blankshells} BLANK")
-        trySleep(5, testmode)
+        sleep(5)
         clear()
         while (player1.lives > 0) and (player2.lives > 0) and (len(shotgun.content) > 0): 
             clear()
