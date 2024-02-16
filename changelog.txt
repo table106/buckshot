@@ -1,4 +1,4 @@
-v0.1-beta (init)
+v0.1-beta (initial)
 - decided to make my own version of the game
 - kinda regretting it
 - ah well
