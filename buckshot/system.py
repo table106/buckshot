@@ -1,4 +1,6 @@
 from os import system
+from time import sleep
+
 import log
 
 def clear() -> None:
@@ -8,7 +10,6 @@ def trySleep(duration: int, testmode: bool=False) -> None:
     if testmode:
         return None
     else:
-        from time import sleep
         sleep(duration)
 
 def testmodeLog(plr1: object, plr2: object, shotgun: object, testmode: bool=False) -> None:
