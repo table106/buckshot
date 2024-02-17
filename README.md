@@ -1,9 +1,11 @@
 # buckshot roulette, console app
 
+## prelude
+
 hello
 making a lil thingy here
 you know buckshot roulette?
-yeah that
+yeah
 its basically that
 but as a console app
 
