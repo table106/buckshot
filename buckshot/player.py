@@ -175,4 +175,5 @@ class Player_R2(Player):
         sleep(2)
         clear()
 
-print("wrong file idiot")
+if __name__ == "__main__":
+    print("wrong file idiot")

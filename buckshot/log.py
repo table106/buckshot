@@ -16,4 +16,5 @@ def error(msg):
 def critical(msg):
     logging.critical(msg)
 
-print("wrong file idiot")
+if __name__ == "__main__":
+    print("wrong file idiot")

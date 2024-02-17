@@ -28,4 +28,5 @@ def useCuffs(player: object):
         player.cuffed = 1
         player.inv.remove("cuffs")
 
-print("wrong file idiot")
+if __name__ == "__main__":
+    print("wrong file idiot")

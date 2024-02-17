@@ -161,4 +161,5 @@ def round3(player1: Player_R2, player2: Player_R2, shotgun: Shotgun, testmode: b
         player1.wins += 1
     trySleep(5, testmode)
 
-print("wrong file idiot")
+if __name__ == "__main__":
+    print("wrong file idiot")

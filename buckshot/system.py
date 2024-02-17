@@ -22,4 +22,5 @@ def testmodeLog(plr1: object, plr2: object, shotgun: object, testmode: bool=Fals
     if testmode:
         printAndLogInfo()
 
-print("wrong file idiot")
+if __name__ == "__main__":
+    print("wrong file idiot")

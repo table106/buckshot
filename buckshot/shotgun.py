@@ -19,4 +19,5 @@ class Shotgun:
         self.content.pop(0)
         self.dmg = 1
 
-print("wrong file idiot")
+if __name__ == "__main__":
+    print("wrong file idiot")
