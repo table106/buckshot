@@ -4,31 +4,62 @@ from player import *
 
 from system import trySleep, testmodeLog
 
-def round1(player1: Player, player2: Player, shotgun: Shotgun, testmode: bool=False):
-    while (player1.lives > 0) and (player2.lives > 0):
-        liveshells = r(1,4)
-        blankshells = r(1,4)
-        shotgun.insertShells(liveshells, blankshells)
-        clear()
-        print(f"LOADED SHELLS: {liveshells} LIVE AND {blankshells} BLANK")
-        sleep(5)
-        clear()
-        while (player1.lives > 0) and (player2.lives > 0) and (len(shotgun.content) > 0):
+def round1(shotgun: Shotgun, testmode: bool=False, *players):
+    player1: Player = players[0]
+    player2: Player = players[1]
+    if len(players) > 2:
+        player3: Player = players[2]
+        while (player1.lives > 0) and (player2.lives > 0) and (player3.lives > 0):
+            liveshells = r(1,4)
+            blankshells = r(1,4)
+            shotgun.insertShells(liveshells, blankshells)
             clear()
-            testmodeLog(player1, player2, shotgun, testmode)
-            print()
-            player1.turn(shotgun)
-            if testmode:
-                print(player1.lives, player2.lives, shotgun)
+            print(f"LOADED SHELLS: {liveshells} LIVE AND {blankshells} BLANK")
+            sleep(5)
             clear()
-            if player1.lives == 0 or player2.lives == 0 or len(shotgun.content) == 0:
-                break
-            testmodeLog(player1, player2, shotgun, testmode)
-            print()
-            player2.turn(shotgun)
-            if testmode:
-                print(player1.lives, player2.lives, shotgun)
+            while (player1.lives > 0) and (player2.lives > 0) and (player3.lives > 0) and (len(shotgun.content) > 0):
+                clear()
+                testmodeLog(shotgun, testmode, *players)
+                print()
+                player1.turn(shotgun)
+                clear()
+                if player1.lives == 0 or player2.lives == 0 or player3.lives == 0 or len(shotgun.content) == 0:
+                    break
+                testmodeLog(shotgun, testmode, *players)
+                print()
+                player2.turn(shotgun)
+                clear()
+                if player1.lives == 0 or player2.lives == 0 or player3.lives == 0 or len(shotgun.content) == 0:
+                    break
+                testmodeLog(shotgun, testmode, *players)
+                print()
+                player3.turn(shotgun)
+                clear()
+    else:
+        while (player1.lives > 0) and (player2.lives > 0):
+            liveshells = r(1,4)
+            blankshells = r(1,4)
+            shotgun.insertShells(liveshells, blankshells)
             clear()
+            print(f"LOADED SHELLS: {liveshells} LIVE AND {blankshells} BLANK")
+            sleep(5)
+            clear()
+            while (player1.lives > 0) and (player2.lives > 0) and (len(shotgun.content) > 0):
+                clear()
+                testmodeLog(player1, player2, shotgun, testmode)
+                print()
+                player1.turn(shotgun)
+                if testmode:
+                    print(player1.lives, player2.lives, shotgun)
+                clear()
+                if player1.lives == 0 or player2.lives == 0 or len(shotgun.content) == 0:
+                    break
+                testmodeLog(player1, player2, shotgun, testmode)
+                print()
+                player2.turn(shotgun)
+                if testmode:
+                    print(player1.lives, player2.lives, shotgun)
+                clear()
     if player1.lives == 0:
         print(f"{player2.name} wins.",end=" ")
         player2.wins += 1

@@ -21,6 +21,7 @@ def main() -> None:
     print("version v0.7.2-beta\n")
     print("press enter to start")
     ans = input("or type 'how' for a how-to-play ")
+    shotgun = Shotgun()
     if ans == "how":
         clear()
         print("alright, so\
@@ -47,7 +48,6 @@ def main() -> None:
         print("hello world!")
         lel = ["1", "2", "3"]
         ans = "1"
-        shotgun = Shotgun()
         while ans in lel:
             ans = input("where to?\n>")
             if ans == "1":
@@ -71,8 +71,23 @@ def main() -> None:
                 player1.addOpponent(player2)
                 player2.addOpponent(player1)
                 round3(player1, player2, shotgun, True)
+    elif ans == "theres3":
+        player1 = Player(1,input("what does player 1 call themselves? "),2)
+        player2 = Player(2,input("what about player 2? "),2)
+        while not checkNames(player2.name, player1.name):
+            player2 = Player(2,input("pick another name "),2)
+        player3 = Player(3,input("and player 3? "),2)
+        while not checkNames(player3.name, player1.name, player2.name):
+            player3 = Player(2,input("pick another name "),2)
+        player1.addOpponent(player2)
+        player1.addOpponent(player3)
+        player2.addOpponent(player1)
+        player2.addOpponent(player3)
+        player3.addOpponent(player1)
+        player3.addOpponent(player2)
+        round1(shotgun, False, player1, player2, player3)
     clear()
-    shotgun = Shotgun()
+    
 
     player1 = Player(1,input("what does player 1 call themselves? "),2)
     player2 = Player(2,input("what about player 2? "),2)

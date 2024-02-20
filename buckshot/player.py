@@ -16,7 +16,7 @@ class Player:
         self.lives = lives
         self.wins = 0
         self.lifeCap = lives
-        self.opponent = None
+        self.opponents = []
 
     def __str__(self) -> str:
         if self.lives > 1:
@@ -30,7 +30,7 @@ class Player:
              | life cap: {self.lifeCap}"
     
     def addOpponent(self, opponent: object):
-        self.opponent = opponent
+        self.opponents.append(opponent)
 
     def takeDmg(self, viel: int=None):
         if viel == None:
@@ -60,16 +60,31 @@ class Player:
                             if len(shotgun.content) != 0:
                                 self.turn(shotgun)
                     case "enemy":
-                        sleep(4)
-                        if shotgun.content[0] == "live":
-                            print("BANG")
-                            shotgun.shoot()
-                            self.opponent.takeDmg(1)
-                            logging.debug(f"player {self.opponent.num} took damage from enemy")
-                        elif shotgun.content[0] == "blank":
-                            print("*click")
-                            shotgun.shoot()
-                            logging.debug(f"player {self.num} didn't damage the enemy")
+                        if len(self.opponents) > 1:
+                            ans = input(f"who will you shoot?\n{", ".join([plr.name for plr in self.opponents])}\n>")
+                            sleep(4)
+                            if shotgun.content[0] == "live":
+                                print("BANG")
+                                shotgun.shoot()
+                                for op in self.opponents:
+                                    if op.name == ans:
+                                        op.takeDmg(1)
+                                logging.debug(f"player {self.opponents[0].num} took damage from enemy")
+                            elif shotgun.content[0] == "blank":
+                                print("*click")
+                                shotgun.shoot()
+                                logging.debug(f"player {self.num} didn't damage the enemy")
+                        else:
+                            sleep(4)
+                            if shotgun.content[0] == "live":
+                                print("BANG")
+                                shotgun.shoot()
+                                self.opponents[0].takeDmg(1)
+                                logging.debug(f"player {self.opponents[0].num} took damage from enemy")
+                            elif shotgun.content[0] == "blank":
+                                print("*click")
+                                shotgun.shoot()
+                                logging.debug(f"player {self.num} didn't damage the enemy")
                     case default:
                         print("failed to pick the target")
                         logging.info(f"player {self.num} failed to pick a target")
@@ -121,7 +136,7 @@ class Player_R2(Player):
                 useCigarette(self)
                 logging.debug(f"player {self.num} used a cig")
             case "cuffs":
-                useCuffs(self.opponent)
+                useCuffs(self.opponents)
                 logging.debug(f"player {self.num} used cuffs")
             case default:
                 logging.info(f"player {self.num} failed to pick an item")
@@ -156,8 +171,8 @@ class Player_R2(Player):
                         if shotgun.content[0] == "live":
                             print("BANG")
                             shotgun.shoot()
-                            self.opponent.takeDmg(shotgun.dmg)
-                            logging.debug(f"player {self.opponent.num} took damage from enemy")
+                            self.opponents.takeDmg(shotgun.dmg)
+                            logging.debug(f"player {self.opponents.num} took damage from enemy")
                         elif shotgun.content[0] == "blank":
                             print("*click")
                             shotgun.shoot()

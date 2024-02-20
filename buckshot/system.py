@@ -19,5 +19,10 @@ def testmodeLog(shotgun: object, testmode: bool=False, *players) -> None:
         print(f"shotgun: {shotgun}")
         logging.debug(f"shotgun: {shotgun}")
 
+def checkNames(name, *players):
+    if name in players:
+        return False
+    return True
+
 if __name__ == "__main__":
     print("wrong file idiot")
