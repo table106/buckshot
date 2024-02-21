@@ -19,5 +19,8 @@ class Shotgun:
         self.content.pop(0)
         self.dmg = 1
 
+    def empty(self) -> None:
+        self.content = []
+
 if __name__ == "__main__": # this is not a script, just a lib
     print("wrong file idiot")
