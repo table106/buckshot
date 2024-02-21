@@ -46,9 +46,8 @@ def main() -> None:
         input("when you finish reading, just press enter")
     elif ans == "therealtable":
         print("hello world!")
-        lel = ["1", "2", "3"]
         ans = "1"
-        while ans in lel:
+        while ans in ["1", "2", "3", "3p"]:
             ans = input("where to?\n>")
             if ans == "1":
                 shotgun.content = []
@@ -71,6 +70,10 @@ def main() -> None:
                 player1.addOpponent(player2)
                 player2.addOpponent(player1)
                 round3(player1, player2, shotgun, True)
+            elif ans == "3p":
+                while ans in ["1", "2", "3"]:
+                    print("where to? (3p mode)", end="\n>")
+                    pass
         print("ending your testmode session")
         sleep(3)
         exit()
