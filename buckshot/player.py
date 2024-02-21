@@ -70,7 +70,7 @@ class Player:
                                 for op in self.opponents:
                                     if op.name == ans:
                                         op.takeDmg(1)
-                                logging.debug(f"player {self.opponents[self.opponents.index(ans)].num} took damage from enemy")
+                                        logging.debug(f"player {op.num} took damage from enemy")
                             elif shotgun.content[0] == "blank":
                                 print("*click")
                                 shotgun.shoot()
@@ -177,7 +177,7 @@ class Player_R2(Player):
                                 for op in self.opponents:
                                     if op.name == ans:
                                         op.takeDmg(1)
-                                logging.debug(f"player {self.opponents[self.opponents.index(ans)].num} took damage from enemy")
+                                        logging.debug(f"player {op.num} took damage from enemy")
                             elif shotgun.content[0] == "blank":
                                 print("*click")
                                 shotgun.shoot()
