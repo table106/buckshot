@@ -1,4 +1,9 @@
 from time import sleep as s
+from dotenv import load_dotenv
+import os
+load_dotenv()
+testmode_pass=os.environ["TESTMODE_CODE"]
+threeplayers_pass=os.environ["3P_CODE"]
 
 from system import *
 
@@ -44,7 +49,7 @@ def main() -> None:
               \n\n-cuffs:\
               \nyou cuff your enemy skipping their next turn")
         input("when you finish reading, just press enter")
-    elif ans == "therealtable":
+    elif ans == testmode_pass:
         print("hello world!")
         ans = "1"
         while ans in ["1", "2", "3", "3p"]:
@@ -77,7 +82,7 @@ def main() -> None:
         print("ending your testmode session")
         sleep(3)
         exit()
-    elif ans == "theres3":
+    elif ans == threeplayers_pass:
         player1 = Player(1,input("what does player 1 call themselves? "),2)
         player2 = Player(2,input("what about player 2? "),2)
         while not checkNames(player2.name, player1.name):
