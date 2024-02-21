@@ -61,7 +61,7 @@ class Player:
                                 self.turn(shotgun)
                     case "enemy":
                         if len(self.opponents) > 1:
-                            ans = input(f"who will you shoot?\n{', '.join(['p1', 'p2', 'p3'])}\n>")
+                            ans = input(f"who will you shoot?\n{', '.join([plr.name for plr in self.opponents])}\n>")
                             sleep(4)
                             if shotgun.content[0] == "live":
                                 print("BANG")
