@@ -24,5 +24,5 @@ def checkNames(name, *players):
         return False
     return True
 
-if __name__ == "__main__":
+if __name__ == "__main__": # this is not a script, just a lib
     print("wrong file idiot")

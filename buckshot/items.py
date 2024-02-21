@@ -21,12 +21,12 @@ def useCigarette(player: object):
         player.heal()
     player.inv.remove("cigarette")
 
-def useCuffs(player: object):
-    if player.cuffed:
+def useCuffs(using: object, cuffed: object):
+    if cuffed.cuffed:
         print("they're already cuffed. (item not consumed)")
     else:
-        player.cuffed = 1
-        player.inv.remove("cuffs")
+        cuffed.cuffed = 1
+        using.inv.remove("cuffs")
 
-if __name__ == "__main__":
+if __name__ == "__main__": # this is not a script, just a lib
     print("wrong file idiot")

@@ -92,6 +92,7 @@ def main() -> None:
         player3.addOpponent(player1)
         player3.addOpponent(player2)
         round1(shotgun, False, player1, player2, player3)
+        round2(shotgun, False, player1, player2, player3)
     clear()
     
 

@@ -60,6 +60,7 @@ class Player:
                             if len(shotgun.content) != 0:
                                 self.turn(shotgun)
                     case "enemy":
+                        logging.debug(f"player {self.num} chose to shoot an enemy")
                         if len(self.opponents) > 1:
                             ans = input(f"who will you shoot?\n{', '.join([plr.name for plr in self.opponents])}\n>")
                             sleep(4)
@@ -69,7 +70,7 @@ class Player:
                                 for op in self.opponents:
                                     if op.name == ans:
                                         op.takeDmg(1)
-                                logging.debug(f"player {self.opponents[0].num} took damage from enemy")
+                                logging.debug(f"player {self.opponents[self.opponents.index(ans)].num} took damage from enemy")
                             elif shotgun.content[0] == "blank":
                                 print("*click")
                                 shotgun.shoot()
@@ -121,7 +122,7 @@ class Player_R2(Player):
             print(f"{self.name} got {allitems[id1]}, and {allitems[id2]}.")
             sleep(2)
 
-    def useItem(self, item: str, shotgun: Shotgun):
+    def useItem(self, item: str, shotgun: Shotgun, target: object=None):
         match(item):
             case "beer":
                 useBeer(self, shotgun)
@@ -136,8 +137,8 @@ class Player_R2(Player):
                 useCigarette(self)
                 logging.debug(f"player {self.num} used a cig")
             case "cuffs":
-                useCuffs(self.opponents)
-                logging.debug(f"player {self.num} used cuffs")
+                useCuffs(self, target)
+                logging.debug(f"player {self.num} used cuffs on player {target.num}")
             case default:
                 logging.info(f"player {self.num} failed to pick an item")
     
@@ -166,29 +167,48 @@ class Player_R2(Player):
                             if len(shotgun.content) != 0:
                                 self.turn(shotgun)
                     case "enemy":
-                        logging.debug(f"player {self.num} chose to shoot the enemy")
-                        sleep(4)
-                        if shotgun.content[0] == "live":
-                            print("BANG")
-                            shotgun.shoot()
-                            self.opponents.takeDmg(shotgun.dmg)
-                            logging.debug(f"player {self.opponents.num} took damage from enemy")
-                        elif shotgun.content[0] == "blank":
-                            print("*click")
-                            shotgun.shoot()
-                            logging.debug(f"player {self.num} didn't damage the enemy")
+                        logging.debug(f"player {self.num} chose to shoot an enemy")
+                        if len(self.opponents) > 1:
+                            ans = input(f"who will you shoot?\n{', '.join([plr.name for plr in self.opponents])}\n>")
+                            sleep(4)
+                            if shotgun.content[0] == "live":
+                                print("BANG")
+                                shotgun.shoot()
+                                for op in self.opponents:
+                                    if op.name == ans:
+                                        op.takeDmg(1)
+                                logging.debug(f"player {self.opponents[self.opponents.index(ans)].num} took damage from enemy")
+                            elif shotgun.content[0] == "blank":
+                                print("*click")
+                                shotgun.shoot()
+                                logging.debug(f"player {self.num} didn't damage the enemy")
+                        else:
+                            sleep(4)
+                            if shotgun.content[0] == "live":
+                                print("BANG")
+                                shotgun.shoot()
+                                self.opponents[0].takeDmg(1)
+                                logging.debug(f"player {self.opponents[0].num} took damage from enemy")
+                            elif shotgun.content[0] == "blank":
+                                print("*click")
+                                shotgun.shoot()
+                                logging.debug(f"player {self.num} didn't damage the enemy")
                     case default:
                         print("failed to pick target")
                         logging.info(f"player {self.num} failed to pick a target")
             case "item":
                 logging.debug(f"player {self.num} chose to use an item")
                 ans = input(f"pick an item. {self.inv}\n>")
-                self.useItem(ans, shotgun)
+                if ans == "cuffs":
+                    ans = input(f"who are you using them on?\n{', '.join([plr.name for plr in self.opponents])}\n>")
+                    self.useItem("cuffs", shotgun, ans)
+                else:
+                    self.useItem(ans, shotgun)
             case default:
                 print("failed to pick an action")
                 logging.info(f"player {self.num} failed to pick an action")
         sleep(2)
         clear()
 
-if __name__ == "__main__":
+if __name__ == "__main__": # this is not a script, just a lib
     print("wrong file idiot")
