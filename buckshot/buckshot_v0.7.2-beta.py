@@ -97,6 +97,8 @@ def main() -> None:
         player2.addOpponent(player3)
         player3.addOpponent(player1)
         player3.addOpponent(player2)
+        print("good luck.")
+        sleep(3)
         round1(shotgun, False, player1, player2, player3)
         round2(shotgun, False, player1, player2, player3)
     clear()
