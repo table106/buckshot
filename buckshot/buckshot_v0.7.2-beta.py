@@ -50,6 +50,7 @@ def main() -> None:
               \n\n-cuffs:\
               \nyou cuff your enemy skipping their next turn")
         input("when you finish reading, just press enter")
+    
     elif ans == testmode_pass:
         print("hello world!")
         ans = "1"
@@ -83,14 +84,19 @@ def main() -> None:
         print("ending your testmode session")
         sleep(3)
         exit()
+    
     elif ans == threeplayers_pass:
         player1 = Player(1,input("what does player 1 call themselves? "),2)
         player2 = Player(2,input("what about player 2? "),2)
+
         while not checkNames(player2.name, player1.name):
             player2 = Player(2,input("pick another name "),2)
+        
         player3 = Player(3,input("and player 3? "),2)
+
         while not checkNames(player3.name, player1.name, player2.name):
             player3 = Player(2,input("pick another name "),2)
+        
         player1.addOpponent(player2)
         player1.addOpponent(player3)
         player2.addOpponent(player1)
@@ -99,67 +105,73 @@ def main() -> None:
         player3.addOpponent(player2)
         print("good luck.")
         sleep(3)
+
         round1(shotgun, False, player1, player2, player3)
+
         player1 = Player_R2(1,player1.name,4)
         player2 = Player_R2(2,player2.name,4)
         player3 = Player_R2(3,player3.name,4)
         shotgun.empty()
+
         print("both of you can now have items. (max 8)")
         s(3)
+
         round2(shotgun, False, player1, player2, player3)
-    clear()
     
-
-    player1 = Player(1,input("what does player 1 call themselves? "),2)
-    player2 = Player(2,input("what about player 2? "),2)
-    player1.addOpponent(player2)
-    player2.addOpponent(player1)
-
-    print("good luck.")
-    s(2)
-
-    round1(shotgun, False, player1, player2)
-
-    shotgun.empty()
-    player1 = Player_R2(1,player1.name,4)
-    player2 = Player_R2(2,player2.name,4)
-    player1.addOpponent(player2)
-    player2.addOpponent(player1)
-    clear()
-    print("both of you can now have items. (max 8)")
-    s(3)
-
-    round2(player1, player2, shotgun)
-
-    clear()
-    print("let's make this a little bit more interesting.")
-    s(2)
-    print("now, when you reach less than 3 lives, your defibrillator will be cut.\nthe life display will glitch when that happens")
-    s(5)
-
-    shotgun.empty()
-    player1 = Player_R2(1,player1.name,6)
-    player2 = Player_R2(2,player2.name,6)
-    player1.addOpponent(player2)
-    player2.addOpponent(player1)
-    round3(player1, player2, shotgun)
-
-    clear()
-    if player1.wins > player2.wins:
-        print(f'{player1.name} wins with a score of {player1.wins} to {player2.wins}')
-    elif player2.wins > player1.wins:
-        print(f'{player2.name} wins with a score of {player2.wins} to {player1.wins}')
-    s(5)
-    clear()
-    print("end")
-    s(2)
-    print("engage again?")
-    s(2)
-    ans = input("yes/no")
-    if ans == "yes":
-        main()
     else:
-        exit()
+        clear()
+        
+
+        player1 = Player(1,input("what does player 1 call themselves? "),2)
+        player2 = Player(2,input("what about player 2? "),2)
+        player1.addOpponent(player2)
+        player2.addOpponent(player1)
+
+        print("good luck.")
+        s(2)
+
+        round1(shotgun, False, player1, player2)
+
+        shotgun.empty()
+        player1 = Player_R2(1,player1.name,4)
+        player2 = Player_R2(2,player2.name,4)
+        player1.addOpponent(player2)
+        player2.addOpponent(player1)
+        clear()
+        print("both of you can now have items. (max 8)")
+        s(3)
+
+        round2(player1, player2, shotgun)
+
+        clear()
+        print("let's make this a little bit more interesting.")
+        s(2)
+        print("now, when you reach less than 3 lives, your defibrillator will be cut.\nthe life display will glitch when that happens")
+        s(5)
+
+        shotgun.empty()
+        player1 = Player_R2(1,player1.name,6)
+        player2 = Player_R2(2,player2.name,6)
+        player1.addOpponent(player2)
+        player2.addOpponent(player1)
+        round3(player1, player2, shotgun)
+
+        clear()
+        if player1.wins > player2.wins:
+            print(f'{player1.name} wins with a score of {player1.wins} to {player2.wins}')
+        elif player2.wins > player1.wins:
+            print(f'{player2.name} wins with a score of {player2.wins} to {player1.wins}')
+        s(5)
+        clear()
+        print("end")
+        s(2)
+        print("engage again?")
+        s(2)
+        ans = input("yes/no")
+        if ans == "yes":
+            main()
+        else:
+            exit()
 
 if __name__ == "__main__":
     main()
