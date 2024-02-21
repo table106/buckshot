@@ -56,21 +56,21 @@ def main() -> None:
         while ans in ["1", "2", "3", "3p"]:
             ans = input("where to?\n>")
             if ans == "1":
-                shotgun.content = []
+                shotgun.empty()
                 player1 = Player(1,"plr1",2)
                 player2 = Player(2,"plr2",2)
                 player1.addOpponent(player2)
                 player2.addOpponent(player1)
                 round1(player1, player2, shotgun, True)
             elif ans == "2":
-                shotgun.content = []
+                shotgun.empty()
                 player1 = Player_R2(1,"plr1",4)
                 player2 = Player_R2(2,"plr2",4)
                 player1.addOpponent(player2)
                 player2.addOpponent(player1)
                 round2(player1, player2, shotgun, True)
             elif ans == "3":
-                shotgun.content = []
+                shotgun.empty()
                 player1 = Player_R2(1,"plr1",6)
                 player2 = Player_R2(2,"plr2",6)
                 player1.addOpponent(player2)
@@ -103,7 +103,7 @@ def main() -> None:
         player1 = Player_R2(1,player1.name,4)
         player2 = Player_R2(2,player2.name,4)
         player3 = Player_R2(3,player3.name,4)
-        shotgun.content = []
+        shotgun.empty()
         print("both of you can now have items. (max 8)")
         s(3)
         round2(shotgun, False, player1, player2, player3)
@@ -120,7 +120,7 @@ def main() -> None:
 
     round1(shotgun, False, player1, player2)
 
-    shotgun.content = []
+    shotgun.empty()
     player1 = Player_R2(1,player1.name,4)
     player2 = Player_R2(2,player2.name,4)
     player1.addOpponent(player2)
@@ -137,7 +137,7 @@ def main() -> None:
     print("now, when you reach less than 3 lives, your defibrillator will be cut.\nthe life display will glitch when that happens")
     s(5)
 
-    shotgun.content = []
+    shotgun.empty()
     player1 = Player_R2(1,player1.name,6)
     player2 = Player_R2(2,player2.name,6)
     player1.addOpponent(player2)
