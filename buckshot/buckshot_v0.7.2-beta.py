@@ -79,7 +79,7 @@ def main() -> None:
             elif ans == "3p":
                 while ans in ["1", "2", "3"]:
                     print("where to? (3p mode)", end="\n>")
-                    pass
+                    pass # here goes 3p testmode
         print("ending your testmode session")
         sleep(3)
         exit()
