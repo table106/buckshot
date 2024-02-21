@@ -71,6 +71,9 @@ def main() -> None:
                 player1.addOpponent(player2)
                 player2.addOpponent(player1)
                 round3(player1, player2, shotgun, True)
+        print("ending your testmode session")
+        sleep(3)
+        exit()
     elif ans == "theres3":
         player1 = Player(1,input("what does player 1 call themselves? "),2)
         player2 = Player(2,input("what about player 2? "),2)
@@ -97,7 +100,7 @@ def main() -> None:
     print("good luck.")
     s(2)
 
-    round1(player1, player2, shotgun)
+    round1(shotgun, False, player1, player2)
 
     shotgun.content = []
     player1 = Player_R2(1,player1.name,4)
