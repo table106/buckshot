@@ -100,6 +100,12 @@ def main() -> None:
         print("good luck.")
         sleep(3)
         round1(shotgun, False, player1, player2, player3)
+        player1 = Player_R2(1,player1.name,4)
+        player2 = Player_R2(2,player2.name,4)
+        player3 = Player_R2(3,player3.name,4)
+        shotgun.content = []
+        print("both of you can now have items. (max 8)")
+        s(3)
         round2(shotgun, False, player1, player2, player3)
     clear()
     
