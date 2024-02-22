@@ -28,8 +28,8 @@ def main() -> None:
     print("press enter to start")
     ans = input("or type 'how' for a how-to-play\n>")
     shotgun = Shotgun()
+    clear()
     if ans == "how":
-        clear()
         print("alright, so\
               \nthere's a shotgun\
               \nevery time it is empty we load some shells in\
@@ -119,9 +119,6 @@ def main() -> None:
         round2(shotgun, False, player1, player2, player3)
     
     else:
-        clear()
-        
-
         player1 = Player(1,input("what does player 1 call themselves? "),2)
         player2 = Player(2,input("what about player 2? "),2)
         player1.addOpponent(player2)
@@ -162,16 +159,17 @@ def main() -> None:
         elif player2.wins > player1.wins:
             print(f'{player2.name} wins with a score of {player2.wins} to {player1.wins}')
         s(5)
-        clear()
-        print("end")
-        s(2)
-        print("engage again?")
-        s(2)
-        ans = input("yes/no")
-        if ans == "yes":
-            main()
-        else:
-            exit()
+    
+    clear()
+    print("end")
+    s(2)
+    print("engage again?")
+    s(2)
+    ans = input("yes/no")
+    if ans == "yes":
+        main()
+    else:
+        exit()
 
 if __name__ == "__main__":
     main()
