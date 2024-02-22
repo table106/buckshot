@@ -62,21 +62,21 @@ def main() -> None:
                 player2 = Player(2,"plr2",2)
                 initOpponents(player1, player2)
 
-                round1(player1, player2, shotgun, True)
+                round1(shotgun, False, player1, player2)
             elif ans == "2":
                 shotgun.empty()
                 player1 = Player_R2(1,"plr1",4)
                 player2 = Player_R2(2,"plr2",4)
                 initOpponents(player1, player2)
 
-                round2(player1, player2, shotgun, True)
+                round2(shotgun, False, player1, player2)
             elif ans == "3":
                 shotgun.empty()
                 player1 = Player_R2(1,"plr1",6)
                 player2 = Player_R2(2,"plr2",6)
                 initOpponents(player1, player2)
 
-                round3(player1, player2, shotgun, True)
+                round3(shotgun, False, player1, player2)
             elif ans == "3P":
                 while ans in ["1", "2", "3"]:
                     print("where to? (3P mode)", end="\n>")
