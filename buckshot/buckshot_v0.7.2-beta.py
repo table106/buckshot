@@ -60,22 +60,22 @@ def main() -> None:
                 shotgun.empty()
                 player1 = Player(1,"plr1",2)
                 player2 = Player(2,"plr2",2)
-                player1.addOpponent(player2)
-                player2.addOpponent(player1)
+                initOpponents(player1, player2)
+
                 round1(player1, player2, shotgun, True)
             elif ans == "2":
                 shotgun.empty()
                 player1 = Player_R2(1,"plr1",4)
                 player2 = Player_R2(2,"plr2",4)
-                player1.addOpponent(player2)
-                player2.addOpponent(player1)
+                initOpponents(player1, player2)
+
                 round2(player1, player2, shotgun, True)
             elif ans == "3":
                 shotgun.empty()
                 player1 = Player_R2(1,"plr1",6)
                 player2 = Player_R2(2,"plr2",6)
-                player1.addOpponent(player2)
-                player2.addOpponent(player1)
+                initOpponents(player1, player2)
+
                 round3(player1, player2, shotgun, True)
             elif ans == "3P":
                 while ans in ["1", "2", "3"]:
@@ -97,12 +97,8 @@ def main() -> None:
         while not checkNames(player3.name, player1.name, player2.name):
             player3 = Player(2,input("pick another name "),2)
         
-        player1.addOpponent(player2)
-        player1.addOpponent(player3)
-        player2.addOpponent(player1)
-        player2.addOpponent(player3)
-        player3.addOpponent(player1)
-        player3.addOpponent(player2)
+        initOpponents(player1, player2, player3)
+
         print("good luck.")
         sleep(3)
 
@@ -121,8 +117,7 @@ def main() -> None:
     else:
         player1 = Player(1,input("what does player 1 call themselves? "),2)
         player2 = Player(2,input("what about player 2? "),2)
-        player1.addOpponent(player2)
-        player2.addOpponent(player1)
+        initOpponents(player1, player2)
 
         print("good luck.")
         s(2)
@@ -132,13 +127,13 @@ def main() -> None:
         shotgun.empty()
         player1 = Player_R2(1,player1.name,4)
         player2 = Player_R2(2,player2.name,4)
-        player1.addOpponent(player2)
-        player2.addOpponent(player1)
+        initOpponents(player1, player2)
+
         clear()
         print("both of you can now have items. (max 8)")
         s(3)
 
-        round2(player1, player2, shotgun)
+        round2(shotgun, False, player1, player2)
 
         clear()
         print("let's make this a little bit more interesting.")
@@ -149,9 +144,9 @@ def main() -> None:
         shotgun.empty()
         player1 = Player_R2(1,player1.name,6)
         player2 = Player_R2(2,player2.name,6)
-        player1.addOpponent(player2)
-        player2.addOpponent(player1)
-        round3(player1, player2, shotgun)
+        initOpponents(player1, player2)
+        
+        round3(shotgun, False, player1, player2)
 
         clear()
         if player1.wins > player2.wins:
