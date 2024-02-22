@@ -77,9 +77,9 @@ def main() -> None:
                 player1.addOpponent(player2)
                 player2.addOpponent(player1)
                 round3(player1, player2, shotgun, True)
-            elif ans == "3p":
+            elif ans == "3P":
                 while ans in ["1", "2", "3"]:
-                    print("where to? (3p mode)", end="\n>")
+                    print("where to? (3P mode)", end="\n>")
                     pass # here goes 3p testmode
         print("ending your testmode session")
         sleep(3)
