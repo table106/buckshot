@@ -1,9 +1,10 @@
-from system import clear
 from time import sleep
 from random import randint as r
 
 import logging
 logging.basicConfig(level=logging.DEBUG, filename="debug.log", filemode="w", format="%(asctime)s at line no. %(lineno)d - %(message)s")
+
+from system import clear
 
 from items import *
 
