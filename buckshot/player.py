@@ -111,10 +111,10 @@ class Player_R2(Player):
         return super().__repr__()+f" | inventory: {self.inv}\
              | cuffed state: {self.cuffed}"
 
-    def heal(self):
+    def heal(self) -> None:
         self.lives += 1
 
-    def getItem(self, viel: int):
+    def getItem(self, viel: int) -> None:
         for i in range(viel):
             id1 = r(0,4)
             id2 = r(0,4)
@@ -123,7 +123,7 @@ class Player_R2(Player):
             print(f"{self.name} got {allitems[id1]}, and {allitems[id2]}.")
             sleep(2)
 
-    def useItem(self, item: str, shotgun: Shotgun, target: object=None):
+    def useItem(self, item: str, shotgun: Shotgun=None, target: object=None) -> None:
         match(item):
             case "beer":
                 useBeer(self, shotgun)
@@ -143,7 +143,7 @@ class Player_R2(Player):
             case default:
                 logging.info(f"player {self.num} failed to pick an item")
     
-    def turn(self, shotgun: Shotgun):
+    def turn(self, shotgun: Shotgun) -> None:
         print(self)
         ans = input("say to use:\nshotgun - shoot\nitem - item\n>")
         match (ans):
@@ -210,6 +210,27 @@ class Player_R2(Player):
                 logging.info(f"player {self.num} failed to pick an action")
         sleep(2)
         clear()
+
+class Player_R3(Player_R2):
+    def __init__(self, num: int, name: str, lives: int):
+        super().__init__(num, name, lives)
+        self.lifeLocked = False
+
+    def __str__(self) -> str:
+        if self.lives > 1:
+            return f"{self.name}'s turn\nyou have {self.lives} lives"
+        self.lifeLocked = True
+        return f"{self.name}'s turn\nyou have # lives"
+    
+    def __repr__(self) -> str:
+        return super().__repr__()+f" | lifeLocked: {self.lifeLocked}"
+    
+    def heal(self) -> None:
+        if self.lifeLocked:
+            print("you smoked one... nothing happened.")
+        else:
+            self.lives += 1
+            print("you feel refreshed. +1 life")
 
 if __name__ == "__main__": # this is not a script, just a lib
     print("wrong file idiot")

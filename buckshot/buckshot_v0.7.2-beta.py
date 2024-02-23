@@ -118,6 +118,16 @@ def main() -> None:
         s(3)
 
         round2(shotgun, False, player1, player2, player3)
+
+        clear()
+        print("let's make this a little bit more interesting.")
+        s(2)
+        print("now, when you reach less than 3 lives, your defibrillator will be cut.\nthe life display will glitch when that happens")
+        s(5)
+
+        player1 = Player_R3(1,player1.name,6)
+        player2 = Player_R3(2,player2.name,6)
+        player3 = Player_R3(3,player3.name,6)
     
     else:
         player1 = Player(1,input("what does player 1 call themselves? "),2)
@@ -147,8 +157,8 @@ def main() -> None:
         s(5)
 
         shotgun.empty()
-        player1 = Player_R2(1,player1.name,6)
-        player2 = Player_R2(2,player2.name,6)
+        player1 = Player_R3(1,player1.name,6)
+        player2 = Player_R3(2,player2.name,6)
         initOpponents(player1, player2)
         
         round3(shotgun, False, player1, player2)
