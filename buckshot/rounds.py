@@ -124,37 +124,37 @@ def round2(shotgun: Shotgun, testmode: bool=False, *players):
             print(f"{player1.name} and {player2.name} both get a win. end of round 2")
             player1.wins += 1
             player2.wins += 1
-        else:
-            while (player1.lives > 0) and (player2.lives > 0):
-                liveshells = r(1,4)
-                blankshells = r(1,4)
-                shotgun.insertShells(liveshells, blankshells)
+    else:
+        while (player1.lives > 0) and (player2.lives > 0):
+            liveshells = r(1,4)
+            blankshells = r(1,4)
+            shotgun.insertShells(liveshells, blankshells)
+            clear()
+            print(f"LOADED SHELLS: {liveshells} LIVE AND {blankshells} BLANK")
+            sleep(5)
+            clear()
+            while (player1.lives > 0) and (player2.lives > 0) and (len(shotgun.content) > 0):
                 clear()
-                print(f"LOADED SHELLS: {liveshells} LIVE AND {blankshells} BLANK")
-                sleep(5)
+                testmodeLog(player1, player2, shotgun, testmode)
+                print()
+                player1.turn(shotgun)
+                if testmode:
+                    print(player1.lives, player2.lives, shotgun)
                 clear()
-                while (player1.lives > 0) and (player2.lives > 0) and (len(shotgun.content) > 0):
-                    clear()
-                    testmodeLog(player1, player2, shotgun, testmode)
-                    print()
-                    player1.turn(shotgun)
-                    if testmode:
-                        print(player1.lives, player2.lives, shotgun)
-                    clear()
-                    if player1.lives == 0 or player2.lives == 0 or len(shotgun.content) == 0:
-                        break
-                    testmodeLog(player1, player2, shotgun, testmode)
-                    print()
-                    player2.turn(shotgun)
-                    if testmode:
-                        print(player1.lives, player2.lives, shotgun)
-                    clear()
-            if player1.lives == 0:
-                print(f"{player2.name} wins. end of round 2")
-                player2.wins += 1
-            elif player2.lives == 0:
-                print(f"{player1.name} wins. end of round 2")
-                player1.wins += 1
+                if player1.lives == 0 or player2.lives == 0 or len(shotgun.content) == 0:
+                    break
+                testmodeLog(player1, player2, shotgun, testmode)
+                print()
+                player2.turn(shotgun)
+                if testmode:
+                    print(player1.lives, player2.lives, shotgun)
+                clear()
+        if player1.lives == 0:
+            print(f"{player2.name} wins. end of round 2")
+            player2.wins += 1
+        elif player2.lives == 0:
+            print(f"{player1.name} wins. end of round 2")
+            player1.wins += 1
     sleep(5)
 
 def round3(shotgun: Shotgun, testmode: bool=False, *players):
