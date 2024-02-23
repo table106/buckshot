@@ -66,3 +66,9 @@ v0.7.1-beta
 
 v0.7.2-beta
 + better damaging system
+
+v0.8-beta (3P update)
++ 3 player mode released!!
++ includes testmode
++ to access 3P enter "actuallytheres3" in the main menu
++ swag new Player_R3 class, initOpponents function, shotgun.empty function
