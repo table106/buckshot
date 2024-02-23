@@ -107,7 +107,10 @@ def main() -> None:
         print("good luck.")
         sleep(3)
 
-        # round1(shotgun, False, player1, player2, player3) # uncomment this!!!!
+        round1(shotgun, False, player1, player2, player3)
+
+        print("both of you can now have items. (max 8)")
+        s(3)
 
         player1 = Player_R2(1,player1.name,4)
         player2 = Player_R2(2,player2.name,4)
@@ -115,14 +118,11 @@ def main() -> None:
         initOpponents(player1, player2, player3)
         shotgun.empty()
 
-        print("both of you can now have items. (max 8)")
-        s(3)
-
         player1.getItem(1)
         player2.getItem(1)
         player3.getItem(1)
 
-        # round2(shotgun, False, player1, player2, player3) # uncomment this!!!!
+        round2(shotgun, False, player1, player2, player3)
 
         clear()
         print("let's make this a little bit more interesting.")
