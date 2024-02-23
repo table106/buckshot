@@ -54,7 +54,7 @@ def main() -> None:
     elif ans == testmode_pass:
         print("hello world!")
         ans = "1"
-        while ans in ["1", "2", "3", "3p"]:
+        while ans in ["1", "2", "3", "3P"]:
             ans = input("where to?\n>")
             if ans == "1":
                 shotgun.empty()
@@ -83,7 +83,30 @@ def main() -> None:
             elif ans == "3P":
                 while ans in ["1", "2", "3"]:
                     print("where to? (3P mode)", end="\n>")
-                    pass # here goes 3p testmode
+                    if ans == "1":
+                        shotgun.empty()
+                        player1 = Player(1,"plr1",2)
+                        player2 = Player(2,"plr2",2)
+                        player3 = Player(3,"plr3",2)
+                        initOpponents(player1, player2, player3)
+
+                        round1(shotgun, False, player1, player2, player3)
+                    
+                    elif ans == "2":
+                        shotgun.empty()
+                        player1 = Player_R2(1,"plr1",4)
+                        player2 = Player_R2(2,"plr2",4)
+                        initOpponents(player1, player2, player3)
+
+                        round2(shotgun, False, player1, player2, player3)
+                    
+                    elif ans == "3":
+                        shotgun.empty()
+                        player1 = Player_R2(1,"plr1",6)
+                        player2 = Player_R2(2,"plr2",6)
+                        initOpponents(player1, player2, player3)
+
+                        round2(shotgun, False, player1, player2, player3)
                 break
         
         print("ending your testmode session")
