@@ -107,17 +107,22 @@ def main() -> None:
         print("good luck.")
         sleep(3)
 
-        round1(shotgun, False, player1, player2, player3)
+        # round1(shotgun, False, player1, player2, player3) # uncomment this!!!!
 
         player1 = Player_R2(1,player1.name,4)
         player2 = Player_R2(2,player2.name,4)
         player3 = Player_R2(3,player3.name,4)
+        initOpponents(player1, player2, player3)
         shotgun.empty()
 
         print("both of you can now have items. (max 8)")
         s(3)
 
-        round2(shotgun, False, player1, player2, player3)
+        player1.getItem(1)
+        player2.getItem(1)
+        player3.getItem(1)
+
+        # round2(shotgun, False, player1, player2, player3) # uncomment this!!!!
 
         clear()
         print("let's make this a little bit more interesting.")
@@ -128,6 +133,18 @@ def main() -> None:
         player1 = Player_R3(1,player1.name,6)
         player2 = Player_R3(2,player2.name,6)
         player3 = Player_R3(3,player3.name,6)
+        initOpponents(player1, player2, player3)
+        shotgun.empty()
+
+        player1.getItem(2)
+        player2.getItem(2)
+        player3.getItem(2)
+
+        round3(shotgun, False, player1, player2, player3)
+
+        print("you have finished 3P mode! exiting in 5")
+        s(5)
+        exit()
     
     else:
         player1 = Player(1,input("what does player 1 call themselves? "),2)
