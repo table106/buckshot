@@ -6,12 +6,13 @@ hello
 making a lil thingy here
 you know buckshot roulette?
 yeah
-its basically that
+its exactly that
 but as a console app
 
 ## info
 
 all game files are in buckshot/
+"buckshot_vX.X.X.py" is the main one, X being any number
 
 ## to run:
 
