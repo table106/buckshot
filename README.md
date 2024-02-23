@@ -12,7 +12,6 @@ but as a console app
 ## info
 
 all game files are in buckshot/
-"buckshot_vX.X.X.py" is the main one, X being any number
 
 ## to run:
 
