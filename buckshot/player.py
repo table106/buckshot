@@ -220,9 +220,9 @@ class Player_R3(Player_R2):
 
     def __str__(self) -> str:
         if self.lives > 2:
-            return f"{self.name}'s turn\nyou have {self.lives} lives"
+            return f"{self.name}'s turn\nyou have {self.lives} lives\nyour items: {self.inv}"
         self.lifeLocked = True
-        return f"{self.name}'s turn\nyou have # lives"
+        return f"{self.name}'s turn\nyou have # lives\nyour items: {self.inv}"
     
     def __repr__(self) -> str:
         return super().__repr__()+f" | lifeLocked: {self.lifeLocked}"
