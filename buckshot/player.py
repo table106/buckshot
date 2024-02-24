@@ -221,7 +221,7 @@ class Player_R3(Player_R2):
         self.lifeLocked = False
 
     def __str__(self) -> str:
-        if self.lives > 1:
+        if self.lives > 2:
             return f"{self.name}'s turn\nyou have {self.lives} lives"
         self.lifeLocked = True
         return f"{self.name}'s turn\nyou have # lives"
