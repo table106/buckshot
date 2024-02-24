@@ -203,7 +203,7 @@ class Player_R2(Player):
                     ans = input(f"who are you using them on?\n{', '.join([plr.name for plr in self.opponents])}\n>")
                     for op in self.opponents:
                         if op.name == ans:
-                            useCuffs(self, ans)
+                            useCuffs(self, op)
                             logging.debug(f"player {self.num} used cuffs on player {op.num}")
                 else:
                     self.useItem(ans, shotgun)
