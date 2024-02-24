@@ -30,8 +30,9 @@ class Player:
              | wins: {self.wins}\
              | life cap: {self.lifeCap}"
     
-    def addOpponent(self, opponent: object):
-        self.opponents.append(opponent)
+    def addOpponent(self, *opponents):
+        for op in opponents:
+            self.opponents.append(op)
 
     def takeDmg(self, viel: int=None):
         if viel == None:

@@ -26,12 +26,9 @@ def checkNames(name, *players):
 
 def initOpponents(plr1, plr2, plr3=None):
     if plr3 != None:
-        plr1.addOpponent(plr2)
-        plr1.addOpponent(plr3)
-        plr2.addOpponent(plr1)
-        plr2.addOpponent(plr3)
-        plr3.addOpponent(plr1)
-        plr3.addOpponent(plr2)
+        plr1.addOpponent(plr2, plr3)
+        plr2.addOpponent(plr1, plr3)
+        plr3.addOpponent(plr1, plr2)
     else:
         plr1.addOpponent(plr2)
         plr2.addOpponent(plr1)
