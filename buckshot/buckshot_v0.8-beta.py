@@ -132,7 +132,7 @@ def main() -> None:
 
         round1(shotgun, False, player1, player2, player3)
 
-        print("both of you can now have items. (max 8)")
+        print("all of you can now have items. (max 8)")
         s(3)
 
         player1 = Player_R2(1,player1.name,4)
