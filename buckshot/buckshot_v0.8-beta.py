@@ -24,7 +24,7 @@ def main() -> None:
     print("|| BUCKSHOT ROULETTE ||")
     print("|| (console version) ||")
     print("=======================")
-    print("version v0.7.2-beta\n")
+    print("version v0.8-beta\n")
     print("press enter to start")
     ans = input("or type 'how' for a how-to-play\n>")
     shotgun = Shotgun()
