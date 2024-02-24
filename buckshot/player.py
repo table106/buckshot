@@ -34,10 +34,8 @@ class Player:
         for op in opponents:
             self.opponents.append(op)
 
-    def takeDmg(self, viel: int=None):
-        if viel == None:
-            viel = 1
-        self.lives -= viel
+    def takeDmg(self, dmg: int=1):
+        self.lives -= dmg
     
     def turn(self, shotgun: Shotgun):
         print(self)
