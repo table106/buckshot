@@ -22,7 +22,7 @@ def useCigarette(player: object):
     player.inv.remove("cigarette")
 
 def useCuffs(using: object, cuffed: object):
-    if cuffed.cuffed:
+    if cuffed.cuffed == 1:
         print("they're already cuffed. (item not consumed)")
     else:
         cuffed.cuffed = 1
