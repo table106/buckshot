@@ -151,7 +151,7 @@ def main() -> None:
         print("let's make this a little bit more interesting.")
         s(2)
         print("now, when you reach less than 3 lives, your defibrillator will be cut.\nthe life display will glitch when that happens")
-        s(5)
+        s(4)
 
         player1 = Player_R3(1,player1.name,6)
         player2 = Player_R3(2,player2.name,6)
