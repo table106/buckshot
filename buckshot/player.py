@@ -206,7 +206,7 @@ class Player_R2(Player):
                             useCuffs(self, op)
                             logging.debug(f"player {self.num} used cuffs on player {op.num}")
                 else:
-                    self.useItem(ans, shotgun)
+                    self.useItem(ans, shotgun, self.opponents[0])
             case default:
                 print("failed to pick an action")
                 logging.info(f"player {self.num} failed to pick an action")
