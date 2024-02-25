@@ -2,7 +2,7 @@ from random import randint as r
 
 from player import *
 
-from system import trySleep, testmodeLog
+from system import testmodeLog
 
 def round1(shotgun: Shotgun, testmode: bool=False, *players):
     player1: Player = players[0]
