@@ -82,7 +82,7 @@ def main() -> None:
             
             elif ans == "3P":
                 while ans in ["1", "2", "3"]:
-                    print("where to? (3P mode)", end="\n>")
+                    print("where to? (3P mode)\n>")
                     if ans == "1":
                         shotgun.empty()
                         player1 = Player(1,"plr1",2)
