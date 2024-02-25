@@ -61,16 +61,12 @@ def round1(shotgun: Shotgun, testmode: bool=False, *players):
                 testmodeLog(player1, player2, shotgun, testmode)
                 print()
                 player1.turn(shotgun)
-                if testmode:
-                    print(player1.lives, player2.lives, shotgun)
                 clear()
                 if player1.lives == 0 or player2.lives == 0 or len(shotgun.content) == 0:
                     break
                 testmodeLog(player1, player2, shotgun, testmode)
                 print()
                 player2.turn(shotgun)
-                if testmode:
-                    print(player1.lives, player2.lives, shotgun)
                 clear()
         if player1.lives == 0:
             print(f"{player2.name} wins.",end=" ")
@@ -138,16 +134,12 @@ def round2(shotgun: Shotgun, testmode: bool=False, *players):
                 testmodeLog(player1, player2, shotgun, testmode)
                 print()
                 player1.turn(shotgun)
-                if testmode:
-                    print(player1.lives, player2.lives, shotgun)
                 clear()
                 if player1.lives == 0 or player2.lives == 0 or len(shotgun.content) == 0:
                     break
                 testmodeLog(player1, player2, shotgun, testmode)
                 print()
                 player2.turn(shotgun)
-                if testmode:
-                    print(player1.lives, player2.lives, shotgun)
                 clear()
         if player1.lives == 0:
             print(f"{player2.name} wins. end of round 2")
@@ -215,16 +207,12 @@ def round3(shotgun: Shotgun, testmode: bool=False, *players):
                 testmodeLog(player1, player2, shotgun, testmode)
                 print()
                 player1.turn(shotgun)
-                if testmode:
-                    print(player1.lives, player2.lives, shotgun)
                 clear()
                 if player1.lives == 0 or player2.lives == 0 or len(shotgun.content) == 0:
                     break
                 testmodeLog(player1, player2, shotgun, testmode)
                 print()
                 player2.turn(shotgun)
-                if testmode:
-                    print(player1.lives, player2.lives, shotgun)
                 clear()
         if player1.lives == 0:
             print(f"{player2.name} wins. end of round 3")
