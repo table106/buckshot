@@ -226,10 +226,6 @@ class Player_R3(Player_R2):
     
     def __repr__(self) -> str:
         return super().__repr__()+f" | lifeLocked: {self.lifeLocked}"
-    
-    def heal(self) -> None:
-        self.lives += 1
-        print("you feel refreshed. +1 life")
 
 if __name__ == "__main__": # this is not a script, just a lib
     print("wrong file idiot")
