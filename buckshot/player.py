@@ -39,7 +39,7 @@ class Player:
     
     def turn(self, shotgun: Shotgun):
         print(self)
-        ans = input("say to use:\nshotgun - shoot\n>")
+        ans = input("type to use:\nshotgun - shoot\n>")
         match (ans):
             case "shoot":
                 ans = input("shoot self or enemy?\n>")
