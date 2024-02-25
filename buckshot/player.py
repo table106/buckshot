@@ -104,10 +104,10 @@ class Player_R2(Player):
         self.cuffed = 0
 
     def __str__(self) -> str:
-        return super().__str__()+f"\nyour items: {self.inv}"
+        return super().__str__()+f"\nyour items: {', '.join([item for item in self.inv])}"
     
     def __repr__(self) -> str:
-        return super().__repr__()+f" | inventory: {self.inv}\
+        return super().__repr__()+f" | inventory: {', '.join([item for item in self.inv])}"}\
              | cuffed state: {self.cuffed}"
 
     def heal(self) -> None:
@@ -220,9 +220,9 @@ class Player_R3(Player_R2):
 
     def __str__(self) -> str:
         if self.lives > 2:
-            return f"{self.name}'s turn\nyou have {self.lives} lives\nyour items: {self.inv}"
+            return f"{self.name}'s turn\nyou have {self.lives} lives\nyour items: {', '.join([item for item in self.inv])}"}"
         self.lifeLocked = True
-        return f"{self.name}'s turn\nyou have # lives\nyour items: {self.inv}"
+        return f"{self.name}'s turn\nyou have # lives\nyour items: {', '.join([item for item in self.inv])}"}"
     
     def __repr__(self) -> str:
         return super().__repr__()+f" | lifeLocked: {self.lifeLocked}"
