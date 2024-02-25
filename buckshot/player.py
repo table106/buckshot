@@ -198,7 +198,7 @@ class Player_R2(Player):
                         logging.info(f"player {self.num} failed to pick a target")
             case "item":
                 logging.debug(f"player {self.num} chose to use an item")
-                ans = input(f"pick an item. {self.inv}\n>")
+                ans = input(f"pick an item. {', '.join([item for item in self.inv])}\n>")
                 if ans == "cuffs":
                     ans = input(f"who are you using them on?\n{', '.join([plr.name for plr in self.opponents])}\n>")
                     for op in self.opponents:
