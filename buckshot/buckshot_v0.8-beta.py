@@ -214,7 +214,6 @@ def main() -> None:
     print("end")
     s(2)
     print("engage again?")
-    s(2)
     ans = input("yes/no")
     if ans == "yes":
         main()
