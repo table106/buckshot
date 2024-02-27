@@ -1,10 +1,7 @@
 from time import sleep as s
-from dotenv import load_dotenv
-import os
 
-load_dotenv()
-testmode_pass=os.environ["TESTMODE_CODE"]
-threeplayers_pass=os.environ["3P_CODE"]
+testmode_pass="therealtable"
+threeplayers_pass="actuallytheres3"
 
 from system import *
 
@@ -62,7 +59,7 @@ def main() -> None:
                 player2 = Player(2,"plr2",2)
                 initOpponents(player1, player2)
 
-                round1(shotgun, False, player1, player2)
+                round1(shotgun, True, player1, player2)
             
             elif ans == "2":
                 shotgun.empty()
@@ -70,7 +67,7 @@ def main() -> None:
                 player2 = Player_R2(2,"plr2",4)
                 initOpponents(player1, player2)
 
-                round2(shotgun, False, player1, player2)
+                round2(shotgun, True, player1, player2)
             
             elif ans == "3":
                 shotgun.empty()
@@ -78,11 +75,12 @@ def main() -> None:
                 player2 = Player_R2(2,"plr2",6)
                 initOpponents(player1, player2)
 
-                round3(shotgun, False, player1, player2)
+                round3(shotgun, True, player1, player2)
             
             elif ans == "3P":
+                ans = "1"
                 while ans in ["1", "2", "3"]:
-                    print("where to? (3P mode)\n>")
+                    ans = input("where to? (3P mode)\n>")
                     if ans == "1":
                         shotgun.empty()
                         player1 = Player(1,"plr1",2)
@@ -90,23 +88,27 @@ def main() -> None:
                         player3 = Player(3,"plr3",2)
                         initOpponents(player1, player2, player3)
 
-                        round1(shotgun, False, player1, player2, player3)
+                        round1(shotgun, True, player1, player2, player3)
                     
                     elif ans == "2":
                         shotgun.empty()
                         player1 = Player_R2(1,"plr1",4)
                         player2 = Player_R2(2,"plr2",4)
+                        player3 = Player_R2(3,"plr3",4)
                         initOpponents(player1, player2, player3)
+                        handoutItems(1, player1, player2, player3)
 
-                        round2(shotgun, False, player1, player2, player3)
+                        round2(shotgun, True, player1, player2, player3)
                     
                     elif ans == "3":
                         shotgun.empty()
-                        player1 = Player_R2(1,"plr1",6)
-                        player2 = Player_R2(2,"plr2",6)
+                        player1 = Player_R3(1,"plr1",6)
+                        player2 = Player_R3(2,"plr2",6)
+                        player3 = Player_R3(3,"plr3",6)
                         initOpponents(player1, player2, player3)
+                        handoutItems(2, player1, player2, player3)
 
-                        round2(shotgun, False, player1, player2, player3)
+                        round3(shotgun, True, player1, player2, player3)
                 break
         
         print("ending your testmode session")
@@ -123,7 +125,7 @@ def main() -> None:
         player3 = Player(3,input("and player 3? "),2)
 
         while not checkNames(player3.name, player1.name, player2.name):
-            player3 = Player(2,input("pick another name "),2)
+            player3 = Player(3,input("pick another name "),2)
         
         initOpponents(player1, player2, player3)
 
@@ -140,10 +142,7 @@ def main() -> None:
         player3 = Player_R2(3,player3.name,4)
         initOpponents(player1, player2, player3)
         shotgun.empty()
-
-        player1.getItem(1)
-        player2.getItem(1)
-        player3.getItem(1)
+        handoutItems(1, player1, player2, player3)
 
         round2(shotgun, False, player1, player2, player3)
 
@@ -158,10 +157,7 @@ def main() -> None:
         player3 = Player_R3(3,player3.name,6)
         initOpponents(player1, player2, player3)
         shotgun.empty()
-
-        player1.getItem(2)
-        player2.getItem(2)
-        player3.getItem(2)
+        handoutItems(2, player1, player2, player3)
 
         round3(shotgun, False, player1, player2, player3)
 
@@ -183,6 +179,7 @@ def main() -> None:
         player1 = Player_R2(1,player1.name,4)
         player2 = Player_R2(2,player2.name,4)
         initOpponents(player1, player2)
+        handoutItems(1, player1, player2)
 
         clear()
         print("both of you can now have items. (max 8)")
@@ -200,6 +197,7 @@ def main() -> None:
         player1 = Player_R3(1,player1.name,6)
         player2 = Player_R3(2,player2.name,6)
         initOpponents(player1, player2)
+        handoutItems(2, player1, player2)
         
         round3(shotgun, False, player1, player2)
 

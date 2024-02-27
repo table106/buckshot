@@ -141,8 +141,24 @@ class Player_R2(Player):
                 logging.debug(f"player {self.num} used cuffs on player {target.num}")
             case default:
                 logging.info(f"player {self.num} failed to pick an item")
+
+    def _cycleCuffs(self) -> None:
+        if self.cuffed == 1:
+            self.cuffed += 1
+            print(f"{self.name} is cuffed")
+        elif self.cuffed == 2:
+            print(f"{self.name} broke free from cuffs")
+            self.cuffed = 0
     
     def turn(self, shotgun: Shotgun) -> None:
+        self._cycleCuffs()
+        if self.cuffed:
+            sleep(2)
+            return
+        else:
+            sleep(2)
+            clear()
+            pass
         print(self)
         ans = input("say to use:\nshotgun - shoot\nitem - item\n>")
         match (ans):

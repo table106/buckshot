@@ -18,6 +18,7 @@ def testmodeLog(shotgun: object, testmode: bool=False, *players) -> None:
             logging.debug(f"plr {j+1} state: {player.__repr__()}")
         print(f"shotgun: {shotgun}")
         logging.debug(f"shotgun: {shotgun}")
+        print()
 
 def checkNames(name, *players):
     if name in players:
@@ -32,6 +33,12 @@ def initOpponents(plr1, plr2, plr3=None):
     else:
         plr1.addOpponent(plr2)
         plr2.addOpponent(plr1)
+
+def handoutItems(count: int, plr1: object, plr2: object, plr3: object=None):
+    plr1.getItem(count)
+    plr2.getItem(count)
+    if plr3:
+        plr3.getItem(count)
 
 if __name__ == "__main__": # this is not a script, just a lib
     print("wrong file idiot")

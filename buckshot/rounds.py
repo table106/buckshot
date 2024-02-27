@@ -58,13 +58,13 @@ def round1(shotgun: Shotgun, testmode: bool=False, *players):
             clear()
             while (player1.lives > 0) and (player2.lives > 0) and (len(shotgun.content) > 0):
                 clear()
-                testmodeLog(player1, player2, shotgun, testmode)
+                testmodeLog(shotgun, testmode, player1, player2)
                 print()
                 player1.turn(shotgun)
                 clear()
                 if player1.lives == 0 or player2.lives == 0 or len(shotgun.content) == 0:
                     break
-                testmodeLog(player1, player2, shotgun, testmode)
+                testmodeLog(shotgun, testmode, player1, player2)
                 print()
                 player2.turn(shotgun)
                 clear()
@@ -93,19 +93,16 @@ def round2(shotgun: Shotgun, testmode: bool=False, *players):
                 while (player1.lives > 0) and (player2.lives > 0) and (player3.lives > 0) and (len(shotgun.content) > 0):
                     clear()
                     testmodeLog(shotgun, testmode, *players)
-                    print()
                     player1.turn(shotgun)
                     clear()
                     if player1.lives == 0 or player2.lives == 0 or player3.lives == 0 or len(shotgun.content) == 0:
                         break
                     testmodeLog(shotgun, testmode, *players)
-                    print()
                     player2.turn(shotgun)
                     clear()
                     if player1.lives == 0 or player2.lives == 0 or player3.lives == 0 or len(shotgun.content) == 0:
                         break
                     testmodeLog(shotgun, testmode, *players)
-                    print()
                     player3.turn(shotgun)
                     clear()
         if player1.lives == 0:
@@ -132,13 +129,11 @@ def round2(shotgun: Shotgun, testmode: bool=False, *players):
             while (player1.lives > 0) and (player2.lives > 0) and (len(shotgun.content) > 0):
                 clear()
                 testmodeLog(player1, player2, shotgun, testmode)
-                print()
                 player1.turn(shotgun)
                 clear()
                 if player1.lives == 0 or player2.lives == 0 or len(shotgun.content) == 0:
                     break
                 testmodeLog(player1, player2, shotgun, testmode)
-                print()
                 player2.turn(shotgun)
                 clear()
         if player1.lives == 0:
@@ -165,19 +160,16 @@ def round3(shotgun: Shotgun, testmode: bool=False, *players):
                 while (player1.lives > 0) and (player2.lives > 0) and (player3.lives > 0) and (len(shotgun.content) > 0):
                     clear()
                     testmodeLog(shotgun, testmode, *players)
-                    print()
                     player1.turn(shotgun)
                     clear()
                     if player1.lives == 0 or player2.lives == 0 or player3.lives == 0 or len(shotgun.content) == 0:
                         break
                     testmodeLog(shotgun, testmode, *players)
-                    print()
                     player2.turn(shotgun)
                     clear()
                     if player1.lives == 0 or player2.lives == 0 or player3.lives == 0 or len(shotgun.content) == 0:
                         break
                     testmodeLog(shotgun, testmode, *players)
-                    print()
                     player3.turn(shotgun)
                     clear()
         if player1.lives == 0:
@@ -205,13 +197,11 @@ def round3(shotgun: Shotgun, testmode: bool=False, *players):
             while (player1.lives > 0) and (player2.lives > 0) and (len(shotgun.content) > 0):
                 clear()
                 testmodeLog(player1, player2, shotgun, testmode)
-                print()
                 player1.turn(shotgun)
                 clear()
                 if player1.lives == 0 or player2.lives == 0 or len(shotgun.content) == 0:
                     break
                 testmodeLog(player1, player2, shotgun, testmode)
-                print()
                 player2.turn(shotgun)
                 clear()
         if player1.lives == 0:
