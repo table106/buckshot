@@ -22,5 +22,5 @@ class Shotgun:
     def empty(self) -> None:
         self.content = []
 
-if __name__ == "__main__": # this is not a script, just a lib
+if __name__ == "__main__": # this is not a script, just a module
     print("wrong file idiot")

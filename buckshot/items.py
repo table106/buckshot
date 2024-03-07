@@ -28,5 +28,5 @@ def useCuffs(using: object, cuffed: object):
         cuffed.cuffed = 1
         using.inv.remove("cuffs")
 
-if __name__ == "__main__": # this is not a script, just a lib
+if __name__ == "__main__": # this is not a script, just a module
     print("wrong file idiot")

@@ -211,5 +211,5 @@ def round3(shotgun: Shotgun, testmode: bool=False, *players):
             print(f"{player1.name} wins. end of round 3")
             player1.wins += 1
 
-if __name__ == "__main__": # this is not a script, just a lib
+if __name__ == "__main__": # this is not a script, just a module
     print("wrong file idiot")
