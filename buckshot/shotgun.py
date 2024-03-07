@@ -2,8 +2,8 @@ from random import shuffle
 
 class Shotgun:
     def __init__(self):
-        self.content = []
-        self.dmg = 1
+        self.content: list[str] = []
+        self.dmg: int = 1
 
     def __str__(self) -> str:
         return f"{' '.join(self.content)}"

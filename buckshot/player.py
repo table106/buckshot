@@ -18,17 +18,18 @@ class Player:
         self.wins = 0
         self.lifeCap = lives
         self.opponents = []
-
-    def __str__(self) -> str:
-        if self.lives > 1:
-            return f"{self.name}'s turn\nyou have {self.lives} lives"
-        return f"{self.name}'s turn\nyou have 1 life"
     
-    def __repr__(self) -> str:
-        return f"{self.num}: {self.name}\
-             | lives: {self.lives}\
-             | wins: {self.wins}\
-             | life cap: {self.lifeCap}"
+    def __format__(self, __format_spec: str) -> str:
+        match __format_spec:
+            case "normal":
+                if self.lives > 1:
+                    return f"{self.name}'s turn\nyou have {self.lives} lives"
+                return f"{self.name}'s turn\nyou have 1 life"
+            case "dev":
+                return f"{self.num}: {self.name}\
+                        | lives: {self.lives}\
+                        | wins: {self.wins}\
+                        | life cap: {self.lifeCap}"
     
     def addOpponent(self, *opponents):
         for op in opponents:
@@ -38,7 +39,7 @@ class Player:
         self.lives -= dmg
     
     def turn(self, shotgun: Shotgun):
-        print(self)
+        print(f"{self:normal}")
         ans = input("type to use:\nshotgun - shoot\n>")
         match (ans):
             case "shoot":
@@ -159,7 +160,7 @@ class Player_R2(Player):
             sleep(2)
             clear()
             pass
-        print(self)
+        print(f"{self:normal}")
         ans = input("say to use:\nshotgun - shoot\nitem - item\n>")
         match (ans):
             case "shoot":

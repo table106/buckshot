@@ -14,8 +14,8 @@ def trySleep(duration: int, testmode: bool=False) -> None:
 def testmodeLog(shotgun: object, testmode: bool=False, *players) -> None:
     if testmode:
         for j,player in enumerate(players):
-            print(f"{j+1}: {player.__repr__()}")
-            logging.debug(f"plr {j+1} state: {player.__repr__()}")
+            print(f"{j+1}: {player:dev}")
+            logging.debug(f"plr {j+1} state: {player:dev}")
         print(f"shotgun: {shotgun}")
         logging.debug(f"shotgun: {shotgun}")
         print()
