@@ -13,7 +13,7 @@ from shotgun import *
 class Player:
     def __init__(self, num: int, name: str, lives: int):
         self.num = num
-        if name == None:  
+        if name == None:
             self.name = name
         else:
             self.name = f"plr{self.num}"
@@ -33,6 +33,8 @@ class Player:
                         | lives: {self.lives}\
                         | wins: {self.wins}\
                         | life cap: {self.lifeCap}"
+            case _:
+                raise Exception("Incorrect format specifier")
     
     def addOpponent(self, *opponents):
         for op in opponents:
@@ -90,10 +92,10 @@ class Player:
                                 print("*click")
                                 shotgun.shoot()
                                 logging.debug(f"player {self.num} didn't damage the enemy")
-                    case default:
+                    case _:
                         print("failed to pick the target")
                         logging.info(f"player {self.num} failed to pick a target")
-            case default:
+            case _:
                 print("failed to pick an action")
                 logging.info(f"player {self.num} failed to pick an action")
         sleep(2)
@@ -143,7 +145,7 @@ class Player_R2(Player):
             case "cuffs":
                 useCuffs(self, target)
                 logging.debug(f"player {self.num} used cuffs on player {target.num}")
-            case default:
+            case _:
                 logging.info(f"player {self.num} failed to pick an item")
 
     def _cycleCuffs(self) -> None:
@@ -213,7 +215,7 @@ class Player_R2(Player):
                                 print("*click")
                                 shotgun.shoot()
                                 logging.debug(f"player {self.num} didn't damage the enemy")
-                    case default:
+                    case _:
                         print("failed to pick target")
                         logging.info(f"player {self.num} failed to pick a target")
             case "item":
@@ -227,7 +229,7 @@ class Player_R2(Player):
                             logging.debug(f"player {self.num} used cuffs on player {op.num}")
                 else:
                     self.useItem(ans, shotgun, self.opponents[0])
-            case default:
+            case _:
                 print("failed to pick an action")
                 logging.info(f"player {self.num} failed to pick an action")
         sleep(2)
