@@ -25,7 +25,7 @@ def checkNames(name, *players):
         return False
     return True
 
-def initOpponents(plr1, plr2, plr3=None):
+def initOpponents(plr1: object, plr2: object, plr3: object=None):
     if plr3 != None:
         plr1.addOpponent(plr2, plr3)
         plr2.addOpponent(plr1, plr3)
