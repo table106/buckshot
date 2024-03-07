@@ -13,7 +13,10 @@ from shotgun import *
 class Player:
     def __init__(self, num: int, name: str, lives: int):
         self.num = num
-        self.name = name
+        if name == None:  
+            self.name = name
+        else:
+            self.name = f"plr{self.num}"
         self.lives = lives
         self.wins = 0
         self.lifeCap = lives
