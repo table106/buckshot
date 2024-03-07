@@ -6,7 +6,7 @@ class Shotgun:
         self.dmg = 1
 
     def __str__(self) -> str:
-        return f"{self.content}"
+        return f"{' '.join(self.content)}"
 
     def insertShells(self, live: int, blank: int) -> None:
         for i in range(live):
