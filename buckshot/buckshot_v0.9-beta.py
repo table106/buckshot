@@ -66,6 +66,7 @@ def main() -> None:
                 player1 = Player_R2(1,"plr1",4)
                 player2 = Player_R2(2,"plr2",4)
                 initOpponents(player1, player2)
+                handoutItems(1, player1, player2)
 
                 round2(shotgun, True, player1, player2)
             
@@ -74,6 +75,7 @@ def main() -> None:
                 player1 = Player_R2(1,"plr1",6)
                 player2 = Player_R2(2,"plr2",6)
                 initOpponents(player1, player2)
+                handoutItems(2, player1, player2)
 
                 round3(shotgun, True, player1, player2)
             
