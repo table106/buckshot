@@ -108,13 +108,16 @@ class Player_R2(Player):
         super().__init__(num, name, lives)
         self.inv = []
         self.cuffed = 0
-
-    def __str__(self) -> str:
-        return super().__str__()+f"\nyour items: {', '.join([item for item in self.inv])}"
     
-    def __repr__(self) -> str:
-        return super().__repr__()+f" | inventory: {', '.join([item for item in self.inv])}\
-             | cuffed state: {self.cuffed}"
+    def __format__(self, __format_spec: str) -> str:
+        match __format_spec:
+            case "normal":
+                return super().__format__("normal")+f"\nyour items: {', '.join([item for item in self.inv])}"
+            case "dev":
+                return super().__format__("dev")+f" | inventory: {', '.join([item for item in self.inv])}\
+                              | cuffed state: {self.cuffed}"
+            case _:
+                raise Exception("Incorrect format specifier")
 
     def heal(self) -> None:
         self.lives += 1
@@ -239,15 +242,16 @@ class Player_R3(Player_R2):
     def __init__(self, num: int, name: str, lives: int):
         super().__init__(num, name, lives)
         self.lifeLocked = False
-
-    def __str__(self) -> str:
-        if self.lives > 2:
-            return f"{self.name}'s turn\nyou have {self.lives} lives\nyour items: {', '.join([item for item in self.inv])}"
-        self.lifeLocked = True
-        return f"{self.name}'s turn\nyou have # lives\nyour items: {', '.join([item for item in self.inv])}"
-    
-    def __repr__(self) -> str:
-        return super().__repr__()+f" | lifeLocked: {self.lifeLocked}"
+        
+    def __format__(self, __format_spec: str) -> str:
+        match __format_spec:
+            case "normal":
+                if self.lives > 2:
+                    return f"{self.name}'s turn\nyou have {self.lives} lives\nyour items: {', '.join([item for item in self.inv])}"
+                self.lifeLocked = True
+                return f"{self.name}'s turn\nyou have # lives\nyour items: {', '.join([item for item in self.inv])}"
+            case "dev":
+                return super().__format__("dev")+f" | lifeLocked: {self.lifeLocked}"
 
 if __name__ == "__main__": # this is not a script, just a module
     print("wrong file idiot")
