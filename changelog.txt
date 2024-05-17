@@ -69,11 +69,14 @@ v0.7.2-beta
 
 v0.8-beta (3P update)
 + 3 player mode released!!
-+ includes testmode
-+ to access 3P enter "actuallytheres3" in the main menu
++ includes testmode (pass: actuallytheres3)
 + swag new Player_R3 class, initOpponents function, shotgun.empty function
 
 v0.9-beta (fixes flood)
 + fixed very many things
 + optimized some stuff
 - scrapped the .env
+
+v0.9.1-beta
+- removed testmode
++ fixed stuff
