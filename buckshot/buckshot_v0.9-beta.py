@@ -1,4 +1,4 @@
-from time import sleep as s
+from time import sleep
 
 testmode_pass="therealtable"
 threeplayers_pass="actuallytheres3"
@@ -16,7 +16,7 @@ from rounds import *
 def main() -> None:
     clear()
     print("well hello there! welcome to...")
-    s(3)
+    sleep(3)
     print("=======================")
     print("|| BUCKSHOT ROULETTE ||")
     print("|| (console version) ||")
@@ -59,7 +59,7 @@ def main() -> None:
                 player2 = Player(2,"plr2",2)
                 initOpponents(player1, player2)
 
-                round1(shotgun, True, player1, player2)
+                round1(shotgun, player1, player2)
             
             elif ans == "2":
                 shotgun.empty()
@@ -68,7 +68,7 @@ def main() -> None:
                 initOpponents(player1, player2)
                 handoutItems(1, player1, player2)
 
-                round2(shotgun, True, player1, player2)
+                round2(shotgun, player1, player2)
             
             elif ans == "3":
                 shotgun.empty()
@@ -77,7 +77,7 @@ def main() -> None:
                 initOpponents(player1, player2)
                 handoutItems(2, player1, player2)
 
-                round3(shotgun, True, player1, player2)
+                round3(shotgun, player1, player2)
             
             elif ans == "3P":
                 ans = "1"
@@ -90,7 +90,7 @@ def main() -> None:
                         player3 = Player(3,"plr3",2)
                         initOpponents(player1, player2, player3)
 
-                        round1(shotgun, True, player1, player2, player3)
+                        round1(shotgun, player1, player2, player3)
                     
                     elif ans == "2":
                         shotgun.empty()
@@ -100,7 +100,7 @@ def main() -> None:
                         initOpponents(player1, player2, player3)
                         handoutItems(1, player1, player2, player3)
 
-                        round2(shotgun, True, player1, player2, player3)
+                        round2(shotgun, player1, player2, player3)
                     
                     elif ans == "3":
                         shotgun.empty()
@@ -110,7 +110,7 @@ def main() -> None:
                         initOpponents(player1, player2, player3)
                         handoutItems(2, player1, player2, player3)
 
-                        round3(shotgun, True, player1, player2, player3)
+                        round3(shotgun, player1, player2, player3)
                 break
         
         print("ending your testmode session")
@@ -134,10 +134,10 @@ def main() -> None:
         print("good luck.")
         sleep(3)
 
-        round1(shotgun, False, player1, player2, player3)
+        round1(shotgun, player1, player2, player3)
 
         print("all of you can now have items. (max 8)")
-        s(3)
+        sleep(3)
 
         player1 = Player_R2(1,player1.name,4)
         player2 = Player_R2(2,player2.name,4)
@@ -146,13 +146,13 @@ def main() -> None:
         shotgun.empty()
         handoutItems(1, player1, player2, player3)
 
-        round2(shotgun, False, player1, player2, player3)
+        round2(shotgun, player1, player2, player3)
 
         clear()
         print("let's make this a little bit more interesting.")
-        s(2)
+        sleep(2)
         print("now, when you reach less than 3 lives, your defibrillator will be cut.\nthe life display will glitch when that happens")
-        s(4)
+        sleep(4)
 
         player1 = Player_R3(1,player1.name,6)
         player2 = Player_R3(2,player2.name,6)
@@ -161,10 +161,10 @@ def main() -> None:
         shotgun.empty()
         handoutItems(2, player1, player2, player3)
 
-        round3(shotgun, False, player1, player2, player3)
+        round3(shotgun, player1, player2, player3)
 
-        print("you have finished 3P mode! exiting in 5")
-        s(5)
+        print("you have finished 3P mode! exiting in T-5")
+        sleep(5)
         exit()
     
     else:
@@ -173,9 +173,9 @@ def main() -> None:
         initOpponents(player1, player2)
 
         print("good luck.")
-        s(2)
+        sleep(2)
 
-        round1(shotgun, False, player1, player2)
+        round1(shotgun, player1, player2)
 
         shotgun.empty()
         player1 = Player_R2(1,player1.name,4)
@@ -185,15 +185,15 @@ def main() -> None:
 
         clear()
         print("both of you can now have items. (max 8)")
-        s(3)
+        sleep(3)
 
-        round2(shotgun, False, player1, player2)
+        round2(shotgun, player1, player2)
 
         clear()
         print("let's make this a little bit more interesting.")
-        s(2)
+        sleep(2)
         print("now, when you reach less than 3 lives, your defibrillator will be cut.\nthe life display will glitch when that happens")
-        s(5)
+        sleep(5)
 
         shotgun.empty()
         player1 = Player_R3(1,player1.name,6)
@@ -201,21 +201,21 @@ def main() -> None:
         initOpponents(player1, player2)
         handoutItems(2, player1, player2)
         
-        round3(shotgun, False, player1, player2)
+        round3(shotgun, player1, player2)
 
         clear()
         if player1.wins > player2.wins:
             print(f'{player1.name} wins with a score of {player1.wins} to {player2.wins}')
         elif player2.wins > player1.wins:
             print(f'{player2.name} wins with a score of {player2.wins} to {player1.wins}')
-        s(5)
+        sleep(5)
     
     clear()
     print("end")
-    s(2)
-    print("engage again?")
-    ans = input("yes/no")
-    if ans == "yes":
+    sleep(2)
+    print("play again?")
+    ans = input("y/n")
+    if ans == "y":
         main()
     else:
         exit()

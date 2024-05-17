@@ -1,9 +1,6 @@
 from time import sleep
 from random import randint as r
 
-import logging
-logging.basicConfig(level=logging.DEBUG, filename="buckshot\debug.log", filemode="w", format="%(asctime)s at line no. %(lineno)d - %(message)s")
-
 from system import clear
 
 from items import *
@@ -22,29 +19,20 @@ class Player:
         self.lifeCap = lives
         self.opponents = []
     
-    def __format__(self, __format_spec: str) -> str:
-        match __format_spec:
-            case "normal":
-                if self.lives > 1:
-                    return f"{self.name}'s turn\nyou have {self.lives} lives"
-                return f"{self.name}'s turn\nyou have 1 life"
-            case "dev":
-                return f"{self.num}: {self.name}\
-                        | lives: {self.lives}\
-                        | wins: {self.wins}\
-                        | life cap: {self.lifeCap}"
-            case _:
-                raise Exception("Incorrect format specifier")
+    def __str__(self) -> str:
+        if self.lives > 1:
+            return f"{self.name}'s turn\nyou have {self.lives} lives"
+        return f"{self.name}'s turn\nyou have 1 life"
     
-    def addOpponent(self, *opponents):
+    def addOpponent(self, *opponents) -> None:
         for op in opponents:
             self.opponents.append(op)
 
-    def takeDmg(self, dmg: int=1):
+    def takeDmg(self, dmg: int=1) -> None:
         self.lives -= dmg
     
-    def turn(self, shotgun: Shotgun):
-        print(f"{self:normal}")
+    def turn(self, shotgun: Shotgun) -> None:
+        print(self)
         ans = input("type to use:\nshotgun - shoot\n>")
         match (ans):
             case "shoot":
@@ -56,17 +44,14 @@ class Player:
                             print("BANG")
                             shotgun.shoot()
                             self.takeDmg()
-                            logging.debug(f"player {self.num} took damage from self")
                         elif shotgun.content[0] == "blank":
                             print("*click")
                             shotgun.shoot()
-                            logging.debug(f"player {self.num} gets another turn")
                             sleep(2)
                             clear()
                             if len(shotgun.content) != 0:
                                 self.turn(shotgun)
                     case "enemy":
-                        logging.debug(f"player {self.num} chose to shoot an enemy")
                         if len(self.opponents) > 1:
                             ans = input(f"who will you shoot?\n{', '.join([plr.name for plr in self.opponents])}\n>")
                             sleep(4)
@@ -76,28 +61,22 @@ class Player:
                                 for op in self.opponents:
                                     if op.name == ans:
                                         op.takeDmg(1)
-                                        logging.debug(f"player {op.num} took damage from enemy")
                             elif shotgun.content[0] == "blank":
                                 print("*click")
                                 shotgun.shoot()
-                                logging.debug(f"player {self.num} didn't damage the enemy")
                         else:
                             sleep(4)
                             if shotgun.content[0] == "live":
                                 print("BANG")
                                 shotgun.shoot()
                                 self.opponents[0].takeDmg(1)
-                                logging.debug(f"player {self.opponents[0].num} took damage from enemy")
                             elif shotgun.content[0] == "blank":
                                 print("*click")
                                 shotgun.shoot()
-                                logging.debug(f"player {self.num} didn't damage the enemy")
                     case _:
                         print("failed to pick the target")
-                        logging.info(f"player {self.num} failed to pick a target")
             case _:
                 print("failed to pick an action")
-                logging.info(f"player {self.num} failed to pick an action")
         sleep(2)
         clear()
 
@@ -109,15 +88,8 @@ class Player_R2(Player):
         self.inv = []
         self.cuffed = 0
     
-    def __format__(self, __format_spec: str) -> str:
-        match __format_spec:
-            case "normal":
-                return super().__format__("normal")+f"\nyour items: {', '.join([item for item in self.inv])}"
-            case "dev":
-                return super().__format__("dev")+f" | inventory: {', '.join([item for item in self.inv])}\
-                              | cuffed state: {self.cuffed}"
-            case _:
-                raise Exception("Incorrect format specifier")
+    def __str__(self) -> str:
+        return super().__str__()+f"\nyour items: {', '.join([item for item in self.inv])}"
 
     def heal(self) -> None:
         self.lives += 1
@@ -135,21 +107,16 @@ class Player_R2(Player):
         match(item):
             case "beer":
                 useBeer(self, shotgun)
-                logging.debug(f"player {self.num} used a beer")
             case "knife":
                 useKnife(self, shotgun)
-                logging.debug(f"player {self.num} used a knife")
             case "magnifying glass":
                 useGlass(self, shotgun)
-                logging.debug(f"player {self.num} used a glass")
             case "cigarette":
                 useCigarette(self)
-                logging.debug(f"player {self.num} used a cig")
             case "cuffs":
                 useCuffs(self, target)
-                logging.debug(f"player {self.num} used cuffs on player {target.num}")
             case _:
-                logging.info(f"player {self.num} failed to pick an item")
+                print("failed to use a valid item")
 
     def _cycleCuffs(self) -> None:
         if self.cuffed == 1:
@@ -168,31 +135,26 @@ class Player_R2(Player):
             sleep(2)
             clear()
             pass
-        print(f"{self:normal}")
+        print(self)
         ans = input("say to use:\nshotgun - shoot\nitem - item\n>")
         match (ans):
             case "shoot":
-                logging.debug(f"player {self.num} chose to shoot")
                 ans = input("shoot self or enemy?\n>")
                 match (ans):
                     case "self":
-                        logging.debug(f"player {self.num} chose to shoot self")
                         sleep(4)
                         if shotgun.content[0] == "live":
                             print("BANG")
                             shotgun.shoot()
                             self.takeDmg()
-                            logging.debug(f"player {self.num} took damage from self")
                         elif shotgun.content[0] == "blank":
                             print("*click")
                             shotgun.shoot()
-                            logging.debug(f"player {self.num} gets another turn")
                             sleep(2)
                             clear()
                             if len(shotgun.content) != 0:
                                 self.turn(shotgun)
                     case "enemy":
-                        logging.debug(f"player {self.num} chose to shoot an enemy")
                         if len(self.opponents) > 1:
                             ans = input(f"who will you shoot?\n{', '.join([plr.name for plr in self.opponents])}\n>")
                             sleep(4)
@@ -202,39 +164,31 @@ class Player_R2(Player):
                                 for op in self.opponents:
                                     if op.name == ans:
                                         op.takeDmg(1)
-                                        logging.debug(f"player {op.num} took damage from enemy")
                             elif shotgun.content[0] == "blank":
                                 print("*click")
                                 shotgun.shoot()
-                                logging.debug(f"player {self.num} didn't damage the enemy")
                         else:
                             sleep(4)
                             if shotgun.content[0] == "live":
                                 print("BANG")
                                 shotgun.shoot()
                                 self.opponents[0].takeDmg(1)
-                                logging.debug(f"player {self.opponents[0].num} took damage from enemy")
                             elif shotgun.content[0] == "blank":
                                 print("*click")
                                 shotgun.shoot()
-                                logging.debug(f"player {self.num} didn't damage the enemy")
                     case _:
                         print("failed to pick target")
-                        logging.info(f"player {self.num} failed to pick a target")
             case "item":
-                logging.debug(f"player {self.num} chose to use an item")
                 ans = input(f"pick an item. {', '.join([item for item in self.inv])}\n>")
                 if ans == "cuffs":
                     ans = input(f"who are you using them on?\n{', '.join([plr.name for plr in self.opponents])}\n>")
                     for op in self.opponents:
                         if op.name == ans:
                             useCuffs(self, op)
-                            logging.debug(f"player {self.num} used cuffs on player {op.num}")
                 else:
                     self.useItem(ans, shotgun, self.opponents[0])
             case _:
                 print("failed to pick an action")
-                logging.info(f"player {self.num} failed to pick an action")
         sleep(2)
         clear()
 
@@ -243,15 +197,10 @@ class Player_R3(Player_R2):
         super().__init__(num, name, lives)
         self.lifeLocked = False
         
-    def __format__(self, __format_spec: str) -> str:
-        match __format_spec:
-            case "normal":
-                if self.lives > 2:
-                    return f"{self.name}'s turn\nyou have {self.lives} lives\nyour items: {', '.join([item for item in self.inv])}"
-                self.lifeLocked = True
-                return f"{self.name}'s turn\nyou have # lives\nyour items: {', '.join([item for item in self.inv])}"
-            case "dev":
-                return super().__format__("dev")+f" | lifeLocked: {self.lifeLocked}"
+    def __str__(self) -> str:
+        if self.lifeLocked == True:
+            return f"{self.name}'s turn\nyou have # lives\nyour items: {', '.join([item for item in self.inv])}"
+        return f"{self.name}'s turn\nyou have {self.lives} lives\nyour items: {', '.join([item for item in self.inv])}"
 
 if __name__ == "__main__": # this is not a script, just a module
     print("wrong file idiot")

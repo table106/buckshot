@@ -2,9 +2,7 @@ from random import randint as r
 
 from player import *
 
-from system import testmodeLog
-
-def round1(shotgun: Shotgun, testmode: bool=False, *players):
+def round1(shotgun: Shotgun, *players):
     player1: Player = players[0]
     player2: Player = players[1]
     if len(players) > 2:
@@ -19,17 +17,14 @@ def round1(shotgun: Shotgun, testmode: bool=False, *players):
             clear()
             while (player1.lives > 0) and (player2.lives > 0) and (player3.lives > 0) and (len(shotgun.content) > 0):
                 clear()
-                testmodeLog(shotgun, testmode, *players)
                 player1.turn(shotgun)
                 clear()
                 if player1.lives == 0 or player2.lives == 0 or player3.lives == 0 or len(shotgun.content) == 0:
                     break
-                testmodeLog(shotgun, testmode, *players)
                 player2.turn(shotgun)
                 clear()
                 if player1.lives == 0 or player2.lives == 0 or player3.lives == 0 or len(shotgun.content) == 0:
                     break
-                testmodeLog(shotgun, testmode, *players)
                 player3.turn(shotgun)
                 clear()
         if player1.lives == 0:
@@ -55,12 +50,10 @@ def round1(shotgun: Shotgun, testmode: bool=False, *players):
             clear()
             while (player1.lives > 0) and (player2.lives > 0) and (len(shotgun.content) > 0):
                 clear()
-                testmodeLog(shotgun, testmode, player1, player2)
                 player1.turn(shotgun)
                 clear()
                 if player1.lives == 0 or player2.lives == 0 or len(shotgun.content) == 0:
                     break
-                testmodeLog(shotgun, testmode, player1, player2)
                 player2.turn(shotgun)
                 clear()
         if player1.lives == 0:
@@ -72,7 +65,7 @@ def round1(shotgun: Shotgun, testmode: bool=False, *players):
         print("end of round 1.")
     sleep(5)
 
-def round2(shotgun: Shotgun, testmode: bool=False, *players):
+def round2(shotgun: Shotgun, *players):
     player1: Player_R2 = players[0]
     player2: Player_R2 = players[1]
     if len(players) > 2:
@@ -87,17 +80,14 @@ def round2(shotgun: Shotgun, testmode: bool=False, *players):
                 clear()
                 while (player1.lives > 0) and (player2.lives > 0) and (player3.lives > 0) and (len(shotgun.content) > 0):
                     clear()
-                    testmodeLog(shotgun, testmode, *players)
                     player1.turn(shotgun)
                     clear()
                     if player1.lives == 0 or player2.lives == 0 or player3.lives == 0 or len(shotgun.content) == 0:
                         break
-                    testmodeLog(shotgun, testmode, *players)
                     player2.turn(shotgun)
                     clear()
                     if player1.lives == 0 or player2.lives == 0 or player3.lives == 0 or len(shotgun.content) == 0:
                         break
-                    testmodeLog(shotgun, testmode, *players)
                     player3.turn(shotgun)
                     clear()
         if player1.lives == 0:
@@ -123,12 +113,10 @@ def round2(shotgun: Shotgun, testmode: bool=False, *players):
             clear()
             while (player1.lives > 0) and (player2.lives > 0) and (len(shotgun.content) > 0):
                 clear()
-                testmodeLog(player1, player2, shotgun, testmode)
                 player1.turn(shotgun)
                 clear()
                 if player1.lives == 0 or player2.lives == 0 or len(shotgun.content) == 0:
                     break
-                testmodeLog(player1, player2, shotgun, testmode)
                 player2.turn(shotgun)
                 clear()
         if player1.lives == 0:
@@ -139,7 +127,7 @@ def round2(shotgun: Shotgun, testmode: bool=False, *players):
             player1.wins += 1
     sleep(5)
 
-def round3(shotgun: Shotgun, testmode: bool=False, *players):
+def round3(shotgun: Shotgun, *players):
     player1: Player_R3 = players[0]
     player2: Player_R3 = players[1]
     if len(players) > 2:
@@ -154,17 +142,14 @@ def round3(shotgun: Shotgun, testmode: bool=False, *players):
                 clear()
                 while (player1.lives > 0) and (player2.lives > 0) and (player3.lives > 0) and (len(shotgun.content) > 0):
                     clear()
-                    testmodeLog(shotgun, testmode, *players)
                     player1.turn(shotgun)
                     clear()
                     if player1.lives == 0 or player2.lives == 0 or player3.lives == 0 or len(shotgun.content) == 0:
                         break
-                    testmodeLog(shotgun, testmode, *players)
                     player2.turn(shotgun)
                     clear()
                     if player1.lives == 0 or player2.lives == 0 or player3.lives == 0 or len(shotgun.content) == 0:
                         break
-                    testmodeLog(shotgun, testmode, *players)
                     player3.turn(shotgun)
                     clear()
         if player1.lives == 0:
@@ -191,12 +176,10 @@ def round3(shotgun: Shotgun, testmode: bool=False, *players):
             clear()
             while (player1.lives > 0) and (player2.lives > 0) and (len(shotgun.content) > 0):
                 clear()
-                testmodeLog(player1, player2, shotgun, testmode)
                 player1.turn(shotgun)
                 clear()
                 if player1.lives == 0 or player2.lives == 0 or len(shotgun.content) == 0:
                     break
-                testmodeLog(player1, player2, shotgun, testmode)
                 player2.turn(shotgun)
                 clear()
         if player1.lives == 0:
