@@ -57,7 +57,7 @@ v0.6.3-beta
 
 v0.7-beta (dev update)
 + logging fully implemented
-+ testmöde added
++ testmöde added (pass: therealtable)
 + made the rounds a library
 
 v0.7.1-beta

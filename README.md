@@ -12,6 +12,7 @@ but as a console app
 ## info
 
 all game files are in buckshot/
+older versions (only .exe files) are in old_versions/
 
 ## to run:
 
