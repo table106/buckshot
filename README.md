@@ -2,16 +2,16 @@
 
 ## prelude
 
-hello
-making a lil thingy here
-you know buckshot roulette?
-yeah
-its exactly that
-but as a console app
+hello\
+making a lil thingy here\
+you know buckshot roulette?\
+yeah\
+its exactly that\
+but as a console app\
 
 ## info
 
-all game files are in buckshot/
+all game files are in buckshot/\
 older versions (only .exe files) are in old_versions/
 
 ## to run:
@@ -22,7 +22,7 @@ grab the .exe from buckshot/dist
 
 ### older version:
 
-grab the .exe from exes/0.X (X being the version you want)
+grab the .exe from old_versions/0.X (X being the version you want, then find the exact version inside)
 
 ## license
 
