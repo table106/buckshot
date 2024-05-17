@@ -7,7 +7,7 @@ making a lil thingy here\
 you know buckshot roulette?\
 yeah\
 its exactly that\
-but as a console app\
+but as a console app
 
 ## info
 
