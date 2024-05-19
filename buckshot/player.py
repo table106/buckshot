@@ -21,7 +21,7 @@ class Player:
             return f"{self.name}'s turn\nyou have {self.lives} lives"
         return f"{self.name}'s turn\nyou have 1 life"
     
-    def addOpponent(self, *opponents) -> None:
+    def addOpponents(self, *opponents) -> None:
         for op in opponents:
             self.opponents.append(op)
 
