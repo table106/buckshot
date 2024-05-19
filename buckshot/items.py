@@ -18,6 +18,7 @@ def useCigarette(player: object):
     if player.lives == player.lifeCap:
         print("you already have max lives. (item consumed)")
     else:
+        print("you feel refreshed. +1 life")
         player.heal()
     player.inv.remove("cigarette")
 

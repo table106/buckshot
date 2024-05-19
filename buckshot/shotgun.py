@@ -5,9 +5,6 @@ class Shotgun:
         self.content: list[str] = []
         self.dmg: int = 1
 
-    def __str__(self) -> str:
-        return f"{' '.join(self.content)}"
-
     def insertShells(self, live: int, blank: int) -> None:
         for i in range(live):
             self.content.append("live")

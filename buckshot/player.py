@@ -94,8 +94,8 @@ class Player_R2(Player):
     def heal(self) -> None:
         self.lives += 1
 
-    def getItem(self, viel: int) -> None:
-        for i in range(viel):
+    def getItem(self, cnt: int) -> None:
+        for i in range(cnt):
             id1 = r(0,4)
             id2 = r(0,4)
             self.inv.append(allitems[id1])
@@ -103,7 +103,7 @@ class Player_R2(Player):
             print(f"{self.name} got {allitems[id1]}, and {allitems[id2]}.")
             sleep(2)
 
-    def useItem(self, item: str, shotgun: Shotgun=None, target: object=None) -> None:
+    def useItem(self, item: str, * , shotgun: Shotgun=None, target: object=None) -> None:
         match(item):
             case "beer":
                 useBeer(self, shotgun)
@@ -186,7 +186,7 @@ class Player_R2(Player):
                         if op.name == ans:
                             useCuffs(self, op)
                 else:
-                    self.useItem(ans, shotgun, self.opponents[0])
+                    self.useItem(ans, shotgun=shotgun, target=self.opponents[0])
             case _:
                 print("failed to pick an action")
         sleep(2)
