@@ -78,5 +78,10 @@ v0.9-beta (fixes flood)
 - scrapped the .env
 
 v0.9.1-beta
-- removed testmode
 + fixed stuff
+- removed testmode
+- removed logging
+
+v0.9.2-beta
++ rewrote rounds.py to be much smaller and reuseable
+- removed __str__ in shotgun.py due to lack of need for one
