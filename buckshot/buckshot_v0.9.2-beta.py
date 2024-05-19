@@ -48,16 +48,16 @@ def main() -> None:
         input("when you finish reading, just press enter")
     
     elif ans == threeplayers_pass:
-        player1: Player = Player(1, input("what does player 1 call themselves? "), 2)
-        player2: Player = Player(2, input("what about player 2? "), 2)
+        player1: Player = Player(1, input("what does player 1 call themselves?\n>"), 2)
+        player2: Player = Player(2, input("what about player 2?\n>"), 2)
 
         while not checkNames(player2.name, player1.name):
-            player2: Player = Player(2, input("pick another name "), 2)
+            player2: Player = Player(2, input("pick another name\n>"), 2)
         
         player3: Player = Player(3, input("and player 3? "), 2)
 
         while not checkNames(player3.name, player1.name, player2.name):
-            player3: Player = Player(3, input("pick another name "), 2)
+            player3: Player = Player(3, input("pick another name\n>"), 2)
         
         initOpponents(player1, player2, player3)
 
@@ -98,8 +98,8 @@ def main() -> None:
         exit()
     
     else:
-        player1: Player = Player(1, input("what does player 1 call themselves? "), 2)
-        player2: Player = Player(2, input("what about player 2? "), 2)
+        player1: Player = Player(1, input("what does player 1 call themselves?\n>"), 2)
+        player2: Player = Player(2, input("what about player 2?\n>"), 2)
         initOpponents(player1, player2)
 
         print("good luck.")
