@@ -18,6 +18,7 @@ class Shotgun:
 
     def empty(self) -> None:
         self.content = []
+        self.dmg = 1
 
 if __name__ == "__main__": # this is not a script, just a module
     print("wrong file idiot")
