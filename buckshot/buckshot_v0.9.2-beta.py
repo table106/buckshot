@@ -93,9 +93,6 @@ def main() -> None:
 
         round_3P(shotgun, player1, player2, player3, roundNo=2)
 
-        print("you have finished 3P mode! exiting in T-5")
-        sleep(5)
-        exit()
     
     else:
         player1: Player = Player(1, input("what does player 1 call themselves?\n>"), 2)
