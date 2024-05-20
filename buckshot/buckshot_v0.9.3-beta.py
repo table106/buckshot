@@ -1,4 +1,5 @@
 from time import sleep
+from os import path
 
 threeplayers_pass="actuallytheres3"
 
@@ -20,7 +21,7 @@ def main() -> None:
     print("|| BUCKSHOT ROULETTE ||")
     print("|| (console version) ||")
     print("=======================")
-    print("version v0.9.2-beta\n")
+    print(f"version {path.basename(__file__)[9:-3]}\n")
     print("press enter to start")
     ans = input("or type 'how' for a how-to-play\n>")
     shotgun: Shotgun = Shotgun()
