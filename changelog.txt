@@ -1,17 +1,17 @@
-v0.1-beta (initial)
+v0.1-alpha (initial)
 - decided to make my own version of the game
 - kinda regretting it
 - ah well
 + added round 1
 
-v0.1.1-beta
+v0.1.1-alpha
 + added main menu
 
-v0.2-beta (round 2 update)
+v0.2-alpha (round 2 update)
 + added round 2
 + added items
 
-v0.3-beta (round 3 update)
+v0.3-beta (round 3 update, beta release)
 + added round 3
 + added item cap (8)
 
@@ -91,3 +91,7 @@ v0.9.3-beta
 + removed the num property for Player, Player_R2 and Player_R3
 + implemented name checking for whitespace only names (defaults to "plrX", X = player number)
 + made the title screen version number dynamic
+
+v0.9.4-beta
++ added credits
++ made it possible to play after viewing the guide
