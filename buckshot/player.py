@@ -27,7 +27,7 @@ class Player:
     def takeDmg(self, dmg: int=1) -> None:
         self.lives -= dmg
     
-    def turn(self, shotgun: Shotgun) -> None:
+    def turn(self, shotgun: Shotgun, /) -> None:
         print(self)
         ans = input("type to use:\nshotgun - shoot\n>")
         match (ans):
@@ -122,7 +122,7 @@ class Player_R2(Player):
             print(f"{self.name} broke free from cuffs")
             self.cuffed = 0
     
-    def turn(self, shotgun: Shotgun) -> None:
+    def turn(self, shotgun: Shotgun, /) -> None:
         self._cycleCuffs()
         if self.cuffed:
             sleep(2)
@@ -175,7 +175,7 @@ class Player_R2(Player):
                     case _:
                         print("failed to pick target")
             case "item":
-                ans = input(f"pick an item. {', '.join([item for item in self.inv])}\n>")
+                ans = input(f"pick an item. ({', '.join([item for item in self.inv])})\n>")
                 if ans == "cuffs":
                     ans = input(f"who are you using them on?\n{', '.join([plr.name for plr in self.opponents])}\n>")
                     for op in self.opponents:
@@ -183,6 +183,7 @@ class Player_R2(Player):
                             useCuffs(self, op)
                 else:
                     self.useItem(ans, shotgun=shotgun, target=self.opponents[0])
+                self.turn(shotgun)
             case _:
                 print("failed to pick an action")
         sleep(2)

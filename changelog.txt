@@ -79,8 +79,8 @@ v0.9-beta (fixes flood)
 
 v0.9.1-beta
 + fixed stuff
-- removed testmode
-- removed logging
+- removed testmode due to debugging existing
+- removed logging due to the reason stated above
 
 v0.9.2-beta
 + rewrote rounds.py to be much smaller and reuseable
@@ -95,3 +95,8 @@ v0.9.3-beta
 v0.9.4-beta
 + added credits
 + made it possible to play after viewing the guide
+
+v0.9.5-beta
++ readded testmode because it actually is useful (new pass: test time) its also more compact and single-use
++ made plenty of functions have forced positional args
+= moved handoutItems() to items.py
