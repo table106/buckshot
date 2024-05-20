@@ -100,3 +100,6 @@ v0.9.5-beta
 + readded testmode because it actually is useful (new pass: test time) its also more compact and single-use
 + made plenty of functions have forced positional args
 = moved handoutItems() to items.py
+
+v0.9.6-beta
++ fixed not getting items after fresh load in round 2 onwards

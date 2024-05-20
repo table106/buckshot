@@ -6,6 +6,7 @@ def round_2P(shotgun: Shotgun, playerr1: object, playerr2: object, /, *, roundNo
     player1: Player | Player_R2 | Player_R3 = playerr1
     player2: Player | Player_R2 | Player_R3 = playerr2
     while (player1.lives > 0) and (player2.lives > 0):
+        handoutItems(roundNo-1, player1, player2)
         liveshells = r(1,4)
         blankshells = r(1,4)
         shotgun.insertShells(liveshells, blankshells)
@@ -35,6 +36,7 @@ def round_3P(shotgun: Shotgun, playerr1: object, playerr2: object, playerr3: obj
     player2: Player | Player_R2 | Player_R3 = playerr2
     player3: Player | Player_R2 | Player_R3 = playerr3
     while (player1.lives > 0) and (player2.lives > 0) and (player3.lives > 0):
+        handoutItems(roundNo-1, player1, player2, player3)
         liveshells = r(1,4)
         blankshells = r(1,4)
         shotgun.insertShells(liveshells, blankshells)

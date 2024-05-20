@@ -12,7 +12,6 @@ class Player:
         self.name = name
         self.lives = lives
         self.wins = 0
-        self.lifeCap = lives
         self.opponents = []
     
     def __str__(self) -> str:
@@ -32,7 +31,7 @@ class Player:
         ans = input("type to use:\nshotgun - shoot\n>")
         match (ans):
             case "shoot":
-                ans = input("shoot self or enemy?\n>")
+                ans = input("shoot self or rival?\n>")
                 match (ans):
                     case "self":
                         sleep(4)
@@ -47,7 +46,7 @@ class Player:
                             clear()
                             if len(shotgun.content) != 0:
                                 self.turn(shotgun)
-                    case "enemy":
+                    case "rival":
                         if len(self.opponents) > 1:
                             ans = input(f"who will you shoot?\n{', '.join([plr.name for plr in self.opponents])}\n>")
                             sleep(4)
@@ -82,6 +81,7 @@ class Player_R2(Player):
     def __init__(self, name: str, lives: int):
         super().__init__(name, lives)
         self.inv = []
+        self.lifeCap = lives
         self.cuffed = 0
     
     def __str__(self) -> str:
@@ -130,12 +130,11 @@ class Player_R2(Player):
         else:
             sleep(2)
             clear()
-            pass
         print(self)
         ans = input("say to use:\nshotgun - shoot\nitem - item\n>")
         match (ans):
             case "shoot":
-                ans = input("shoot self or enemy?\n>")
+                ans = input("shoot self or rival?\n>")
                 match (ans):
                     case "self":
                         sleep(4)
@@ -150,7 +149,7 @@ class Player_R2(Player):
                             clear()
                             if len(shotgun.content) != 0:
                                 self.turn(shotgun)
-                    case "enemy":
+                    case "rival":
                         if len(self.opponents) > 1:
                             ans = input(f"who will you shoot?\n{', '.join([plr.name for plr in self.opponents])}\n>")
                             sleep(4)
