@@ -8,8 +8,7 @@ from items import *
 from shotgun import *
 
 class Player:
-    def __init__(self, num: int, name: str, lives: int):
-        self.num = num
+    def __init__(self, name: str, lives: int):
         self.name = name
         self.lives = lives
         self.wins = 0
@@ -71,7 +70,7 @@ class Player:
                                 print("*click")
                                 shotgun.shoot()
                     case _:
-                        print("failed to pick the target")
+                        print("failed to pick a target")
             case _:
                 print("failed to pick an action")
         sleep(2)
@@ -80,8 +79,8 @@ class Player:
 allitems = ["beer", "knife", "magnifying glass", "cigarette", "cuffs"]
 
 class Player_R2(Player):
-    def __init__(self, num: int, name: str, lives: int):
-        super().__init__(num, name, lives)
+    def __init__(self, name: str, lives: int):
+        super().__init__(name, lives)
         self.inv = []
         self.cuffed = 0
     
@@ -190,8 +189,8 @@ class Player_R2(Player):
         clear()
 
 class Player_R3(Player_R2):
-    def __init__(self, num: int, name: str, lives: int):
-        super().__init__(num, name, lives)
+    def __init__(self, name: str, lives: int):
+        super().__init__(name, lives)
         self.lifeLocked = False
         
     def __str__(self) -> str:

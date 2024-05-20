@@ -85,3 +85,8 @@ v0.9.1-beta
 v0.9.2-beta
 + rewrote rounds.py to be much smaller and reuseable
 - removed __str__ in shotgun.py due to lack of need for one
+
+v0.9.3-beta
++ fixed crash after name selection
++ removed the num property for Player, Player_R2 and Player_R3
++ implemented name checking for whitespace only names (defaults to "plrX", X = player number)
