@@ -1,10 +1,11 @@
 from random import randint as r
+from time import sleep
 
-from player import *
+from shotgun import Shotgun
+from items import handoutItems
+from system import clear
 
-def round_2P(shotgun: Shotgun, playerr1: object, playerr2: object, /, *, roundNo: int):
-    player1: Player | Player_R2 | Player_R3 = playerr1
-    player2: Player | Player_R2 | Player_R3 = playerr2
+def round_2P(shotgun: Shotgun, player1: object, player2: object, /, *, roundNo: int) -> None:
     while (player1.lives > 0) and (player2.lives > 0):
         handoutItems(roundNo-1, player1, player2)
         liveshells = r(1,4)
@@ -31,10 +32,7 @@ def round_2P(shotgun: Shotgun, playerr1: object, playerr2: object, /, *, roundNo
     print(f"end of round {roundNo}.")
     sleep(5)
 
-def round_3P(shotgun: Shotgun, playerr1: object, playerr2: object, playerr3: object, /, *, roundNo: int):
-    player1: Player | Player_R2 | Player_R3 = playerr1
-    player2: Player | Player_R2 | Player_R3 = playerr2
-    player3: Player | Player_R2 | Player_R3 = playerr3
+def round_3P(shotgun: Shotgun, player1: object, player2: object, player3: object, /, *, roundNo: int) -> None:
     while (player1.lives > 0) and (player2.lives > 0) and (player3.lives > 0):
         handoutItems(roundNo-1, player1, player2, player3)
         liveshells = r(1,4)

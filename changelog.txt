@@ -107,3 +107,6 @@ v0.9.6-beta
 v0.9.7-beta
 + fixed knife not increasing the damage
 + fixed cigarettes working during life lock in round 3
+
+v0.9.7.1-beta
++ small readability changes
