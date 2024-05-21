@@ -32,6 +32,11 @@ class Player:
         match (ans):
             case "shoot":
                 ans = input("shoot self or rival?\n>")
+                if ans == "..":
+                    clear()
+                    self.turn(shotgun)
+                    clear()
+                    return
                 match (ans):
                     case "self":
                         sleep(4)
@@ -46,9 +51,16 @@ class Player:
                             clear()
                             if len(shotgun.content) != 0:
                                 self.turn(shotgun)
+                                clear()
+                                return
                     case "rival":
                         if len(self.opponents) > 1:
                             ans = input(f"who will you shoot?\n{', '.join([plr.name for plr in self.opponents])}\n>")
+                            if ans == "..":
+                                clear()
+                                self.turn(shotgun)
+                                clear()
+                                return
                             sleep(4)
                             if shotgun.content[0] == "live":
                                 print("BANG")
@@ -135,6 +147,11 @@ class Player_R2(Player):
         match (ans):
             case "shoot":
                 ans = input("shoot self or rival?\n>")
+                if ans == "..":
+                    clear()
+                    self.turn(shotgun)
+                    clear()
+                    return
                 match (ans):
                     case "self":
                         sleep(4)
@@ -149,9 +166,16 @@ class Player_R2(Player):
                             clear()
                             if len(shotgun.content) != 0:
                                 self.turn(shotgun)
+                                clear()
+                                return
                     case "rival":
                         if len(self.opponents) > 1:
                             ans = input(f"who will you shoot?\n{', '.join([plr.name for plr in self.opponents])}\n>")
+                            if ans == "..":
+                                clear()
+                                self.turn(shotgun)
+                                clear()
+                                return
                             sleep(4)
                             if shotgun.content[0] == "live":
                                 print("BANG")
@@ -175,6 +199,11 @@ class Player_R2(Player):
                         print("failed to pick target")
             case "item":
                 ans = input(f"pick an item. ({', '.join([item for item in self.inv])})\n>")
+                if ans == "..":
+                    clear()
+                    self.turn(shotgun)
+                    clear()
+                    return
                 if ans == "cuffs":
                     ans = input(f"who are you using them on?\n{', '.join([plr.name for plr in self.opponents])}\n>")
                     for op in self.opponents:
@@ -183,6 +212,8 @@ class Player_R2(Player):
                 else:
                     self.useItem(ans, shotgun, target=self.opponents[0])
                 self.turn(shotgun)
+                clear()
+                return
             case _:
                 print("failed to pick an action")
         sleep(2)
