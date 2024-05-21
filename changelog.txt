@@ -103,3 +103,7 @@ v0.9.5-beta
 
 v0.9.6-beta
 + fixed not getting items after fresh load in round 2 onwards
+
+v0.9.7-beta
++ fixed knife not increasing the damage
++ fixed cigarettes working during life lock in round 3

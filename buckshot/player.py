@@ -99,7 +99,7 @@ class Player_R2(Player):
             print(f"{self.name} got {allitems[id1]}, and {allitems[id2]}.")
             sleep(2)
 
-    def useItem(self, item: str, * , shotgun: Shotgun=None, target: object=None) -> None:
+    def useItem(self, item: str, shotgun: Shotgun=None, * , target: object=None) -> None:
         match(item):
             case "beer":
                 useBeer(self, shotgun)
@@ -158,7 +158,7 @@ class Player_R2(Player):
                                 shotgun.shoot()
                                 for op in self.opponents:
                                     if op.name == ans:
-                                        op.takeDmg(1)
+                                        op.takeDmg(shotgun.dmg)
                             elif shotgun.content[0] == "blank":
                                 print("*click")
                                 shotgun.shoot()
@@ -167,7 +167,7 @@ class Player_R2(Player):
                             if shotgun.content[0] == "live":
                                 print("BANG")
                                 shotgun.shoot()
-                                self.opponents[0].takeDmg(1)
+                                self.opponents[0].takeDmg(shotgun.dmg)
                             elif shotgun.content[0] == "blank":
                                 print("*click")
                                 shotgun.shoot()
@@ -181,7 +181,7 @@ class Player_R2(Player):
                         if op.name == ans:
                             useCuffs(self, op)
                 else:
-                    self.useItem(ans, shotgun=shotgun, target=self.opponents[0])
+                    self.useItem(ans, shotgun, target=self.opponents[0])
                 self.turn(shotgun)
             case _:
                 print("failed to pick an action")
@@ -197,6 +197,25 @@ class Player_R3(Player_R2):
         if self.lifeLocked == True:
             return f"{self.name}'s turn\nyou have # lives\nyour items: {', '.join([item for item in self.inv])}"
         return f"{self.name}'s turn\nyou have {self.lives} lives\nyour items: {', '.join([item for item in self.inv])}"
+    
+    def useItem(self, item: str, shotgun: Shotgun=None, * , target: object=None) -> None:
+        match(item):
+            case "beer":
+                useBeer(self, shotgun)
+            case "knife":
+                useKnife(self, shotgun)
+            case "magnifying glass":
+                useGlass(self, shotgun)
+            case "cigarette":
+                if not self.lifeLocked:
+                    useCigarette(self)
+                else:
+                    print("...nothing happened")
+                    self.inv.remove("cigarette")
+            case "cuffs":
+                useCuffs(self, target)
+            case _:
+                print("failed to use a valid item")
 
 if __name__ == "__main__": # this is not a script, just a module
     print("wrong file idiot")
