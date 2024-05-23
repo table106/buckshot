@@ -3,7 +3,7 @@ from time import sleep
 
 from shotgun import Shotgun
 from items import handoutItems
-from system import clear
+from system import clear, playersAlive, shotgunNotEmpty
 
 def round_2P(shotgun: Shotgun, player1: object, player2: object, /, *, roundNo: int) -> None:
     while (player1.lives > 0) and (player2.lives > 0):
@@ -16,11 +16,11 @@ def round_2P(shotgun: Shotgun, player1: object, player2: object, /, *, roundNo: 
         print(f"LOADED SHELLS: {liveshells} LIVE AND {blankshells} BLANK")
         sleep(5)
         clear()
-        while (player1.lives > 0) and (player2.lives > 0) and (len(shotgun.content) > 0):
+        while playersAlive(player1, player2) and shotgunNotEmpty(shotgun):
             clear()
             player1.turn(shotgun)
             clear()
-            if player1.lives == 0 or player2.lives == 0 or len(shotgun.content) == 0:
+            if not playersAlive(player1, player2) or not shotgunNotEmpty(shotgun):
                 break
             player2.turn(shotgun)
             clear()
@@ -34,7 +34,7 @@ def round_2P(shotgun: Shotgun, player1: object, player2: object, /, *, roundNo: 
     sleep(5)
 
 def round_3P(shotgun: Shotgun, player1: object, player2: object, player3: object, /, *, roundNo: int) -> None:
-    while (player1.lives > 0) and (player2.lives > 0) and (player3.lives > 0):
+    while playersAlive(player1, player2, player3):
         if roundNo >= 2:
             handoutItems(roundNo-1, player1, player2, player3)
         liveshells = r(1,4)
@@ -44,15 +44,15 @@ def round_3P(shotgun: Shotgun, player1: object, player2: object, player3: object
         print(f"LOADED SHELLS: {liveshells} LIVE AND {blankshells} BLANK")
         sleep(5)
         clear()
-        while (player1.lives > 0) and (player2.lives > 0) and (player3.lives > 0) and (len(shotgun.content) > 0):
+        while playersAlive(player1, player2, player3) and shotgunNotEmpty(shotgun):
             clear()
             player1.turn(shotgun)
             clear()
-            if player1.lives == 0 or player2.lives == 0 or player3.lives == 0 or len(shotgun.content) == 0:
+            if not playersAlive(player1, player2, player3) or not shotgunNotEmpty(shotgun):
                 break
             player2.turn(shotgun)
             clear()
-            if player1.lives == 0 or player2.lives == 0 or player3.lives == 0 or len(shotgun.content) == 0:
+            if not playersAlive(player1, player2, player3) or not shotgunNotEmpty(shotgun):
                 break
             player3.turn(shotgun)
             clear()
