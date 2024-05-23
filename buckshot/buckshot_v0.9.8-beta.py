@@ -5,13 +5,9 @@ threeplayers_pass="actuallytheres3"
 testmode_pass="test time"
 
 from system import *
-
 from player import *
-
 from shotgun import *
-
 from items import *
-
 from rounds import *
 
 def main() -> None:
@@ -56,7 +52,7 @@ def main() -> None:
         print("THE HALL OF SHAME I MEAN FAME\
               \nfor those that for some reason contributed\
               \n\ntable106 (me!) - programming, literally almost everything\
-              \nStackOverflow (the website) - saving me from stupid dillemas on how to make something\
+              \nStackOverflow (the website) - saving me from \"wait how do i make x\"\
               \n\nmy friends:\
               \nAridemis - ideas and early game testing\
               \nkt00s - thoughts on my ideas and testing\
