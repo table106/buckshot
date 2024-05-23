@@ -88,11 +88,9 @@ def main() -> None:
             if threeP == "y":
                 player3: Player_R3 = Player_R3("plr3", 6)
                 initOpponents(player1, player2, player3)
-                handoutItems(2, player1, player2, player3)
                 round_3P(shotgun, player1, player2, player3, roundNo=3)
             else:
                 initOpponents(player1, player2)
-                handoutItems(2, player1, player2)
                 round_2P(shotgun, player1, player2, roundNo=3)
         else:
             main()
