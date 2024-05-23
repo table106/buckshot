@@ -115,3 +115,7 @@ v0.9.8-beta
 + added ability to go back on choices
 + fixed crash caused by getting items on round 1
 + added some clear()s to clean up the console
+
+v0.9.9-beta
++ added playersAlive() and shotgunNotEmpty() functions
++ fixed the crash mentioned in v0.9.8-beta in 3P rounds too
