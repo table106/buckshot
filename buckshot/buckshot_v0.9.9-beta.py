@@ -1,5 +1,5 @@
 from time import sleep
-from os import path
+from os.path import basename
 
 threeplayers_pass="actuallytheres3"
 testmode_pass="test time"
@@ -18,7 +18,7 @@ def main() -> None:
     print("|| BUCKSHOT ROULETTE ||")
     print("|| (console version) ||")
     print("=======================")
-    print(f"version {path.basename(__file__)[9:-3]}\n")
+    print(f"version {basename(__file__)[9:-3]}\n")
     print("press enter to start")
     print("or type 'how' for a how-to-play")
     ans = input("you can also check out the credits with 'credits'\n>")
