@@ -35,7 +35,8 @@ def round_2P(shotgun: Shotgun, player1: object, player2: object, /, *, roundNo: 
 
 def round_3P(shotgun: Shotgun, player1: object, player2: object, player3: object, /, *, roundNo: int) -> None:
     while (player1.lives > 0) and (player2.lives > 0) and (player3.lives > 0):
-        handoutItems(roundNo-1, player1, player2, player3)
+        if roundNo >= 2:
+            handoutItems(roundNo-1, player1, player2, player3)
         liveshells = r(1,4)
         blankshells = r(1,4)
         shotgun.insertShells(liveshells, blankshells)
