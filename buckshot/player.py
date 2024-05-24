@@ -238,11 +238,7 @@ class Player_R3(Player_R2):
             case "magnifying glass":
                 useGlass(self, shotgun)
             case "cigarette":
-                if not self.lifeLocked:
-                    useCigarette(self)
-                else:
-                    print("...nothing happened")
-                    self.inv.remove("cigarette")
+                useCigarette(self)
             case "cuffs":
                 useCuffs(self, target)
             case _:
