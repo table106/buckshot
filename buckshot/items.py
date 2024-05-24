@@ -17,9 +17,10 @@ def useGlass(player: object, shotgun: Shotgun, /) -> None:
 def useCigarette(player: object, /) -> None:
     if player.lives == player.lifeCap:
         print("you already have max lives. (item consumed)")
-    elif player.lifeLocked == True:
-        print("...nothing happened")
-    else:
+    try:
+        if player.lifeLocked == True:
+            print("...nothing happened")
+    except AttributeError:
         print("you feel refreshed. +1 life")
         player.heal()
     player.inv.remove("cigarette")

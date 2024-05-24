@@ -2,9 +2,7 @@ from time import sleep
 from random import randint as r
 
 from system import clear
-
 from items import *
-
 from shotgun import *
 
 class Player:
@@ -22,6 +20,9 @@ class Player:
     def addOpponents(self, *opponents) -> None:
         for op in opponents:
             self.opponents.append(op)
+
+    def displayOpponents(self) -> str:
+        return ", ".join([op.name for op in self.opponents])
 
     def takeDmg(self, dmg: int=1) -> None:
         self.lives -= dmg
@@ -43,7 +44,7 @@ class Player:
                         if shotgun.shell() == "live":
                             print("BANG")
                             shotgun.shoot()
-                            self.takeDmg()
+                            self.takeDmg(1)
                         elif shotgun.shell() == "blank":
                             print("*click")
                             shotgun.shoot()
@@ -55,7 +56,7 @@ class Player:
                                 return
                     case "rival":
                         if len(self.opponents) > 1:
-                            ans = input(f"who will you shoot?\n{', '.join([plr.name for plr in self.opponents])}\n>")
+                            ans = input(f"who will you shoot?\n{self.displayOpponents()}\n>")
                             if ans == "..":
                                 clear()
                                 self.turn(shotgun)
@@ -97,7 +98,7 @@ class Player_R2(Player):
         self.cuffed = 0
     
     def __str__(self) -> str:
-        return super().__str__()+f"\nyour items: {', '.join([item for item in self.inv])}"
+        return super().__str__()+f"\nyour items: {self.displayItems()}"
 
     def heal(self) -> None:
         self.lives += 1
@@ -125,6 +126,9 @@ class Player_R2(Player):
                 useCuffs(self, target)
             case _:
                 print("failed to use a valid item")
+
+    def displayItems(self) -> str:
+        return ", ".join([item for item in self.inv])
 
     def _cycleCuffs(self) -> None:
         if self.cuffed == 1:
@@ -158,7 +162,7 @@ class Player_R2(Player):
                         if shotgun.shell() == "live":
                             print("BANG")
                             shotgun.shoot()
-                            self.takeDmg()
+                            self.takeDmg(shotgun.dmg)
                         elif shotgun.shell() == "blank":
                             print("*click")
                             shotgun.shoot()
@@ -170,7 +174,7 @@ class Player_R2(Player):
                                 return
                     case "rival":
                         if len(self.opponents) > 1:
-                            ans = input(f"who will you shoot?\n{', '.join([plr.name for plr in self.opponents])}\n>")
+                            ans = input(f"who will you shoot?\n{self.displayOpponents()}\n>")
                             if ans == "..":
                                 clear()
                                 self.turn(shotgun)
@@ -198,14 +202,14 @@ class Player_R2(Player):
                     case _:
                         print("failed to pick target")
             case "item":
-                ans = input(f"pick an item. ({', '.join([item for item in self.inv])})\n>")
+                ans = input(f"pick an item. ({self.displayItems()})\n>")
                 if ans == "..":
                     clear()
                     self.turn(shotgun)
                     clear()
                     return
                 if ans == "cuffs":
-                    ans = input(f"who are you using them on?\n{', '.join([plr.name for plr in self.opponents])}\n>")
+                    ans = input(f"who are you using them on?\n{self.displayOpponents()}\n>")
                     for op in self.opponents:
                         if op.name == ans:
                             useCuffs(self, op)
@@ -226,23 +230,8 @@ class Player_R3(Player_R2):
         
     def __str__(self) -> str:
         if self.lifeLocked == True:
-            return f"{self.name}'s turn\nyou have # lives\nyour items: {', '.join([item for item in self.inv])}"
-        return f"{self.name}'s turn\nyou have {self.lives} lives\nyour items: {', '.join([item for item in self.inv])}"
-    
-    def useItem(self, item: str, shotgun: Shotgun=None, * , target: object=None) -> None:
-        match(item):
-            case "beer":
-                useBeer(self, shotgun)
-            case "knife":
-                useKnife(self, shotgun)
-            case "magnifying glass":
-                useGlass(self, shotgun)
-            case "cigarette":
-                useCigarette(self)
-            case "cuffs":
-                useCuffs(self, target)
-            case _:
-                print("failed to use a valid item")
+            return f"{self.name}'s turn\nyou have # lives\nyour items: {self.displayItems()}"
+        return f"{self.name}'s turn\nyou have {self.lives} lives\nyour items: {self.displayItems()}"
 
 if __name__ == "__main__": # this is not a script, just a module
     print("wrong file idiot")
