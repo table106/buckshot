@@ -112,7 +112,7 @@ def main() -> None:
         if not validName(player2.name, player1.name):
             player2: Player = Player("plr2", 2)
         
-        player3: Player = Player(input("and player 3? "), 2)
+        player3: Player = Player(input("and player 3?\n>"), 2)
 
         if not validName(player3.name, player1.name, player2.name):
             player3: Player = Player("plr3", 2)
@@ -133,7 +133,6 @@ def main() -> None:
 
         initOpponents(player1, player2, player3)
         shotgun.empty()
-        handoutItems(1, player1, player2, player3)
 
         round_3P(shotgun, player1, player2, player3, roundNo=2)
 
@@ -149,7 +148,6 @@ def main() -> None:
 
         initOpponents(player1, player2, player3)
         shotgun.empty()
-        handoutItems(2, player1, player2, player3)
 
         round_3P(shotgun, player1, player2, player3, roundNo=3)
 
@@ -181,7 +179,6 @@ def main() -> None:
         clear()
         print("both of you can now have items. (max 8)")
         sleep(3)
-        handoutItems(1, player1, player2)
 
         round_2P(shotgun, player1, player2, roundNo=2)
 
@@ -197,7 +194,6 @@ def main() -> None:
         player2: Player_R3 = Player_R3(player2.name, 6)
 
         initOpponents(player1, player2)
-        handoutItems(2, player1, player2)
         
         round_2P(shotgun, player1, player2, roundNo=3)
 
