@@ -5,8 +5,8 @@
 hello\
 making a lil thingy here\
 basically,\
-buckshot roulette (da game)
-but as a console app (because i suck and cant do 3d :nerd:)
+buckshot roulette (da game)\
+but as a console app because i suck and cant do 3d
 
 ## info
 
