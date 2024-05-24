@@ -56,6 +56,7 @@ def main() -> None:
               \n\nmy friends:\
               \nAridemis - ideas and early game testing\
               \nkt00s - thoughts on my ideas and testing\
+              \niggy - testing\
               \n\nspecial thanks to my cat for keeping me sane\n")
     
         ans = input("when you finish reading, just press enter\n>")
