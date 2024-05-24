@@ -40,11 +40,11 @@ class Player:
                 match (ans):
                     case "self":
                         sleep(4)
-                        if shotgun.content[0] == "live":
+                        if shotgun.shell() == "live":
                             print("BANG")
                             shotgun.shoot()
                             self.takeDmg()
-                        elif shotgun.content[0] == "blank":
+                        elif shotgun.shell() == "blank":
                             print("*click")
                             shotgun.shoot()
                             sleep(2)
@@ -62,22 +62,22 @@ class Player:
                                 clear()
                                 return
                             sleep(4)
-                            if shotgun.content[0] == "live":
+                            if shotgun.shell() == "live":
                                 print("BANG")
                                 shotgun.shoot()
                                 for op in self.opponents:
                                     if op.name == ans:
                                         op.takeDmg(1)
-                            elif shotgun.content[0] == "blank":
+                            elif shotgun.shell() == "blank":
                                 print("*click")
                                 shotgun.shoot()
                         else:
                             sleep(4)
-                            if shotgun.content[0] == "live":
+                            if shotgun.shell() == "live":
                                 print("BANG")
                                 shotgun.shoot()
                                 self.opponents[0].takeDmg(1)
-                            elif shotgun.content[0] == "blank":
+                            elif shotgun.shell() == "blank":
                                 print("*click")
                                 shotgun.shoot()
                     case _:
@@ -155,11 +155,11 @@ class Player_R2(Player):
                 match (ans):
                     case "self":
                         sleep(4)
-                        if shotgun.content[0] == "live":
+                        if shotgun.shell() == "live":
                             print("BANG")
                             shotgun.shoot()
                             self.takeDmg()
-                        elif shotgun.content[0] == "blank":
+                        elif shotgun.shell() == "blank":
                             print("*click")
                             shotgun.shoot()
                             sleep(2)
@@ -177,22 +177,22 @@ class Player_R2(Player):
                                 clear()
                                 return
                             sleep(4)
-                            if shotgun.content[0] == "live":
+                            if shotgun.shell() == "live":
                                 print("BANG")
                                 shotgun.shoot()
                                 for op in self.opponents:
                                     if op.name == ans:
                                         op.takeDmg(shotgun.dmg)
-                            elif shotgun.content[0] == "blank":
+                            elif shotgun.shell() == "blank":
                                 print("*click")
                                 shotgun.shoot()
                         else:
                             sleep(4)
-                            if shotgun.content[0] == "live":
+                            if shotgun.shell() == "live":
                                 print("BANG")
                                 shotgun.shoot()
                                 self.opponents[0].takeDmg(shotgun.dmg)
-                            elif shotgun.content[0] == "blank":
+                            elif shotgun.shell() == "blank":
                                 print("*click")
                                 shotgun.shoot()
                     case _:
