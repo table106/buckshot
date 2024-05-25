@@ -25,39 +25,20 @@ def main() -> None:
     shotgun: Shotgun = Shotgun()
     clear()
     if ans == "how":
-        print("alright, so\
-              \nthere's a shotgun\
-              \nevery time it is empty we load some shells in\
-              \nthey can be blank, or live, and will be in a random sequence\
-              \nyou only get the numbers though!\
-              \nevery turn, you use the shotgun\
-              \nyou point it either at yourself, or a rival\
-              \nif you shoot yourself with a blank you get to go again!\
-              \n\nITEMS (from round 2 onwards)\
-              \n-beer:\
-              \nyou eject a round from the shotgun, if its the last one we reload it\
-              \n\n-knife:\
-              \nyou saw the barrel of the shotgun, making the next shot deal 2 damage (the barrel regenerates after)\
-              \n\n-magnifying glass:\
-              \nyou look into the chamber, revealing the shell inside\
-              \n\n-cigarette:\
-              \nyou regain a life (smoking is bad kids dont do it)\
-              \n\n-cuffs:\
-              \nyou cuff a rival skipping their next turn\
-              \n\nALSO: you can type \'..\' at (almost) any time to go to the previous screen\n")
+        gi = open("buckshot/guide.txt", "r")
+        for line in gi:
+            print(line, end="")
+        print("\n")
+        gi.close()
         
         ans = input("when you finish reading, just press enter\n>")
 
     elif ans == "credits":
-        print("THE HALL OF SHAME I MEAN FAME\
-              \nfor those that for some reason contributed\
-              \n\ntable106 (me!) - programming, literally almost everything\
-              \nStackOverflow (the website) - saving me from \"wait how do i make x\"\
-              \n\nmy friends:\
-              \nAridemis - ideas and early game testing\
-              \nkt00s - thoughts on my ideas and testing\
-              \niggy - testing\
-              \n\nspecial thanks to my cat for keeping me sane\n")
+        cr = open("buckshot/credits.txt", "r")
+        for line in cr:
+            print(line, end="")
+        print("\n")
+        cr.close()
     
         ans = input("when you finish reading, just press enter\n>")
 
