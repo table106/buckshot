@@ -7,10 +7,10 @@ from shotgun import *
 
 class Player:
     def __init__(self, name: str, lives: int):
-        self.name = name
-        self.lives = lives
-        self.wins = 0
-        self.opponents = []
+        self.name: str = name
+        self.lives: int = lives
+        self.wins: int = 0
+        self.opponents: list[str] = []
     
     def __str__(self) -> str:
         if self.lives > 1:
@@ -91,11 +91,12 @@ class Player:
 allitems = ["beer", "knife", "magnifying glass", "cigarette", "cuffs"]
 
 class Player_R2(Player):
-    def __init__(self, name: str, lives: int):
+    def __init__(self, name: str, lives: int, wins: int):
         super().__init__(name, lives)
-        self.inv = []
-        self.lifeCap = lives
-        self.cuffed = 0
+        self.wins: int = wins
+        self.inv: list[str] = []
+        self.lifeCap: int = lives
+        self.cuffed: int = 0
     
     def __str__(self) -> str:
         return super().__str__()+f"\nyour items: {self.displayItems()}"
@@ -224,9 +225,10 @@ class Player_R2(Player):
         clear()
 
 class Player_R3(Player_R2):
-    def __init__(self, name: str, lives: int):
-        super().__init__(name, lives)
-        self.lifeLocked = False
+    def __init__(self, name: str, lives: int, wins: int):
+        super().__init__(name, lives, wins)
+        self.wins: int = wins
+        self.lifeLocked: bool = False
         
     def __str__(self) -> str:
         if self.lifeLocked == True:

@@ -55,20 +55,20 @@ def main() -> None:
                 initOpponents(player1, player2)
                 round_2P(shotgun, player1, player2, roundNo=1)
         elif round == "2":
-            player1: Player_R2 = Player_R2("plr1", 4)
-            player2: Player_R2 = Player_R2("plr2", 4)
+            player1: Player_R2 = Player_R2("plr1", 4, 0)
+            player2: Player_R2 = Player_R2("plr2", 4, 0)
             if threeP == "y":
-                player3: Player_R2 = Player_R2("plr3", 4)
+                player3: Player_R2 = Player_R2("plr3", 4, 0)
                 initOpponents(player1, player2, player3)
                 round_3P(shotgun, player1, player2, player3, roundNo=2)
             else:
                 initOpponents(player1, player2)
                 round_2P(shotgun, player1, player2, roundNo=2)
         elif round == "3":
-            player1: Player_R3 = Player_R3("plr1", 6)
-            player2: Player_R3 = Player_R3("plr2", 6)
+            player1: Player_R3 = Player_R3("plr1", 6, 0)
+            player2: Player_R3 = Player_R3("plr2", 6, 0)
             if threeP == "y":
-                player3: Player_R3 = Player_R3("plr3", 6)
+                player3: Player_R3 = Player_R3("plr3", 6, 0)
                 initOpponents(player1, player2, player3)
                 round_3P(shotgun, player1, player2, player3, roundNo=3)
             else:
@@ -109,9 +109,9 @@ def main() -> None:
         print("all of you can now have items. (max 8)")
         sleep(3)
 
-        player1: Player_R2 = Player_R2(player1.name, 4)
-        player2: Player_R2 = Player_R2(player2.name, 4)
-        player3: Player_R2 = Player_R2(player3.name, 4)
+        player1: Player_R2 = Player_R2(player1.name, 4, player1.wins)
+        player2: Player_R2 = Player_R2(player2.name, 4, player2.wins)
+        player3: Player_R2 = Player_R2(player3.name, 4, player3.wins)
 
         initOpponents(player1, player2, player3)
         shotgun.empty()
@@ -124,9 +124,9 @@ def main() -> None:
         print("now, when you reach less than 3 lives, your defibrillator will be cut.\nthe life display will glitch when that happens")
         sleep(4)
 
-        player1: Player_R3 = Player_R3(player1.name, 6)
-        player2: Player_R3 = Player_R3(player2.name, 6)
-        player3: Player_R3 = Player_R3(player3.name, 6)
+        player1: Player_R3 = Player_R3(player1.name, 6, player1.wins)
+        player2: Player_R3 = Player_R3(player2.name, 6, player2.wins)
+        player3: Player_R3 = Player_R3(player3.name, 6, player3.wins)
 
         initOpponents(player1, player2, player3)
         shotgun.empty()
@@ -154,8 +154,8 @@ def main() -> None:
 
         shotgun.empty()
 
-        player1: Player_R2 = Player_R2(player1.name, 4)
-        player2: Player_R2 = Player_R2(player2.name, 4)
+        player1: Player_R2 = Player_R2(player1.name, 4, player1.wins)
+        player2: Player_R2 = Player_R2(player2.name, 4, player2.wins)
 
         initOpponents(player1, player2)
         clear()
@@ -172,8 +172,8 @@ def main() -> None:
 
         shotgun.empty()
         
-        player1: Player_R3 = Player_R3(player1.name, 6)
-        player2: Player_R3 = Player_R3(player2.name, 6)
+        player1: Player_R3 = Player_R3(player1.name, 6, player1.wins)
+        player2: Player_R3 = Player_R3(player2.name, 6, player2.wins)
 
         initOpponents(player1, player2)
         
