@@ -119,3 +119,6 @@ v0.9.8-beta
 v0.9.9-beta
 + added playersAlive() and shotgunNotEmpty() functions
 + fixed the crash mentioned in v0.9.8-beta in 3P rounds too
+
+v1.0-pre1
++ made the lifelock functional

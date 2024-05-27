@@ -234,6 +234,103 @@ class Player_R3(Player_R2):
         if self.lifeLocked == True:
             return f"{self.name}'s turn\nyou have # lives\nyour items: {self.displayItems()}"
         return f"{self.name}'s turn\nyou have {self.lives} lives\nyour items: {self.displayItems()}"
+    
+    def lifelock(self, turn: function) -> function:
+        def wrapper():
+            turn()
+            if self.lifeLocked == False and self.lives <= 2:
+                print("are you ready?")
+                sleep(2)
+                print("ERR: DEFFIBRILATORS UNRESPONSIVE")
+                self.lifeLocked == True
+                self.lives = 1
+        return wrapper
+    
+    @lifelock
+    def turn(self, shotgun: Shotgun, /) -> None:
+        self._cycleCuffs()
+        if self.cuffed:
+            sleep(2)
+            return
+        else:
+            sleep(2)
+            clear()
+        print(self)
+        ans = input("say to use:\nshotgun - shoot\nitem - item\n>")
+        match (ans):
+            case "shoot":
+                ans = input("shoot self or rival?\n>")
+                if ans == "..":
+                    clear()
+                    self.turn(shotgun)
+                    clear()
+                    return
+                match (ans):
+                    case "self":
+                        sleep(4)
+                        if shotgun.shell() == "live":
+                            print("BANG")
+                            shotgun.shoot()
+                            self.takeDmg(shotgun.dmg)
+                        elif shotgun.shell() == "blank":
+                            print("*click")
+                            shotgun.shoot()
+                            sleep(2)
+                            clear()
+                            if len(shotgun.content) != 0:
+                                self.turn(shotgun)
+                                clear()
+                                return
+                    case "rival":
+                        if len(self.opponents) > 1:
+                            ans = input(f"who will you shoot?\n{self.displayOpponents()}\n>")
+                            if ans == "..":
+                                clear()
+                                self.turn(shotgun)
+                                clear()
+                                return
+                            sleep(4)
+                            if shotgun.shell() == "live":
+                                print("BANG")
+                                shotgun.shoot()
+                                for op in self.opponents:
+                                    if op.name == ans:
+                                        op.takeDmg(shotgun.dmg)
+                            elif shotgun.shell() == "blank":
+                                print("*click")
+                                shotgun.shoot()
+                        else:
+                            sleep(4)
+                            if shotgun.shell() == "live":
+                                print("BANG")
+                                shotgun.shoot()
+                                self.opponents[0].takeDmg(shotgun.dmg)
+                            elif shotgun.shell() == "blank":
+                                print("*click")
+                                shotgun.shoot()
+                    case _:
+                        print("failed to pick target")
+            case "item":
+                ans = input(f"pick an item. ({self.displayItems()})\n>")
+                if ans == "..":
+                    clear()
+                    self.turn(shotgun)
+                    clear()
+                    return
+                if ans == "cuffs":
+                    ans = input(f"who are you using them on?\n{self.displayOpponents()}\n>")
+                    for op in self.opponents:
+                        if op.name == ans:
+                            useCuffs(self, op)
+                else:
+                    self.useItem(ans, shotgun, target=self.opponents[0])
+                self.turn(shotgun)
+                clear()
+                return
+            case _:
+                print("failed to pick an action")
+        sleep(2)
+        clear()
 
 if __name__ == "__main__": # this is not a script, just a module
     print("wrong file idiot")
