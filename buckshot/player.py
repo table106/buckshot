@@ -235,19 +235,13 @@ class Player_R3(Player_R2):
             return f"{self.name}'s turn\nyou have # lives\nyour items: {self.displayItems()}"
         return f"{self.name}'s turn\nyou have {self.lives} lives\nyour items: {self.displayItems()}"
     
-    def lifelock(self, turn: function) -> function:
-        def wrapper():
-            turn()
-            if self.lifeLocked == False and self.lives <= 2:
-                print("are you ready?")
-                sleep(2)
-                print("ERR: DEFFIBRILATORS UNRESPONSIVE")
-                self.lifeLocked == True
-                self.lives = 1
-        return wrapper
-    
-    @lifelock
     def turn(self, shotgun: Shotgun, /) -> None:
+        if self.lifeLocked == False and self.lives <= 2:
+            print("are you ready?")
+            sleep(2)
+            print(f"ERR: ${self.name} DEFIBRRILATORS UNRESPONSIVE")
+            self.lifeLocked = True
+            self.lives = 1
         self._cycleCuffs()
         if self.cuffed:
             sleep(2)
