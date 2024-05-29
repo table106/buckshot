@@ -227,7 +227,6 @@ class Player_R2(Player):
 class Player_R3(Player_R2):
     def __init__(self, name: str, lives: int, wins: int):
         super().__init__(name, lives, wins)
-        self.wins: int = wins
         self.lifeLocked: bool = False
         
     def __str__(self) -> str:
@@ -239,7 +238,7 @@ class Player_R3(Player_R2):
         if self.lifeLocked == False and self.lives <= 2:
             print("are you ready?")
             sleep(2)
-            print(f"ERR: ${self.name} DEFIBRRILATORS UNRESPONSIVE")
+            print(f"ERR: ${self.name} DEFIBRILLATORS UNRESPONSIVE")
             self.lifeLocked = True
             self.lives = 1
         self._cycleCuffs()

@@ -25,7 +25,7 @@ def useCigarette(player: object, /) -> None:
         player.heal()
     player.inv.remove("cigarette")
 
-def useCuffs(using: object, cuffed: object) -> None:
+def useCuffs(using: object, cuffed: object, /) -> None:
     if cuffed.cuffed == 1:
         print("they're already cuffed. (item not consumed)")
     else:

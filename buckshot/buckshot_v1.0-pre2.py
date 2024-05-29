@@ -137,7 +137,7 @@ def main() -> None:
     else:
         player1: Player = Player(input("what does player 1 call themselves?\n>"), 2)
 
-        if not validName(player1.name, ...):
+        if not validName(player1.name, tuple()):
             player1: Player = Player("plr1", 2)
 
         player2: Player = Player(input("what about player 2?\n>"), 2)
