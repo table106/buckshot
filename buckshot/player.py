@@ -1,7 +1,7 @@
 from time import sleep
 from random import randint as r
 
-from system import clear, query
+from system import clear
 from items import *
 from shotgun import *
 
@@ -29,10 +29,10 @@ class Player:
     
     def turn(self, shotgun: Shotgun, /) -> None:
         print(self)
-        ans = query("type to use:\nshotgun - shoot")
+        ans = input("type to use:\nshotgun - shoot\n>")
         match (ans):
             case "shoot":
-                ans = query("shoot self or rival?")
+                ans = input("shoot self or rival?\n>")
                 if ans == "..":
                     clear()
                     self.turn(shotgun)
@@ -56,7 +56,7 @@ class Player:
                                 return
                     case "rival":
                         if len(self.opponents) > 1:
-                            ans = query(f"who will you shoot?\n{self.displayOpponents()}")
+                            ans = input(f"who will you shoot?\n{self.displayOpponents()}\n>")
                             if ans == "..":
                                 clear()
                                 self.turn(shotgun)
@@ -146,10 +146,10 @@ class Player_R2(Player):
             sleep(2)
             clear()
         print(self)
-        ans = query("type to use:\nshotgun - shoot\nitem - item")
+        ans = input("type to use:\nshotgun - shoot\nitem - item\n>")
         match (ans):
             case "shoot":
-                ans = query("shoot self or rival?")
+                ans = input("shoot self or rival?\n>")
                 if ans == "..":
                     clear()
                     self.turn(shotgun)
@@ -173,7 +173,7 @@ class Player_R2(Player):
                                 return
                     case "rival":
                         if len(self.opponents) > 1:
-                            ans = query(f"who will you shoot?\n{self.displayOpponents()}")
+                            ans = input(f"who will you shoot?\n{self.displayOpponents()}\n>")
                             if ans == "..":
                                 clear()
                                 self.turn(shotgun)
@@ -201,7 +201,7 @@ class Player_R2(Player):
                     case _:
                         print("failed to pick target")
             case "item":
-                ans = query(f"pick an item. ({self.displayItems()})")
+                ans = input(f"pick an item. ({self.displayItems()})\n>")
                 if ans == "..":
                     clear()
                     self.turn(shotgun)
@@ -209,7 +209,7 @@ class Player_R2(Player):
                     return
                 if ans == "cuffs":
                     if len(self.opponents) > 1:
-                        ans = query(f"who are you using them on?\n{self.displayOpponents()}")
+                        ans = input(f"who are you using them on?\n{self.displayOpponents()}\n>")
                         for op in self.opponents:
                             if op.name == ans:
                                 if useCuffs(self, op) == 1:
@@ -262,10 +262,10 @@ class Player_R3(Player_R2):
             sleep(2)
             clear()
         print(self)
-        ans = query("type to use:\nshotgun - shoot\nitem - item")
+        ans = input("type to use:\nshotgun - shoot\nitem - item\n>")
         match (ans):
             case "shoot":
-                ans = query("shoot self or rival?")
+                ans = input("shoot self or rival?\n>")
                 if ans == "..":
                     clear()
                     self.turn(shotgun)
@@ -289,7 +289,7 @@ class Player_R3(Player_R2):
                                 return
                     case "rival":
                         if len(self.opponents) > 1:
-                            ans = query(f"who will you shoot?\n{self.displayOpponents()}")
+                            ans = input(f"who will you shoot?\n{self.displayOpponents()}\n>")
                             if ans == "..":
                                 clear()
                                 self.turn(shotgun)
@@ -317,7 +317,7 @@ class Player_R3(Player_R2):
                     case _:
                         print("failed to pick target")
             case "item":
-                ans = query(f"pick an item. ({self.displayItems()})")
+                ans = input(f"pick an item. ({self.displayItems()})\n>")
                 if ans == "..":
                     clear()
                     self.turn(shotgun)
@@ -325,7 +325,7 @@ class Player_R3(Player_R2):
                     return
                 if ans == "cuffs":
                     if len(self.opponents) > 1:
-                        ans = query(f"who are you using them on?\n{self.displayOpponents()}")
+                        ans = input(f"who are you using them on?\n{self.displayOpponents()}\n>")
                         for op in self.opponents:
                             if op.name == ans:
                                 if useCuffs(self, op) == 1:
