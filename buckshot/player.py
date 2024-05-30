@@ -213,7 +213,9 @@ class Player_R2(Player):
                     ans = input(f"who are you using them on?\n{self.displayOpponents()}\n>")
                     for op in self.opponents:
                         if op.name == ans:
-                            useCuffs(self, op)
+                            if useCuffs(self, op) == 1:
+                                clear()
+                                self.turn(shotgun)
                 else:
                     self.useItem(ans, shotgun, target=self.opponents[0])
                 self.turn(shotgun)
@@ -314,7 +316,9 @@ class Player_R3(Player_R2):
                     ans = input(f"who are you using them on?\n{self.displayOpponents()}\n>")
                     for op in self.opponents:
                         if op.name == ans:
-                            useCuffs(self, op)
+                            if useCuffs(self, op) == 1:
+                                clear()
+                                self.turn(shotgun)
                 else:
                     self.useItem(ans, shotgun, target=self.opponents[0])
                 self.turn(shotgun)
