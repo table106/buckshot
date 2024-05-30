@@ -113,7 +113,7 @@ class Player_R2(Player):
             print(f"{self.name} got {allitems[id1]}, and {allitems[id2]}.")
             sleep(2)
 
-    def useItem(self, item: str, shotgun: Shotgun=None, * , target: object=None) -> None:
+    def useItem(self, item: str, shotgun: Shotgun, /) -> None:
         match(item):
             case "beer":
                 useBeer(self, shotgun)
@@ -123,8 +123,6 @@ class Player_R2(Player):
                 useGlass(self, shotgun)
             case "cigarette":
                 useCigarette(self)
-            case "cuffs":
-                useCuffs(self, target)
             case _:
                 print("failed to use a valid item")
 
@@ -210,14 +208,23 @@ class Player_R2(Player):
                     clear()
                     return
                 if ans == "cuffs":
-                    ans = input(f"who are you using them on?\n{self.displayOpponents()}\n>")
-                    for op in self.opponents:
-                        if op.name == ans:
-                            if useCuffs(self, op) == 1:
-                                clear()
-                                self.turn(shotgun)
+                    if len(self.opponents) > 1:
+                        ans = input(f"who are you using them on?\n{self.displayOpponents()}\n>")
+                        for op in self.opponents:
+                            if op.name == ans:
+                                if useCuffs(self, op) == 1:
+                                    clear()
+                                    self.turn(shotgun)
+                                    clear()
+                                    return
+                    else:
+                        if useCuffs(self, self.opponents[0]) == 1:
+                            clear()
+                            self.turn(shotgun)
+                            clear()
+                            return
                 else:
-                    self.useItem(ans, shotgun, target=self.opponents[0])
+                    self.useItem(ans, shotgun)
                 self.turn(shotgun)
                 clear()
                 return
@@ -313,14 +320,23 @@ class Player_R3(Player_R2):
                     clear()
                     return
                 if ans == "cuffs":
-                    ans = input(f"who are you using them on?\n{self.displayOpponents()}\n>")
-                    for op in self.opponents:
-                        if op.name == ans:
-                            if useCuffs(self, op) == 1:
-                                clear()
-                                self.turn(shotgun)
+                    if len(self.opponents) > 1:
+                        ans = input(f"who are you using them on?\n{self.displayOpponents()}\n>")
+                        for op in self.opponents:
+                            if op.name == ans:
+                                if useCuffs(self, op) == 1:
+                                    clear()
+                                    self.turn(shotgun)
+                                    clear()
+                                    return
+                    else:
+                        if useCuffs(self, self.opponents[0]) == 1:
+                            clear()
+                            self.turn(shotgun)
+                            clear()
+                            return
                 else:
-                    self.useItem(ans, shotgun, target=self.opponents[0])
+                    self.useItem(ans, shotgun)
                 self.turn(shotgun)
                 clear()
                 return
