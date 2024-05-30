@@ -125,3 +125,6 @@ v1.0-pre1
 
 v1.0-pre2
 + fixed fatal crash caused by a decorator
+
+v1.0-pre3
++ fixed cigarettes healing you past the life cap

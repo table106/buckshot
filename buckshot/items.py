@@ -17,6 +17,8 @@ def useGlass(player: object, shotgun: Shotgun, /) -> None:
 def useCigarette(player: object, /) -> None:
     if player.lives == player.lifeCap:
         print("you already have max lives. (item consumed)")
+        player.inv.remove("cigarette")
+        return
     try:
         if player.lifeLocked == True:
             print("...nothing happened")
