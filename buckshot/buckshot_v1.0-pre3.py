@@ -21,7 +21,7 @@ def main() -> None:
     print(f"version {basename(__file__)[9:-3]}\n")
     print("press enter to start")
     print("or type 'how' for a how-to-play")
-    ans = input("you can also check out the credits with 'credits'\n>")
+    ans = query("you can also check out the credits with 'credits'")
     shotgun: Shotgun = Shotgun()
     clear()
     if ans == "how":
@@ -31,7 +31,7 @@ def main() -> None:
         print("\n")
         gi.close()
         
-        ans = input("when you finish reading, just press enter\n>")
+        ans = query("when you finish reading, just press enter")
 
     elif ans == "credits":
         cr = open("buckshot/credits.txt", "r")
@@ -40,10 +40,10 @@ def main() -> None:
         print("\n")
         cr.close()
     
-        ans = input("when you finish reading, just press enter\n>")
+        ans = query("when you finish reading, just press enter")
 
     elif ans == testmode_pass:
-        round, threeP = input("very well, round and 3P please\n>").split(" ")
+        round, threeP = query("very well, round and 3P please").split(" ")
         if round == "1":
             player1: Player = Player("plr1", 2)
             player2: Player = Player("plr2", 2)
@@ -84,17 +84,17 @@ def main() -> None:
 
     clear()
     if ans == threeplayers_pass:
-        player1: Player = Player(input("what does player 1 call themselves?\n>"), 2)
+        player1: Player = Player(query("what does player 1 call themselves?"), 2)
 
         if not validName(player1.name, tuple()):
             player1: Player = Player("plr1", 2)
 
-        player2: Player = Player(input("what about player 2?\n>"), 2)
+        player2: Player = Player(query("what about player 2?"), 2)
 
         if not validName(player2.name, player1.name):
             player2: Player = Player("plr2", 2)
         
-        player3: Player = Player(input("and player 3?\n>"), 2)
+        player3: Player = Player(query("and player 3?"), 2)
 
         if not validName(player3.name, player1.name, player2.name):
             player3: Player = Player("plr3", 2)
@@ -136,12 +136,12 @@ def main() -> None:
 
     
     else:
-        player1: Player = Player(input("what does player 1 call themselves?\n>"), 2)
+        player1: Player = Player(query("what does player 1 call themselves?"), 2)
 
         if not validName(player1.name, tuple()):
             player1: Player = Player("plr1", 2)
 
-        player2: Player = Player(input("what about player 2?\n>"), 2)
+        player2: Player = Player(query("what about player 2?"), 2)
 
         if not validName(player2.name, player1.name):
             player2: Player = Player("plr2", 2)
@@ -191,7 +191,7 @@ def main() -> None:
     print("end")
     sleep(2)
     print("play again?")
-    ans = input("y/n")
+    ans = query("y/n")
     if ans == "y":
         main()
     else:
