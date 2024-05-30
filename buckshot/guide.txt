@@ -22,6 +22,6 @@ you look into the chamber, revealing the shell inside
 you regain a life (smoking is bad kids dont do it)
 
 -cuffs:
-you cuff a rival skipping their next turn
+you cuff a rival skipping their next turn (doesnt stack)
 
 ALSO: you can type '..' at (almost) any time to go to the previous screen
