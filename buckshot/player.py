@@ -247,7 +247,7 @@ class Player_R3(Player_R2):
         if self.lifeLocked == False and self.lives <= 2:
             print("are you ready?")
             sleep(2)
-            print(f"ERR: ${self.name} DEFIBRILLATORS UNRESPONSIVE")
+            print(f"{r(1000, 9999)} ERR: ${self.name} DEFIBRILLATORS UNRESPONSIVE :;")
             sleep(3)
             self.lifeLocked = True
             self.lives = 1
