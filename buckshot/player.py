@@ -146,7 +146,7 @@ class Player_R2(Player):
             sleep(2)
             clear()
         print(self)
-        ans = input("say to use:\nshotgun - shoot\nitem - item\n>")
+        ans = input("type to use:\nshotgun - shoot\nitem - item\n>")
         match (ans):
             case "shoot":
                 ans = input("shoot self or rival?\n>")
@@ -262,7 +262,7 @@ class Player_R3(Player_R2):
             sleep(2)
             clear()
         print(self)
-        ans = input("say to use:\nshotgun - shoot\nitem - item\n>")
+        ans = input("type to use:\nshotgun - shoot\nitem - item\n>")
         match (ans):
             case "shoot":
                 ans = input("shoot self or rival?\n>")
