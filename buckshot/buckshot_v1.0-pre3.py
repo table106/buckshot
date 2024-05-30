@@ -106,6 +106,7 @@ def main() -> None:
 
         round_3P(shotgun, player1, player2, player3, roundNo=1)
 
+        clear()
         print("all of you can now have items. (max 8)")
         sleep(3)
 
