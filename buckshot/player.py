@@ -243,13 +243,17 @@ class Player_R3(Player_R2):
             return f"{self.name}'s turn\nyou have # lives\nyour items: {self.displayItems()}"
         return f"{self.name}'s turn\nyou have {self.lives} lives\nyour items: {self.displayItems()}"
     
-    def turn(self, shotgun: Shotgun, /) -> None:
+    def _checkForLifelock(self) -> None:
         if self.lifeLocked == False and self.lives <= 2:
             print("are you ready?")
             sleep(2)
             print(f"ERR: ${self.name} DEFIBRILLATORS UNRESPONSIVE")
+            sleep(3)
             self.lifeLocked = True
             self.lives = 1
+    
+    def turn(self, shotgun: Shotgun, /) -> None:
+        self._checkForLifelock()
         self._cycleCuffs()
         if self.cuffed:
             sleep(2)
