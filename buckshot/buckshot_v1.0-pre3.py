@@ -25,20 +25,18 @@ def main() -> None:
     shotgun: Shotgun = Shotgun()
     clear()
     if ans == "how":
-        gi = open("buckshot/guide.txt", "r")
-        for line in gi:
-            print(line, end="")
-        print("\n")
-        gi.close()
+        with open("buckshot/guide.txt", "r") as gi:
+            for line in gi:
+                print(line, end="")
+            print()
         
         ans = query("when you finish reading, just press enter")
 
     elif ans == "credits":
-        cr = open("buckshot/credits.txt", "r")
-        for line in cr:
-            print(line, end="")
-        print("\n")
-        cr.close()
+        with open("buckshot/credits.txt", "r") as cr:
+            for line in cr:
+                print(line, end="")
+            print()
     
         ans = query("when you finish reading, just press enter")
 
@@ -79,7 +77,9 @@ def main() -> None:
             exit()
     
     if ans == "..":
-        main()
+        clear()
+        print("oh did i plan for people like you.")
+        sleep(2)
         exit()
 
     clear()
@@ -87,17 +87,17 @@ def main() -> None:
         player1: Player = Player(query("what does player 1 call themselves?"), 2)
 
         if not validName(player1.name, tuple()):
-            player1: Player = Player("plr1", 2)
+            player1: Player = Player("Player 1", 2)
 
         player2: Player = Player(query("what about player 2?"), 2)
 
         if not validName(player2.name, player1.name):
-            player2: Player = Player("plr2", 2)
+            player2: Player = Player("Player 2", 2)
         
         player3: Player = Player(query("and player 3?"), 2)
 
         if not validName(player3.name, player1.name, player2.name):
-            player3: Player = Player("plr3", 2)
+            player3: Player = Player("Player 3", 2)
         
         initOpponents(player1, player2, player3)
 
@@ -139,12 +139,12 @@ def main() -> None:
         player1: Player = Player(query("what does player 1 call themselves?"), 2)
 
         if not validName(player1.name, tuple()):
-            player1: Player = Player("plr1", 2)
+            player1: Player = Player("Player 1", 2)
 
         player2: Player = Player(query("what about player 2?"), 2)
 
         if not validName(player2.name, player1.name):
-            player2: Player = Player("plr2", 2)
+            player2: Player = Player("Player 2", 2)
         
         initOpponents(player1, player2)
 
