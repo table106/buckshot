@@ -136,15 +136,14 @@ class Player_R2(Player):
         elif self.cuffed == 2:
             print(f"{self.name} broke free from cuffs")
             self.cuffed = 0
+        sleep(2)
+        if self.cuffed:
+            return
+        else:
+            clear()
     
     def turn(self, shotgun: Shotgun, /) -> None:
         self._cycleCuffs()
-        if self.cuffed:
-            sleep(2)
-            return
-        else:
-            sleep(2)
-            clear()
         print(self)
         ans = query("type to use:\nshotgun - shoot\nitem - item")
         match (ans):
@@ -241,7 +240,7 @@ class Player_R3(Player_R2):
     def __str__(self) -> str:
         if self.lifeLocked == True:
             return f"{self.name}'s turn\nyou have # lives\nyour items: {self.displayItems()}"
-        return f"{self.name}'s turn\nyou have {self.lives} lives\nyour items: {self.displayItems()}"
+        return super().__str__()
     
     def _checkForLifelock(self) -> None:
         if self.lifeLocked == False and self.lives <= 2:
@@ -255,12 +254,6 @@ class Player_R3(Player_R2):
     def turn(self, shotgun: Shotgun, /) -> None:
         self._checkForLifelock()
         self._cycleCuffs()
-        if self.cuffed:
-            sleep(2)
-            return
-        else:
-            sleep(2)
-            clear()
         print(self)
         ans = query("type to use:\nshotgun - shoot\nitem - item")
         match (ans):
