@@ -6,7 +6,7 @@ from items import handoutItems
 from system import clear, playersAlive, shotgunNotEmpty
 
 def round_2P(shotgun: Shotgun, player1: object, player2: object, /, *, roundNo: int) -> None:
-    while (player1.lives > 0) and (player2.lives > 0):
+    while playersAlive(player1, player2):
         if roundNo >= 2:
             handoutItems(roundNo-1, player1, player2)
         liveshells = r(1,4)
