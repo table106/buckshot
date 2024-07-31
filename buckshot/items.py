@@ -1,7 +1,7 @@
 from shotgun import Shotgun
 
 def useBeer(player: object, shotgun: Shotgun, /) -> None:
-    print(f"you unloaded a {shotgun.content[0]} shell.")
+    print(f"you unloaded a {shotgun.shell()} shell.")
     shotgun.shoot()
     player.inv.remove("beer")
 
@@ -11,7 +11,7 @@ def useKnife(player: object, shotgun: Shotgun, /) -> None:
     player.inv.remove("knife")
 
 def useGlass(player: object, shotgun: Shotgun, /) -> None:
-    print(f"the shell in the chamber is a {shotgun.content[0]} one")
+    print(f"the shell in the chamber is a {shotgun.shell()} one")
     player.inv.remove("magnifying glass")
     
 def useCigarette(player: object, /) -> None:
