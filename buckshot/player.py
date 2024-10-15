@@ -88,7 +88,7 @@ class Player:
         sleep(2)
         clear()
 
-allitems = ["beer", "knife", "magnifying glass", "cigarette", "cuffs"]
+allitems: tuple[str] = ("beer", "knife", "magnifying glass", "cigarette", "cuffs") 
 
 class Player_R2(Player):
     def __init__(self, name: str, lives: int, wins: int):
