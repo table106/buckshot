@@ -5,7 +5,7 @@ class Shotgun:
         self.content: list[str] = []
         self.dmg: int = 1
 
-    def insertShells(self, live: int, blank: int) -> None:
+    def insertShells(self, live: int, blank: int, /) -> None:
         for i in range(live):
             self.content.append("live")
         for i in range(blank):
