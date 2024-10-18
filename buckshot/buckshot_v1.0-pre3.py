@@ -76,7 +76,7 @@ def main() -> None:
             main()
             exit()
     
-    if ans == "..":
+    elif ans == "..":
         clear()
         print("oh did i plan for people like you.")
         sleep(2)
