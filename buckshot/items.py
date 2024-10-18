@@ -23,7 +23,7 @@ def useCigarette(player: object, /) -> None:
         return
     try:
         if player.lifeLocked == True:
-            print("...nothing happened")
+            print("...nothing happened. you cough from the smoke")
     except AttributeError:
         print("you feel refreshed. +1 life")
         player.heal()
