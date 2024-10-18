@@ -1,5 +1,7 @@
 from shotgun import Shotgun
 
+ITEMS: tuple[str] = ("beer", "knife", "magnifying glass", "cigarette", "cuffs") 
+
 def useBeer(player: object, shotgun: Shotgun, /) -> None:
     print(f"you unloaded a {shotgun.shell()} shell.")
     shotgun.shoot()

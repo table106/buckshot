@@ -88,8 +88,6 @@ class Player:
         sleep(2)
         clear()
 
-allitems: tuple[str] = ("beer", "knife", "magnifying glass", "cigarette", "cuffs") 
-
 class Player_R2(Player):
     def __init__(self, name: str, lives: int, wins: int):
         super().__init__(name, lives)
@@ -108,9 +106,9 @@ class Player_R2(Player):
         for i in range(cnt):
             id1 = r(0,4)
             id2 = r(0,4)
-            self.inv.append(allitems[id1])
-            self.inv.append(allitems[id2])
-            print(f"{self.name} got {allitems[id1]}, and {allitems[id2]}.")
+            self.inv.append(ITEMS[id1])
+            self.inv.append(ITEMS[id2])
+            print(f"{self.name} got {ITEMS[id1]}, and {ITEMS[id2]}.")
             sleep(2)
 
     def useItem(self, item: str, shotgun: Shotgun, /) -> None:
@@ -129,7 +127,7 @@ class Player_R2(Player):
     def displayItems(self) -> str:
         return ", ".join([item for item in self.inv])
 
-    def _cycleCuffs(self) -> None:
+    def _cycleCuffs(self) -> None | bool:
         if self.cuffed == 1:
             self.cuffed += 1
             print(f"{self.name} is cuffed")
@@ -138,12 +136,13 @@ class Player_R2(Player):
             self.cuffed = 0
         sleep(2)
         if self.cuffed:
-            return
+            return True
         else:
             clear()
     
     def turn(self, shotgun: Shotgun, /) -> None:
-        self._cycleCuffs()
+        if self._cycleCuffs():
+            return
         print(self)
         ans = query("type to use:\nshotgun - shoot\nitem - item")
         match (ans):
