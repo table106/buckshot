@@ -1,0 +1,5 @@
+.github
+buckshot/__pycache__
+buckshot/build
+*.spec
+.gitignore
