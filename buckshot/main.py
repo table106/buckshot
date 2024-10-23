@@ -1,8 +1,11 @@
 from time import sleep
-from os.path import basename
+from os import environ
+from dotenv import load_dotenv, dotenv_values
 
-threeplayers_pass="actuallytheres3"
-testmode_pass="test time"
+load_dotenv()
+
+threeplayers_pass=environ["THREE"]
+testmode_pass=environ["TEST"]
 
 from system import *
 from player import *
@@ -18,7 +21,7 @@ def main() -> None:
     print("|| BUCKSHOT ROULETTE ||")
     print("|| (console version) ||")
     print("=======================")
-    print(f"version {basename(__file__)[9:-3]}\n")
+    print("v1.0-pre3\n")
     print("press enter to start")
     print("or type 'how' for a how-to-play")
     ans = query("you can also check out the credits with 'credits'")
