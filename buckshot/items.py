@@ -42,6 +42,3 @@ def handoutItems(count: int, plr1: object, plr2: object, plr3: object=None, /) -
     plr2.getItem(count)
     if plr3 != None:
         plr3.getItem(count)
-
-if __name__ == "__main__": # this is not a script, just a module
-    print("wrong file idiot")

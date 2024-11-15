@@ -340,6 +340,3 @@ class Player_R3(Player_R2):
                 print("failed to pick an action")
         sleep(2)
         clear()
-
-if __name__ == "__main__": # this is not a script, just a module
-    print("wrong file idiot")

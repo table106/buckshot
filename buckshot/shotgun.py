@@ -22,6 +22,3 @@ class Shotgun:
 
     def shell(self) -> str:
         return self.content[0]
-
-if __name__ == "__main__": # this is not a script, just a module
-    print("wrong file idiot")

@@ -69,6 +69,3 @@ def round_3P(shotgun: Shotgun, player1: object, player2: object, player3: object
         player1.wins += 1
         player2.wins += 1
     sleep(5)
-
-if __name__ == "__main__": # this is not a script, just a module
-    print("wrong file idiot")

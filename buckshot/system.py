@@ -2,7 +2,7 @@ from os import system
 from shotgun import Shotgun
 
 def clear() -> None:
-    system("cls")
+    system("clear")
 
 def query(text: str, /) -> str:
     return input(f"{text}\n>")
@@ -26,6 +26,3 @@ def playersAlive(plr1: object, plr2: object, plr3: object=None, /) -> bool:
 
 def shotgunNotEmpty(shotgun: Shotgun, /) -> bool:
     return len(shotgun.content) > 0
-
-if __name__ == "__main__": # this is not a script, just a module
-    print("wrong file idiot")
