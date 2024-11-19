@@ -1,6 +1,6 @@
 from time import sleep
 from os import environ
-from dotenv import load_dotenv, dotenv_values
+from dotenv import load_dotenv
 
 load_dotenv()
 
